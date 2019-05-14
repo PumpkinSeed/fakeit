@@ -1,4 +1,7 @@
 #[allow(dead_code)]
+pub static NUMBER: &'static [&str] = &["#####", "####", "###"];
+
+#[allow(dead_code)]
 pub static STREET_PREFIX: &'static [&str] =
     &["North", "East", "West", "South", "New", "Lake", "Port"];
 

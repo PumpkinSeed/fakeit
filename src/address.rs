@@ -1,10 +1,10 @@
 #[cfg(test)]
 mod tests {
-    use crate::address_data;
+    use crate::data::address;
 
     #[test]
     fn street_name() {
-        let street = address_data::STREET_NAME[2];
+        let street = address::STREET_NAME[2];
         assert_eq!(street, "Branch");
     }
 }
