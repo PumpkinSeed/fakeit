@@ -9,6 +9,16 @@ pub fn random_data_str(d: &'static [&'static str]) -> &'static str {
     d[n]
 }
 
+pub fn random_int(min: i64, max: i64) -> i64 {
+    let mut rng = thread_rng();
+    rng.gen_range(min, max)
+}
+
+pub fn random_float(min: f64, max: f64) -> f64 {
+    let mut rng = thread_rng();
+    rng.gen_range(min, max)
+}
+
 #[cfg(test)]
 mod tests {
     use crate::data::address;
