@@ -27,11 +27,11 @@ pub fn ibu() -> String {
 }
 
 pub fn alcohol() -> String {
-    format!("{} %", misc::random_float(2.0, 10.0))
+    format!("{} %", misc::random_float32(2.0, 10.0))
 }
 
 pub fn blg() -> String {
-    format!("{}°Blg", misc::random_float(5.0, 20.0))
+    format!("{}°Blg", misc::random_float32(5.0, 20.0))
 }
 
 #[cfg(test)]
@@ -44,7 +44,7 @@ mod tests {
         let name2 = beer::name();
         assert_ne!(name1, name2);
     }
-    
+
     #[test]
     fn beer_style() {
         let style1 = beer::style();

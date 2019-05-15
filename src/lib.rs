@@ -4,3 +4,4 @@ mod address;
 mod beer;
 mod data;
 mod misc;
+mod name;
