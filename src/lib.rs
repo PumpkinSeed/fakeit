@@ -1,7 +1,10 @@
 #![allow(dead_code)]
 
-mod address;
-mod beer;
-mod data;
-mod misc;
-mod name;
+pub mod address;
+pub mod beer;
+pub mod bool_rand;
+pub mod company;
+pub mod contact;
+pub mod data;
+pub mod misc;
+pub mod name;
