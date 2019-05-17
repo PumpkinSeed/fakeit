@@ -4,7 +4,7 @@ use crate::name;
 use ::std::string::String;
 
 pub fn company() -> String {
-     match misc::random_int(1, 3) {
+    match misc::random_int64(1, 3) {
         1 => return format!("{}, {} and {}", name::last(), name::last(), name::last()),
         2 => return format!("{}-{}", name::last(), name::last()),
         3 => return format!("{} {}", name::last(), company_suffix()),

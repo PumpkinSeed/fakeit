@@ -11,3 +11,4 @@ harness = false
 [dependencies]
 rand = "0.6.5"
 bencher = "0.1.5"
+libmath = "0.2.1"

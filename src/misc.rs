@@ -2,7 +2,8 @@ extern crate rand;
 
 use rand::{thread_rng, Rng};
 
-const HASHTAG: &str = "#";
+pub const HASHTAG: &str = "#";
+pub const QUESTIONMARK: &str = "?";
 
 pub fn random_data_str(d: &'static [&'static str]) -> &'static str {
     let mut rng = thread_rng();
@@ -11,7 +12,27 @@ pub fn random_data_str(d: &'static [&'static str]) -> &'static str {
     d[n]
 }
 
-pub fn random_int(min: i64, max: i64) -> i64 {
+pub fn random_data_str_index(d: &'static [&'static str]) -> usize {
+    let mut rng = thread_rng();
+    rng.gen_range(0, d.len())
+}
+
+pub fn random_int64(min: i64, max: i64) -> i64 {
+    let mut rng = thread_rng();
+    rng.gen_range(min, max)
+}
+
+pub fn random_int16(min: i16, max: i16) -> i16 {
+    let mut rng = thread_rng();
+    rng.gen_range(min, max)
+}
+
+pub fn random_int8(min: i8, max: i8) -> i8 {
+    let mut rng = thread_rng();
+    rng.gen_range(min, max)
+}
+
+pub fn random_usize(min: usize, max: usize) -> usize {
     let mut rng = thread_rng();
     rng.gen_range(min, max)
 }
@@ -35,8 +56,29 @@ pub fn replace_with_numbers(s: String) -> String {
         .split("")
         .map(|s| {
             if s == HASHTAG {
-                let i = random_int(0, 9);
+                let i = random_int64(0, 9);
                 return i.to_string();
+            }
+            s.to_string()
+        })
+        .collect();
+
+    res.join("")
+}
+
+pub fn replace_with_letter_hex(s: String) -> String {
+    if s == "" {
+        return s;
+    }
+
+    let letters: [&'static str; 6] = ["a", "b", "c", "d", "e", "f"];
+
+    let res: Vec<String> = s
+        .split("")
+        .map(|s| {
+            if s == QUESTIONMARK {
+                let i = random_usize(0, 5);
+                return letters[i].to_string();
             }
             s.to_string()
         })

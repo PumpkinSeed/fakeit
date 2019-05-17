@@ -28,7 +28,7 @@ pub fn address() -> AddressInfo {
 }
 
 pub fn street() -> String {
-    match misc::random_int(1, 2) {
+    match misc::random_int64(1, 2) {
         1 => {
             return format!(
                 "{} {} {} {}",
@@ -60,7 +60,7 @@ pub fn street_suffix() -> String {
 }
 
 pub fn city() -> String {
-    match misc::random_int(1, 3) {
+    match misc::random_int64(1, 3) {
         1 => return format!("{}{}", name::first(), street_suffix()),
         2 => return format!("{}{}", name::last(), street_suffix()),
         3 => return format!("{} {}", street_prefix(), name::last()),
