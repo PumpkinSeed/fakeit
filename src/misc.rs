@@ -92,6 +92,30 @@ pub fn replace_with_letter_hex(s: String) -> String {
     res.join("")
 }
 
+pub fn replace_with_letter(s: String) -> String {
+    if s == "" {
+        return s;
+    }
+
+    let letters: [&'static str; 26] = [
+        "a", "b", "c", "d", "e", "f", "g", "h", "i", "j", "k", "l", "m", "n", "o", "p", "q", "r",
+        "s", "t", "u", "v", "w", "x", "y", "z",
+    ];
+
+    let res: Vec<String> = s
+        .split("")
+        .map(|s| {
+            if s == QUESTIONMARK {
+                let i = random_usize(0, 5);
+                return letters[i].to_string();
+            }
+            s.to_string()
+        })
+        .collect();
+
+    res.join("")
+}
+
 #[cfg(test)]
 mod tests {
     use crate::data::address;

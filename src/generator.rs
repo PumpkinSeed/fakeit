@@ -1,4 +1,21 @@
-// @TODO
+use crate::data::hacker;
+use crate::misc;
+
+pub fn generate(data: String) -> String {
+    let d_validate_left = data.matches("{").count();
+    let d_validate_right = data.matches("}").count();
+
+    let mut m_data = data.to_owned();
+
+    if d_validate_left > 0 && d_validate_right > 0 && d_validate_left == d_validate_right {
+        let cat_value = "".to_string();
+    }
+
+    m_data = misc::replace_with_numbers(m_data);
+    m_data = misc::replace_with_letter(m_data);
+
+    m_data
+}
 
 // func Generate(dataVal string) string {
 // 	// Identify items between brackets: {person.first}
