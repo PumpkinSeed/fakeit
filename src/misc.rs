@@ -22,6 +22,11 @@ pub fn random_int64(min: i64, max: i64) -> i64 {
     rng.gen_range(min, max)
 }
 
+pub fn random_int32(min: i32, max: i32) -> i32 {
+    let mut rng = thread_rng();
+    rng.gen_range(min, max)
+}
+
 pub fn random_int16(min: i16, max: i16) -> i16 {
     let mut rng = thread_rng();
     rng.gen_range(min, max)

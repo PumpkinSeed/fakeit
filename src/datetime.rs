@@ -1,4 +1,8 @@
+extern crate chrono;
+
+use crate::data::datetime;
 use crate::misc;
+use chrono::{DateTime, Datelike, NaiveDateTime, Utc};
 
 pub fn month() -> String {
     misc::random_int8(1, 12).to_string()
@@ -12,60 +16,58 @@ pub fn week_day() -> String {
     misc::random_int8(0, 6).to_string()
 }
 
+pub fn year() -> String {
+    misc::random_int32(0, Utc::now().year()).to_string()
+}
 
+pub fn hour() -> String {
+    misc::random_int8(0, 23).to_string()
+}
 
-// // Date will generate a random time.Time struct
-// func Date() time.Time {
-// 	return time.Date(Year(), time.Month(Number(0, 12)), Day(), Hour(), Minute(), Second(), NanoSecond(), time.UTC)
-// }
+pub fn minute() -> String {
+    misc::random_int8(0, 59).to_string()
+}
 
-// // DateRange will generate a random time.Time struct between a start and end date
-// func DateRange(start, end time.Time) time.Time {
-// 	return time.Unix(0, int64(Number(int(start.UnixNano()), int(end.UnixNano())))).UTC()
-// }
+pub fn second() -> String {
+    misc::random_int8(0, 59).to_string()
+}
 
-// // Year will generate a random year between 1900 - current year
-// func Year() int {
-// 	return Number(1900, time.Now().Year())
-// }
+pub fn nanosecond() -> String {
+    misc::random_int64(0, 999999999).to_string()
+}
 
-// // Hour will generate a random hour - in military time
-// func Hour() int {
-// 	return Number(0, 23)
-// }
+pub fn timezone() -> String {
+    misc::random_data_str(datetime::TEXT).to_string()
+}
 
-// // Minute will generate a random minute
-// func Minute() int {
-// 	return Number(0, 59)
-// }
+pub fn timezone_full() -> String {
+    misc::random_data_str(datetime::FULL).to_string()
+}
 
-// // Second will generate a random second
-// func Second() int {
-// 	return Number(0, 59)
-// }
+pub fn timezone_abv() -> String {
+    misc::random_data_str(datetime::ABR).to_string()
+}
 
-// // NanoSecond will generate a random nano second
-// func NanoSecond() int {
-// 	return Number(0, 999999999)
-// }
+pub fn timezone_offset() -> String {
+    misc::random_data_str(datetime::OFFSET).to_string()
+}
 
-// // TimeZone will select a random timezone string
-// func TimeZone() string {
-// 	return getRandValue([]string{"timezone", "text"})
-// }
+pub fn date_range(min: String, max: String) -> DateTime<Utc> {
+    // RFC3339
+    let min_nano = DateTime::parse_from_rfc3339(&min)
+        .unwrap()
+        .timestamp_nanos();
+    let max_nano = DateTime::parse_from_rfc3339(&max)
+        .unwrap()
+        .timestamp_nanos();
 
-// // TimeZoneFull will select a random full timezone string
-// func TimeZoneFull() string {
-// 	return getRandValue([]string{"timezone", "full"})
-// }
+    let ns = misc::random_int64(min_nano, max_nano);
+    DateTime::<Utc>::from_utc(NaiveDateTime::from_timestamp(0, ns as u32), Utc)
+}
 
-// // TimeZoneAbv will select a random timezone abbreviation string
-// func TimeZoneAbv() string {
-// 	return getRandValue([]string{"timezone", "abr"})
-// }
-
-// // TimeZoneOffset will select a random timezone offset
-// func TimeZoneOffset() float32 {
-// 	value, _ := strconv.ParseFloat(getRandValue([]string{"timezone", "offset"}), 32)
-// 	return float32(value)
-// }
+pub fn date() -> DateTime<Utc> {
+    date_range(
+        "1970-01-01T16:39:57-08:00".to_string(),
+        Utc::now().to_rfc3339(),
+    )
+}
