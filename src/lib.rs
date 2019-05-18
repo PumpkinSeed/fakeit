@@ -9,5 +9,7 @@ pub mod contact;
 pub mod currency;
 pub mod data;
 pub mod datetime;
+pub mod file;
+pub mod hacker;
 pub mod misc;
 pub mod name;
