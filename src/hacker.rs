@@ -1,9 +1,10 @@
 use crate::data::hacker;
+use crate::generator;
 use crate::misc;
 
 pub fn phrase() -> String {
-    misc::random_data_str(hacker::PHRASE).to_string()
-    // @TODO
+    let phrase = misc::random_data_str(hacker::PHRASE).to_string();
+    generator::generate(phrase)
 }
 
 pub fn abbreviation() -> String {
@@ -26,9 +27,13 @@ pub fn ingverb() -> String {
     misc::random_data_str(hacker::INGVERB).to_string()
 }
 
-// // HackerPhrase will return a random hacker sentence
-// func HackerPhrase() string {
-// 	words := strings.Split(Generate(getRandValue([]string{"hacker", "phrase"})), " ")
-// 	words[0] = strings.Title(words[0])
-// 	return strings.Join(words, " ")
-// }
+#[cfg(test)]
+mod tests {
+    use crate::hacker;
+
+    #[test]
+    fn phrase() {
+        let new = hacker::phrase();
+        println!("{}", new);
+    }
+}
