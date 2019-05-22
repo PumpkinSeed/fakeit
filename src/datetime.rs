@@ -5,35 +5,35 @@ use crate::misc;
 use chrono::{DateTime, Datelike, NaiveDateTime, Utc};
 
 pub fn month() -> String {
-    misc::random_int8(1, 12).to_string()
+    misc::random::<i8>(1, 12).to_string()
 }
 
 pub fn day() -> String {
-    misc::random_int8(1, 28).to_string()
+    misc::random::<i8>(1, 28).to_string()
 }
 
 pub fn week_day() -> String {
-    misc::random_int8(0, 6).to_string()
+    misc::random::<i8>(0, 6).to_string()
 }
 
 pub fn year() -> String {
-    misc::random_int32(0, Utc::now().year()).to_string()
+    misc::random::<i32>(0, Utc::now().year()).to_string()
 }
 
 pub fn hour() -> String {
-    misc::random_int8(0, 23).to_string()
+    misc::random::<i8>(0, 23).to_string()
 }
 
 pub fn minute() -> String {
-    misc::random_int8(0, 59).to_string()
+    misc::random::<i8>(0, 59).to_string()
 }
 
 pub fn second() -> String {
-    misc::random_int8(0, 59).to_string()
+    misc::random::<i8>(0, 59).to_string()
 }
 
 pub fn nanosecond() -> String {
-    misc::random_int64(0, 999999999).to_string()
+    misc::random::<i64>(0, 999999999).to_string()
 }
 
 pub fn timezone() -> String {
@@ -61,7 +61,7 @@ pub fn date_range(min: String, max: String) -> DateTime<Utc> {
         .unwrap()
         .timestamp_nanos();
 
-    let ns = misc::random_int64(min_nano, max_nano);
+    let ns = misc::random::<i64>(min_nano, max_nano);
     DateTime::<Utc>::from_utc(NaiveDateTime::from_timestamp(0, ns as u32), Utc)
 }
 

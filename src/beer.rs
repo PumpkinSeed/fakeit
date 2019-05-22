@@ -23,7 +23,7 @@ pub fn malt() -> String {
 }
 
 pub fn ibu() -> String {
-    format!("{} IBU", misc::random_int64(10, 100))
+    format!("{} IBU", misc::random::<i64>(10, 100))
 }
 
 pub fn alcohol() -> String {

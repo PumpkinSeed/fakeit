@@ -17,22 +17,7 @@ pub fn random_data_str_index(d: &'static [&'static str]) -> usize {
     rng.gen_range(0, d.len())
 }
 
-pub fn random_int64(min: i64, max: i64) -> i64 {
-    let mut rng = thread_rng();
-    rng.gen_range(min, max)
-}
-
-pub fn random_int32(min: i32, max: i32) -> i32 {
-    let mut rng = thread_rng();
-    rng.gen_range(min, max)
-}
-
-pub fn random_int16(min: i16, max: i16) -> i16 {
-    let mut rng = thread_rng();
-    rng.gen_range(min, max)
-}
-
-pub fn random_int8(min: i8, max: i8) -> i8 {
+pub fn random<T: rand::distributions::uniform::SampleUniform>(min: T, max: T) -> T {
     let mut rng = thread_rng();
     rng.gen_range(min, max)
 }
@@ -61,7 +46,7 @@ pub fn replace_with_numbers(s: String) -> String {
         .split("")
         .map(|s| {
             if s == HASHTAG {
-                let i = random_int64(0, 9);
+                let i = random::<i64>(0, 9);
                 return i.to_string();
             }
             s.to_string()

@@ -14,3 +14,4 @@ pub mod generator;
 pub mod hacker;
 pub mod misc;
 pub mod name;
+pub mod words;

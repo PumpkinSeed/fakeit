@@ -16,7 +16,7 @@ pub fn hex() -> String {
     ];
 
     for x in 0..5 {
-        match misc::random_int16(0, 1) {
+        match misc::random::<i8>(0, 1) {
             0 => rand[x] = misc::HASHTAG,
             1 => rand[x] = misc::QUESTIONMARK,
             _ => println!("impossible"),
@@ -35,8 +35,8 @@ pub fn safe() -> String {
 
 pub fn rgb() -> [i16; 3] {
     [
-        misc::random_int16(0, 255),
-        misc::random_int16(0, 255),
-        misc::random_int16(0, 255),
+        misc::random::<i16>(0, 255),
+        misc::random::<i16>(0, 255),
+        misc::random::<i16>(0, 255),
     ]
 }
