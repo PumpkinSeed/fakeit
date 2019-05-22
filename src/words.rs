@@ -1,7 +1,7 @@
 use crate::data::lorem;
 use crate::misc;
 
-struct ParagraphOptions {
+pub struct ParagraphOpts {
     count: i64,
     sentence_count: i64,
     word_count: i64,
@@ -17,7 +17,51 @@ pub fn sentence(word_count: i64) -> String {
         return "".to_string();
     }
 
+    let mut sentence_vec = Vec::<String>::new();
+    for i in 0..word_count {
+        if i == 0 {
+            sentence_vec.push(title(word()))
+        } else if i == word_count - 1 {
+            let word_with_dot = format!("{}.", word());
+            sentence_vec.push(word_with_dot)
+        } else {
+            sentence_vec.push(word())
+        }
+    }
+
+    sentence_vec.join(" ")
+}
+
+pub fn paragraph(count: i64, sentence_count: i64, word_count: i64, separator: String) -> String {
+    let opts = ParagraphOpts {
+        count: count,
+        sentence_count: sentence_count,
+        word_count: word_count,
+        separator: separator,
+    };
+
+    paragraph_generator(opts, &sentence)
+}
+
+pub fn paragraph_generator(opts: ParagraphOpts, sentence_generator: &Fn(i64) -> String) -> String {
     "".to_string()
+}
+
+fn title(s: String) -> String {
+    let mut v: Vec<char> = s.chars().collect();
+    v[0] = v[0].to_uppercase().nth(0).unwrap();
+    v.into_iter().collect()
+}
+
+#[cfg(test)]
+mod tests {
+    use crate::words;
+
+    #[test]
+    fn phrase() {
+        let new = words::sentence(10);
+        println!("{}", new);
+    }
 }
 
 // const bytesPerWordEstimation = 6
@@ -42,31 +86,6 @@ pub fn sentence(word_count: i64) -> String {
 // // Set Paragraph Separator
 // func Paragraph(paragraphCount int, sentenceCount int, wordCount int, separator string) string {
 // 	return paragraphGenerator(paragrapOptions{paragraphCount, sentenceCount, wordCount, separator}, Sentence)
-// }
-
-// func sentence(wordCount int, word wordGenerator) string {
-// 	if wordCount <= 0 {
-// 		return ""
-// 	}
-
-// 	wordSeparator := ' '
-// 	sentence := bytes.Buffer{}
-// 	sentence.Grow(wordCount * bytesPerWordEstimation)
-
-// 	for i := 0; i < wordCount; i++ {
-// 		word := word()
-// 		if i == 0 {
-// 			runes := []rune(word)
-// 			runes[0] = unicode.ToTitle(runes[0])
-// 			word = string(runes)
-// 		}
-// 		sentence.WriteString(word)
-// 		if i < wordCount-1 {
-// 			sentence.WriteRune(wordSeparator)
-// 		}
-// 	}
-// 	sentence.WriteRune('.')
-// 	return sentence.String()
 // }
 
 // func paragraphGenerator(opts paragrapOptions, sentecer sentenceGenerator) string {
