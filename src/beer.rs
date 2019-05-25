@@ -27,11 +27,11 @@ pub fn ibu() -> String {
 }
 
 pub fn alcohol() -> String {
-    format!("{} %", misc::random_float32(2.0, 10.0))
+    format!("{} %", misc::random::<f32>(2.0, 10.0))
 }
 
 pub fn blg() -> String {
-    format!("{}°Blg", misc::random_float32(5.0, 20.0))
+    format!("{}°Blg", misc::random::<f32>(5.0, 20.0))
 }
 
 #[cfg(test)]

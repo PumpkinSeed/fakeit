@@ -22,21 +22,6 @@ pub fn random<T: rand::distributions::uniform::SampleUniform>(min: T, max: T) ->
     rng.gen_range(min, max)
 }
 
-pub fn random_usize(min: usize, max: usize) -> usize {
-    let mut rng = thread_rng();
-    rng.gen_range(min, max)
-}
-
-pub fn random_float64(min: f64, max: f64) -> f64 {
-    let mut rng = thread_rng();
-    rng.gen_range(min, max)
-}
-
-pub fn random_float32(min: f32, max: f32) -> f32 {
-    let mut rng = thread_rng();
-    rng.gen_range(min, max)
-}
-
 pub fn replace_with_numbers(s: String) -> String {
     if s == "" {
         return s;
@@ -67,7 +52,7 @@ pub fn replace_with_letter_hex(s: String) -> String {
         .split("")
         .map(|s| {
             if s == QUESTIONMARK {
-                let i = random_usize(0, 5);
+                let i = random::<usize>(0, 5);
                 return letters[i].to_string();
             }
             s.to_string()
@@ -91,7 +76,7 @@ pub fn replace_with_letter(s: String) -> String {
         .split("")
         .map(|s| {
             if s == QUESTIONMARK {
-                let i = random_usize(0, 5);
+                let i = random::<usize>(0, 5);
                 return letters[i].to_string();
             }
             s.to_string()

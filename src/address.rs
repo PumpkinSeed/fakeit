@@ -89,7 +89,7 @@ pub fn country_abr() -> String {
 }
 
 pub fn latitude() -> f32 {
-    misc::random_float32(-90.0, 90.0)
+    misc::random::<f32>(-90.0, 90.0)
 }
 
 pub fn latitude_in_range(min: f32, max: f32) -> f32 {
@@ -97,11 +97,11 @@ pub fn latitude_in_range(min: f32, max: f32) -> f32 {
         return latitude();
     }
 
-    misc::random_float32(min, max)
+    misc::random::<f32>(min, max)
 }
 
 pub fn longitude() -> f32 {
-    misc::random_float32(-180.0, 180.0)
+    misc::random::<f32>(-180.0, 180.0)
 }
 
 pub fn longitude_in_range(min: f32, max: f32) -> f32 {
@@ -109,7 +109,7 @@ pub fn longitude_in_range(min: f32, max: f32) -> f32 {
         return latitude();
     }
 
-    misc::random_float32(min, max)
+    misc::random::<f32>(min, max)
 }
 
 #[cfg(test)]

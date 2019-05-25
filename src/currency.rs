@@ -26,5 +26,5 @@ pub fn long() -> String {
 }
 
 pub fn price(min: f64, max: f64) -> f64 {
-    round::floor(misc::random_float64(min, max), 2)
+    round::floor(misc::random::<f64>(min, max), 2)
 }

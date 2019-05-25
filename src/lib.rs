@@ -12,6 +12,7 @@ pub mod datetime;
 pub mod file;
 pub mod generator;
 pub mod hacker;
+pub mod hipster;
 pub mod misc;
 pub mod name;
 pub mod words;
