@@ -45,9 +45,9 @@ pub fn paragraph(count: i64, sentence_count: i64, word_count: i64, separator: St
 
 pub fn paragraph_generator(opts: ParagraphOpts, sentence_generator: &Fn(i64) -> String) -> String {
     let mut paragraph_vec = Vec::<String>::new();
-    for i in 0..opts.count {
+    for _i in 0..opts.count {
         let mut sentence_vec = Vec::<String>::new();
-        for i in 0..opts.sentence_count {
+        for _i in 0..opts.sentence_count {
             sentence_vec.push(sentence_generator(opts.word_count));
         }
         paragraph_vec.push(sentence_vec.join(" "))
