@@ -1,3 +1,40 @@
 # fakeit
 
-Fake data generator library for Rust
+Port of the famous [Go fakeit](https://github.com/brianvoe/gofakeit) library for Rust.
+
+### Usage
+
+Library under development, usage will be written when it's completely ready.
+
+### Todo:
+
+- ~~address~~
+- animal
+- ~~beer~~
+- ~~bool~~
+- ~~color~~
+- ~~company~~
+- ~~contact~~
+- ~~currency~~
+- ~~datetime~~
+- ~~file~~
+- generate - resolve tags
+- ~~hacker~~
+- ~~hipster~~
+- ~~image~~
+- internet - mac address
+- ~~job~~
+- languages
+- log_level
+- map
+- ~~name~~
+- number
+- password
+- payment
+- person
+- status_code
+- string
+- unique
+- user_agent
+- vehicle
+- words - partially

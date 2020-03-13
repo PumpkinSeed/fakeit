@@ -1,7 +1,7 @@
 use crate::data::address;
 use crate::misc;
 use crate::name;
-use ::std::string::String;
+// use ::std::string::String;
 
 pub struct AddressInfo {
     address: String,
@@ -16,7 +16,7 @@ pub struct AddressInfo {
 
 pub fn address() -> AddressInfo {
     AddressInfo {
-        address: format!("{} {} {} {}", street(), city(), state(), zip()),
+        address: format!("{}, {}, {} {}", street(), city(), state(), zip()),
         street: street(),
         city: city(),
         state: state(),
