@@ -42,9 +42,18 @@ pub fn safari() -> String {
     };
 
     let platforms = match misc::random(1,3) {
-        1 => format!("(Windows; U; {}) AppleWebKit/{} (KHTML, like Gecko) Version/"),
-        _ => format!("")
+        1 => format!("(Windows; U; {}) AppleWebKit/{} (KHTML, like Gecko) Version/{} Safari/{}", windows_platform_token(), randNum, ver, randNum),
+        2 => format!("({} rv:{}.0; en-US) AppleWebKit/{} (KHTML, like Gecko) Version/{} Safari/{}", mac_platform_token(), misc::random(4, 7), randNum, ver, randNum),
+        _ => format!("({} {}_{}_{} like Mac OS X; en-US) AppleWebKit/{} (KHTML, like Gecko) Version/{}.0.5 Mobile/8B{} Safari/6{}", mobileDevices, misc::random(7,9 ), misc::random(0, 3), misc::random(1, 3), randNum, misc::random(3, 5), misc::random(111, 120), randNum)
     };
+
+    format!("Mozilla/5.0 {}", platforms)
+}
+
+pub fn opera() -> String {
+    let platform = format!("({}; en-US) Presto/2.{}.{} Version/{}.00", random_platform(), misc::random(8, 13), misc::random(160, 355), misc::random(10, 13));
+
+    format!("Opera/{}.{} {}", misc::random(8, 10), misc::random(10, 99), platform)
 }
 
 pub fn linux_platform_token() -> String {

@@ -60,6 +60,6 @@ Generators:
 - status_code
 - string
 - unique
-- user_agent
+- ~~user_agent~~
 - ~~vehicle~~
 - words - partially
