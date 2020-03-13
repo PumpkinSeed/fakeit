@@ -8,6 +8,31 @@ Library under development, usage will be written when it's completely ready.
 
 ### Todo:
 
+Data sources:
+
+- ~~address~~
+- animals
+- ~~beer~~
+- ~~colors~~
+- ~~company~~
+- ~~computer~~
+- ~~contact~~
+- ~~currency~~
+- ~~datetime~~
+- ~~files~~
+- ~~hacker~~
+- ~~hipster~~
+- ~~internet~~
+- ~~job~~
+- languages
+- ~~log_level~~
+- ~~lorem~~
+- ~~payment~~
+- ~~person~~
+- ~~status_code~~
+- ~~vehicle~~
+
+Generators:
 - ~~address~~
 - animal
 - ~~beer~~
@@ -36,5 +61,5 @@ Library under development, usage will be written when it's completely ready.
 - string
 - unique
 - user_agent
-- vehicle
+- ~~vehicle~~
 - words - partially

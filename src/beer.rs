@@ -1,6 +1,5 @@
 use crate::data::beer;
 use crate::misc;
-use ::std::string::String;
 
 pub fn name() -> String {
     misc::random_data_str(beer::NAME).to_string()

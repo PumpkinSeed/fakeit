@@ -23,7 +23,7 @@ pub fn random<T: rand::distributions::uniform::SampleUniform>(min: T, max: T) ->
 }
 
 pub fn replace_with_numbers(s: String) -> String {
-    if s == "" {
+    if s == String::from("") {
         return s;
     }
 
@@ -42,7 +42,7 @@ pub fn replace_with_numbers(s: String) -> String {
 }
 
 pub fn replace_with_letter_hex(s: String) -> String {
-    if s == "" {
+    if s == String::from("") {
         return s;
     }
 
@@ -63,7 +63,7 @@ pub fn replace_with_letter_hex(s: String) -> String {
 }
 
 pub fn replace_with_letter(s: String) -> String {
-    if s == "" {
+    if s == String::from("") {
         return s;
     }
 

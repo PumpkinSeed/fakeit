@@ -19,3 +19,5 @@ pub mod job;
 pub mod misc;
 pub mod name;
 pub mod words;
+pub mod vehicle;
+pub mod user_agent;
