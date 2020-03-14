@@ -21,3 +21,6 @@ pub mod name;
 pub mod words;
 pub mod vehicle;
 pub mod user_agent;
+pub mod status_code;
+pub mod person;
+pub mod payment;

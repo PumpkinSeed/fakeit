@@ -18,11 +18,11 @@ pub fn compact() -> CurrencyInfo {
 }
 
 pub fn short() -> String {
-    misc::random_data_str(currency::SHORT).to_string()
+    misc::random_data(currency::SHORT).to_string()
 }
 
 pub fn long() -> String {
-    misc::random_data_str(currency::LONG).to_string()
+    misc::random_data(currency::LONG).to_string()
 }
 
 pub fn price(min: f64, max: f64) -> f64 {

@@ -37,8 +37,8 @@ fn resolve_tag(tag: &str) -> String {
         "hacker.noun" => return hacker::noun(),
         "hacker.verb" => return hacker::verb(),
         "hacker.ingverb" => return hacker::ingverb(),
-        "person.first" => return misc::random_data_str(person::FIRST).to_string(),
-        "person.last" => return misc::random_data_str(person::LAST).to_string(),
+        "person.first" => return misc::random_data(person::FIRST).to_string(),
+        "person.last" => return misc::random_data(person::LAST).to_string(),
 
         _ => return "".to_string(),
     }

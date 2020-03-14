@@ -9,7 +9,7 @@ pub struct ParagraphOpts {
 }
 
 pub fn word() -> String {
-    misc::random_data_str(lorem::WORD).to_string()
+    misc::random_data(lorem::WORD).to_string()
 }
 
 pub fn sentence(word_count: i64) -> String {

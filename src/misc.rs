@@ -1,15 +1,18 @@
 extern crate rand;
 
 use rand::{thread_rng, Rng};
+use std::borrow::Borrow;
+use std::clone::Clone;
 
 pub const HASHTAG: &str = "#";
 pub const QUESTIONMARK: &str = "?";
 
-pub fn random_data_str(d: &'static [&'static str]) -> &'static str {
+pub fn random_data<T: Clone>(d: &[T]) -> T {
     let mut rng = thread_rng();
     let n: usize = rng.gen_range(0, d.len());
 
-    d[n]
+    let res = d[n].clone();
+    res
 }
 
 pub fn random_data_str_index(d: &'static [&'static str]) -> usize {
@@ -93,8 +96,8 @@ mod tests {
 
     #[test]
     fn random_data_str() {
-        let street1 = misc::random_data_str(address::STREET_NAME);
-        let street2 = misc::random_data_str(address::STREET_NAME);
+        let street1 = misc::random_data(address::STREET_NAME);
+        let street2 = misc::random_data(address::STREET_NAME);
         assert_ne!(street1, street2);
     }
 

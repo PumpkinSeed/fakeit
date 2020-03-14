@@ -4,13 +4,13 @@ use crate::misc;
 use crate::name;
 use ::std::string::String;
 
-pub struct ContactInfo {
+pub struct Info {
     phone: String,
     email: String,
 }
 
-pub fn contact() -> ContactInfo {
-    ContactInfo {
+pub fn info() -> Info {
+    Info {
         phone: phone_formatted(),
         email: email(),
     }
@@ -21,7 +21,7 @@ pub fn phone() -> String {
 }
 
 pub fn phone_formatted() -> String {
-    misc::replace_with_numbers(misc::random_data_str(contact::PHONE).to_string())
+    misc::replace_with_numbers(misc::random_data(contact::PHONE).to_string())
 }
 
 pub fn email() -> String {
@@ -30,7 +30,7 @@ pub fn email() -> String {
         name::first(),
         name::last(),
         name::last(),
-        misc::random_data_str(internet::DOMAIN_SUFFIX).to_string()
+        misc::random_data(internet::DOMAIN_SUFFIX).to_string()
     )
     .to_lowercase()
 }

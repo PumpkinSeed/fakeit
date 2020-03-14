@@ -19,13 +19,13 @@ pub fn info() -> Info {
 }
 
 pub fn title() -> String {
-    misc::random_data_str(job::TITLE).to_string()
+    misc::random_data(job::TITLE).to_string()
 }
 
 pub fn descriptor() -> String {
-    misc::random_data_str(job::DESCRIPTOR).to_string()
+    misc::random_data(job::DESCRIPTOR).to_string()
 }
 
 pub fn level() -> String {
-    misc::random_data_str(job::LEVEL).to_string()
+    misc::random_data(job::LEVEL).to_string()
 }

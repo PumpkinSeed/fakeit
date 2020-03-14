@@ -7,17 +7,17 @@ pub fn full() -> String {
 }
 
 pub fn first() -> String {
-    misc::random_data_str(person::FIRST).to_string()
+    misc::random_data(person::FIRST).to_string()
 }
 
 pub fn last() -> String {
-    misc::random_data_str(person::LAST).to_string()
+    misc::random_data(person::LAST).to_string()
 }
 
 pub fn prefix() -> String {
-    misc::random_data_str(person::PREFIX).to_string()
+    misc::random_data(person::PREFIX).to_string()
 }
 
 pub fn suffix() -> String {
-    misc::random_data_str(person::SUFFIX).to_string()
+    misc::random_data(person::SUFFIX).to_string()
 }

@@ -13,13 +13,13 @@ pub fn company() -> String {
 }
 
 pub fn company_suffix() -> String {
-    misc::random_data_str(company::SUFFIX).to_string()
+    misc::random_data(company::SUFFIX).to_string()
 }
 
 pub fn buzzword() -> String {
-    misc::random_data_str(company::BUZZWORDS).to_string()
+    misc::random_data(company::BUZZWORDS).to_string()
 }
 
 pub fn bs() -> String {
-    misc::random_data_str(company::BS).to_string()
+    misc::random_data(company::BS).to_string()
 }

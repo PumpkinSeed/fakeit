@@ -14,11 +14,11 @@ pub fn domain_name() -> String {
 }
 
 pub fn http_method() -> String {
-	misc::random_data_str(internet::HTTP_METHOD).to_string()
+	misc::random_data(internet::HTTP_METHOD).to_string()
 }
 
 pub fn domain_suffix() -> String {
-	misc::random_data_str(internet::DOMAIN_SUFFIX).to_string()
+	misc::random_data(internet::DOMAIN_SUFFIX).to_string()
 }
 
 pub fn ipv4_address() -> String {
@@ -47,9 +47,9 @@ pub fn ipv6_address() -> String {
 
 pub fn username() -> String {
 	format!(
-		"{}{}",
-		misc::random_data_str(person::LAST).to_string(),
-		misc::replace_with_numbers("####".to_string()),
+        "{}{}",
+        misc::random_data(person::LAST).to_string(),
+        misc::replace_with_numbers("####".to_string()),
 	)
 }
 

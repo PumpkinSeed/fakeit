@@ -3,7 +3,7 @@ use crate::misc;
 use crate::name;
 // use ::std::string::String;
 
-pub struct AddressInfo {
+pub struct Info {
     address: String,
     street: String,
     city: String,
@@ -14,8 +14,8 @@ pub struct AddressInfo {
     longitude: f32,
 }
 
-pub fn address() -> AddressInfo {
-    AddressInfo {
+pub fn info() -> Info {
+    Info {
         address: format!("{}, {}, {} {}", street(), city(), state(), zip()),
         street: street(),
         city: city(),
@@ -44,19 +44,19 @@ pub fn street() -> String {
 }
 
 pub fn street_number() -> String {
-    misc::replace_with_numbers(misc::random_data_str(address::NUMBER).to_string())
+    misc::replace_with_numbers(misc::random_data(address::NUMBER).to_string())
 }
 
 pub fn street_prefix() -> String {
-    misc::random_data_str(address::STREET_PREFIX).to_string()
+    misc::random_data(address::STREET_PREFIX).to_string()
 }
 
 pub fn street_name() -> String {
-    misc::random_data_str(address::STATE).to_string()
+    misc::random_data(address::STATE).to_string()
 }
 
 pub fn street_suffix() -> String {
-    misc::random_data_str(address::STREET_SUFFIX).to_string()
+    misc::random_data(address::STREET_SUFFIX).to_string()
 }
 
 pub fn city() -> String {
@@ -69,23 +69,23 @@ pub fn city() -> String {
 }
 
 pub fn state() -> String {
-    misc::random_data_str(address::STATE).to_string()
+    misc::random_data(address::STATE).to_string()
 }
 
 pub fn state_abr() -> String {
-    misc::random_data_str(address::STATE_ABR).to_string()
+    misc::random_data(address::STATE_ABR).to_string()
 }
 
 pub fn zip() -> String {
-    misc::replace_with_numbers(misc::random_data_str(address::ZIP).to_string())
+    misc::replace_with_numbers(misc::random_data(address::ZIP).to_string())
 }
 
 pub fn country() -> String {
-    misc::random_data_str(address::COUNTRY).to_string()
+    misc::random_data(address::COUNTRY).to_string()
 }
 
 pub fn country_abr() -> String {
-    misc::random_data_str(address::COUNTRY_ABR).to_string()
+    misc::random_data(address::COUNTRY_ABR).to_string()
 }
 
 pub fn latitude() -> f32 {

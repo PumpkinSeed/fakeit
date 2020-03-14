@@ -37,19 +37,19 @@ pub fn nanosecond() -> String {
 }
 
 pub fn timezone() -> String {
-    misc::random_data_str(datetime::TEXT).to_string()
+    misc::random_data(datetime::TEXT).to_string()
 }
 
 pub fn timezone_full() -> String {
-    misc::random_data_str(datetime::FULL).to_string()
+    misc::random_data(datetime::FULL).to_string()
 }
 
 pub fn timezone_abv() -> String {
-    misc::random_data_str(datetime::ABR).to_string()
+    misc::random_data(datetime::ABR).to_string()
 }
 
 pub fn timezone_offset() -> String {
-    misc::random_data_str(datetime::OFFSET).to_string()
+    misc::random_data(datetime::OFFSET).to_string()
 }
 
 pub fn date_range(min: String, max: String) -> DateTime<Utc> {

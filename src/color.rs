@@ -2,7 +2,7 @@ use crate::data::color;
 use crate::misc;
 
 pub fn full() -> String {
-    misc::random_data_str(color::FULL).to_string()
+    misc::random_data(color::FULL).to_string()
 }
 
 pub fn hex() -> String {
@@ -30,7 +30,7 @@ pub fn hex() -> String {
 }
 
 pub fn safe() -> String {
-    misc::random_data_str(color::SAFE).to_string()
+    misc::random_data(color::SAFE).to_string()
 }
 
 pub fn rgb() -> [i16; 3] {

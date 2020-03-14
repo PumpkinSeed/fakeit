@@ -3,7 +3,7 @@ use crate::misc;
 use crate::words;
 
 pub fn word() -> String {
-    misc::random_data_str(hipster::WORD).to_string()
+    misc::random_data(hipster::WORD).to_string()
 }
 
 pub fn sentence(word_count: i64) -> String {

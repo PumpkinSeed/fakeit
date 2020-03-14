@@ -25,23 +25,23 @@ pub fn vehicle() -> VehicleInfo {
 }
 
 pub fn vehicle_type() -> String {
-    misc::random_data_str(vehicle::TYPE).to_string()
+    misc::random_data(vehicle::TYPE).to_string()
 }
 
 pub fn fuel() -> String {
-    misc::random_data_str(vehicle::FUEL_TYPE).to_string()
+    misc::random_data(vehicle::FUEL_TYPE).to_string()
 }
 
 pub fn transmission_gear() -> String {
-    misc::random_data_str(vehicle::TRANSMISSION_TYPE).to_string()
+    misc::random_data(vehicle::TRANSMISSION_TYPE).to_string()
 }
 
 pub fn car_maker() -> String {
-    misc::random_data_str(vehicle::MAKER).to_string()
+    misc::random_data(vehicle::MAKER).to_string()
 }
 
 pub fn car_model() -> String {
-    misc::random_data_str(vehicle::MODEL).to_string()
+    misc::random_data(vehicle::MODEL).to_string()
 }
 
 #[cfg(test)]

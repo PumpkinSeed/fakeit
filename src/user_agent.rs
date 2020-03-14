@@ -57,20 +57,20 @@ pub fn opera() -> String {
 }
 
 pub fn linux_platform_token() -> String {
-    format!("X11; Linux {}", misc::random_data_str(computer::LINUX_PROCESSOR).to_string())
+    format!("X11; Linux {}", misc::random_data(computer::LINUX_PROCESSOR).to_string())
 }
 
 pub fn mac_platform_token() -> String {
     format!(
         "Macintosh; {} Mac OS X 10_{}_{}",
-        misc::random_data_str(computer::MAC_PROCESSOR).to_string(),
+        misc::random_data(computer::MAC_PROCESSOR).to_string(),
         misc::random(5, 9),
         misc::random(0, 10),
     )
 }
 
 pub fn windows_platform_token() -> String {
-    misc::random_data_str(computer::WINDOWS_PLATFORM).to_string()
+    misc::random_data(computer::WINDOWS_PLATFORM).to_string()
 }
 
 pub fn random_platform() -> String {

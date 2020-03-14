@@ -56,8 +56,8 @@ Generators:
 - number
 - password
 - payment
-- person
-- status_code
+- ~~person~~
+- ~~status_code~~
 - string
 - unique
 - ~~user_agent~~
