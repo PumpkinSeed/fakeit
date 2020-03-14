@@ -1,6 +1,6 @@
 [package]
 name = "fakeit"
-version = "0.1.0"
+version = "0.0.1"
 authors = ["PumpkinSeed <qwer.kocka@gmail.com>"]
 edition = "2018"
 
