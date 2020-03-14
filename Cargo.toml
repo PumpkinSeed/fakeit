@@ -3,6 +3,8 @@ name = "fakeit"
 version = "0.0.1"
 authors = ["PumpkinSeed <qwer.kocka@gmail.com>"]
 edition = "2018"
+description = "Fake data generator library"
+license = "MIT"
 
 [[benches]]
 name = "fakeit"
