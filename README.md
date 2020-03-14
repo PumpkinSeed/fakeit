@@ -50,12 +50,11 @@ Generators:
 - internet - mac address
 - ~~job~~
 - languages
-- log_level
-- map
+- ~~log_level~~
 - ~~name~~
 - number
-- password
-- payment
+- ~~password~~
+- ~~payment~~
 - ~~person~~
 - ~~status_code~~
 - string

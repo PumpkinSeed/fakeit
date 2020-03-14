@@ -10,7 +10,7 @@ pub struct CurrencyInfo {
 }
 
 pub fn compact() -> CurrencyInfo {
-    let index = misc::random_data_str_index(currency::SHORT);
+    let index = misc::random_data_index(currency::SHORT);
     CurrencyInfo {
         short: currency::SHORT[index].to_string(),
         long: currency::LONG[index].to_string(),

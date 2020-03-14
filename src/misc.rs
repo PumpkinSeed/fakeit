@@ -15,7 +15,7 @@ pub fn random_data<T: Clone>(d: &[T]) -> T {
     res
 }
 
-pub fn random_data_str_index(d: &'static [&'static str]) -> usize {
+pub fn random_data_index<T>(d: &[T]) -> usize {
     let mut rng = thread_rng();
     rng.gen_range(0, d.len())
 }
@@ -87,6 +87,12 @@ pub fn replace_with_letter(s: String) -> String {
         .collect();
 
     res.join("")
+}
+
+pub fn random_char_from_string(s: &[u8]) -> char {
+    let mut result = String::new();
+
+    thread_rng().choose(s).cloned().unwrap().into()
 }
 
 #[cfg(test)]

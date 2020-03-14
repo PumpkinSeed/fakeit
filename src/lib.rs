@@ -24,3 +24,5 @@ pub mod user_agent;
 pub mod status_code;
 pub mod person;
 pub mod payment;
+pub mod password;
+pub mod log_level;
