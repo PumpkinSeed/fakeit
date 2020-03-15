@@ -11,9 +11,15 @@ fn letter(upper: bool, numeric: bool, special: bool, num: i8) -> String {
     let mut pw = String::from("");
 
     let mut opts = vec![1i8];
-    if upper { opts.push(2); }
-    if numeric { opts.push(3); }
-    if special { opts.push(4); }
+    if upper {
+        opts.push(2);
+    }
+    if numeric {
+        opts.push(3);
+    }
+    if special {
+        opts.push(4);
+    }
 
     let lower_str = b"abcdefghijklmnopqrstuvwxyz";
     let upper_str = b"ABCDEFGHIJKLMNOPQRSTUVWXYZ";
@@ -30,7 +36,7 @@ fn letter(upper: bool, numeric: bool, special: bool, num: i8) -> String {
 
     match num {
         0 => format!("{}", pw),
-        _ => format!("{}{}", pw, letter(upper, numeric, special, num-1))
+        _ => format!("{}{}", pw, letter(upper, numeric, special, num - 1)),
     }
 }
 

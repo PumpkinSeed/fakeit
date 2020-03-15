@@ -1,10 +1,10 @@
-use crate::misc;
-use crate::job;
 use crate::address;
 use crate::contact;
-use crate::payment;
-use crate::name;
 use crate::image;
+use crate::job;
+use crate::misc;
+use crate::name;
+use crate::payment;
 use std::ops::Add;
 
 pub struct Info {

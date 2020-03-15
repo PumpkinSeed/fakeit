@@ -1,7 +1,7 @@
 use crate::data::lorem;
 use crate::hipster;
-use crate::name;
 use crate::misc;
+use crate::name;
 
 pub struct ParagraphOpts {
     count: i64,
@@ -45,7 +45,10 @@ pub fn paragraph(count: i64, sentence_count: i64, word_count: i64, separator: St
     paragraph_generator(opts, &sentence)
 }
 
-pub fn paragraph_generator(opts: ParagraphOpts, sentence_generator: &dyn Fn(i64) -> String) -> String {
+pub fn paragraph_generator(
+    opts: ParagraphOpts,
+    sentence_generator: &dyn Fn(i64) -> String,
+) -> String {
     let mut paragraph_vec = Vec::<String>::new();
     for _i in 0..opts.count {
         let mut sentence_vec = Vec::<String>::new();
@@ -62,7 +65,12 @@ pub fn question() -> String {
 }
 
 pub fn quote() -> String {
-    format!("\"{}\" - {} {}", hipster::sentence(misc::random(3, 10)), name::first(), name::last())
+    format!(
+        "\"{}\" - {} {}",
+        hipster::sentence(misc::random(3, 10)),
+        name::first(),
+        name::last()
+    )
 }
 
 fn title(s: String) -> String {
