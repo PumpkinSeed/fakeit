@@ -5,6 +5,9 @@ authors = ["PumpkinSeed <qwer.kocka@gmail.com>"]
 edition = "2018"
 description = "Fake data generator library"
 license = "MIT"
+readme = "README.md"
+repository = "https://github.com/PumpkinSeed/fakeit"
+keywords = ["fake", "data"]
 
 [[benches]]
 name = "fakeit"
