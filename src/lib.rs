@@ -24,6 +24,7 @@ pub mod words;
 pub mod vehicle;
 pub mod user_agent;
 pub mod status_code;
+pub mod unique;
 pub mod person;
 pub mod payment;
 pub mod password;

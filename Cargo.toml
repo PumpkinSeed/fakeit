@@ -1,6 +1,6 @@
 [package]
 name = "fakeit"
-version = "0.0.2"
+version = "0.0.3"
 authors = ["PumpkinSeed <qwer.kocka@gmail.com>"]
 edition = "2018"
 description = "Fake data generator library"
@@ -18,3 +18,4 @@ rand = "0.6.5"
 bencher = "0.1.5"
 libmath = "0.2.1"
 chrono = "0.4"
+uuid = { version = "0.8", features = ["v1", "v4"] }

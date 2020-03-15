@@ -1,4 +1,6 @@
 use crate::data::lorem;
+use crate::hipster;
+use crate::name;
 use crate::misc;
 
 pub struct ParagraphOpts {
@@ -55,6 +57,14 @@ pub fn paragraph_generator(opts: ParagraphOpts, sentence_generator: &dyn Fn(i64)
     paragraph_vec.join(&opts.separator[..])
 }
 
+pub fn question() -> String {
+    hipster::sentence(misc::random(3, 10)).replace(".", "?")
+}
+
+pub fn quote() -> String {
+    format!("\"{}\" - {} {}", hipster::sentence(misc::random(3, 10)), name::first(), name::last())
+}
+
 fn title(s: String) -> String {
     let mut v: Vec<char> = s.chars().collect();
     v[0] = v[0].to_uppercase().nth(0).unwrap();
@@ -83,13 +93,3 @@ mod tests {
         println!("{}", new);
     }
 }
-
-// // Question will return a random question
-// func Question() string {
-// 	return strings.Replace(HipsterSentence(Number(3, 10)), ".", "?", 1)
-// }
-
-// // Quote will return a random quote from a random person
-// func Quote() string {
-// 	return `"` + HipsterSentence(Number(3, 10)) + `" - ` + FirstName() + " " + LastName()
-// }

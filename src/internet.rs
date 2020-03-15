@@ -45,6 +45,19 @@ pub fn ipv6_address() -> String {
 	)
 }
 
+pub fn mac_address() -> String {
+	let num: i16 = 255;
+	format!(
+		"{:02X}:{:02X}:{:02X}:{:02X}:{:02X}:{:02X}",
+		misc::random(0, num),
+		misc::random(0, num),
+		misc::random(0, num),
+		misc::random(0, num),
+		misc::random(0, num),
+		misc::random(0, num),
+	)
+}
+
 pub fn username() -> String {
 	format!(
         "{}{}",
@@ -66,6 +79,12 @@ mod tests {
 	#[test]
 	fn ipv4_address() {
 		let new = internet::ipv4_address();
+		println!("{}", new);
+	}
+
+	#[test]
+	fn mac_address() {
+		let new = internet::mac_address();
 		println!("{}", new);
 	}
 
