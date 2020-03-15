@@ -1,6 +1,7 @@
 #![allow(dead_code)]
 
 pub mod address;
+pub mod animal;
 pub mod beer;
 pub mod bool_rand;
 pub mod color;
@@ -16,6 +17,7 @@ pub mod hipster;
 pub mod image;
 pub mod internet;
 pub mod job;
+pub mod language;
 pub mod misc;
 pub mod name;
 pub mod words;

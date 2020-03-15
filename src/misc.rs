@@ -1,7 +1,7 @@
 extern crate rand;
 
 use rand::{thread_rng, Rng};
-use std::borrow::Borrow;
+use rand::seq::SliceRandom;
 use std::clone::Clone;
 
 pub const HASHTAG: &str = "#";
@@ -89,10 +89,10 @@ pub fn replace_with_letter(s: String) -> String {
     res.join("")
 }
 
-pub fn random_char_from_string(s: &[u8]) -> char {
-    let mut result = String::new();
 
-    thread_rng().choose(s).cloned().unwrap().into()
+pub fn random_char_from_string(s: &[u8]) -> char {
+    let mut r = thread_rng();
+    s.choose(&mut r).cloned().unwrap().into()
 }
 
 #[cfg(test)]

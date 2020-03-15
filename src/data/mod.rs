@@ -1,4 +1,5 @@
 pub mod address;
+pub mod animal;
 pub mod beer;
 pub mod color;
 pub mod company;
@@ -11,6 +12,7 @@ pub mod hacker;
 pub mod hipster;
 pub mod internet;
 pub mod job;
+pub mod language;
 pub mod log_level;
 pub mod lorem;
 pub mod payment;

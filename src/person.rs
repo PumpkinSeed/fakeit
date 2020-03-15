@@ -1,5 +1,4 @@
 use crate::misc;
-use crate::data::person;
 use crate::job;
 use crate::address;
 use crate::contact;

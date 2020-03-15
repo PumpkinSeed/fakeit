@@ -3,8 +3,6 @@ extern crate chrono;
 use crate::misc;
 use crate::data::payment;
 use chrono::{Datelike, Utc};
-use std::ops::Add;
-use std::borrow::Borrow;
 
 pub struct CreditCard {
     type_of: String,

@@ -1,17 +1,16 @@
 use crate::data::computer;
 use crate::misc;
 use crate::datetime;
-use std::ops::Add;
 
 pub fn chrome() -> String {
-    let randNum = misc::random(531, 536) + misc::random(0, 2);
+    let rand_num = misc::random(531, 536) + misc::random(0, 2);
     format!(
         "Mozilla/5.0 ({}) AppleWebKit/{} (KHTML, like Gecko) Chrome/{}.0.{}.0 Mobile Safari/{}",
         random_platform(),
-        randNum,
+        rand_num,
         misc::random(36, 40),
         misc::random(800, 899),
-        randNum
+        rand_num
     )
 }
 
@@ -27,7 +26,7 @@ pub fn firefox() -> String {
 }
 
 pub fn safari() -> String {
-    let randNum = format!(
+    let rand_num = format!(
         "{}.{}.{}",
         misc::random(531, 536),
         misc::random(1, 51),
@@ -36,15 +35,15 @@ pub fn safari() -> String {
 
     let ver = format!("{}.{}", misc::random(4, 6), misc::random(0,2 ));
 
-    let mobileDevices = match misc::random(1, 2) {
+    let mobile_devices = match misc::random(1, 2) {
         1 => String::from("iPhone; CPU iPhone OS"),
         _ => String::from("iPad; CPU OS"),
     };
 
     let platforms = match misc::random(1,3) {
-        1 => format!("(Windows; U; {}) AppleWebKit/{} (KHTML, like Gecko) Version/{} Safari/{}", windows_platform_token(), randNum, ver, randNum),
-        2 => format!("({} rv:{}.0; en-US) AppleWebKit/{} (KHTML, like Gecko) Version/{} Safari/{}", mac_platform_token(), misc::random(4, 7), randNum, ver, randNum),
-        _ => format!("({} {}_{}_{} like Mac OS X; en-US) AppleWebKit/{} (KHTML, like Gecko) Version/{}.0.5 Mobile/8B{} Safari/6{}", mobileDevices, misc::random(7,9 ), misc::random(0, 3), misc::random(1, 3), randNum, misc::random(3, 5), misc::random(111, 120), randNum)
+        1 => format!("(Windows; U; {}) AppleWebKit/{} (KHTML, like Gecko) Version/{} Safari/{}", windows_platform_token(), rand_num, ver, rand_num),
+        2 => format!("({} rv:{}.0; en-US) AppleWebKit/{} (KHTML, like Gecko) Version/{} Safari/{}", mac_platform_token(), misc::random(4, 7), rand_num, ver, rand_num),
+        _ => format!("({} {}_{}_{} like Mac OS X; en-US) AppleWebKit/{} (KHTML, like Gecko) Version/{}.0.5 Mobile/8B{} Safari/6{}", mobile_devices, misc::random(7, 9 ), misc::random(0, 3), misc::random(1, 3), rand_num, misc::random(3, 5), misc::random(111, 120), rand_num)
     };
 
     format!("Mozilla/5.0 {}", platforms)

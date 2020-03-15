@@ -11,7 +11,7 @@ Library under development, usage will be written when it's completely ready.
 Data sources:
 
 - ~~address~~
-- animals
+- ~~animals~~
 - ~~beer~~
 - ~~colors~~
 - ~~company~~
@@ -24,7 +24,7 @@ Data sources:
 - ~~hipster~~
 - ~~internet~~
 - ~~job~~
-- languages
+- ~~languages~~
 - ~~log_level~~
 - ~~lorem~~
 - ~~payment~~
@@ -34,7 +34,7 @@ Data sources:
 
 Generators:
 - ~~address~~
-- animal
+- ~~animal~~
 - ~~beer~~
 - ~~bool~~
 - ~~color~~
@@ -49,7 +49,7 @@ Generators:
 - ~~image~~
 - internet - mac address
 - ~~job~~
-- languages
+- ~~languages~~
 - ~~log_level~~
 - ~~name~~
 - number
