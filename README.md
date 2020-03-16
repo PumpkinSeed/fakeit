@@ -287,10 +287,3 @@ fn main() {
     let data = internet::username(); // username: Nienow1881
 }
 ```
-
-### Todo:
-
-Generators:
-- generate.rs - resolve tags
-- number
-- string
