@@ -82,7 +82,6 @@ mod tests {
         let data1 = datetime::timezone();
         let data2 = datetime::timezone();
         assert_ne!(data1, data2);
-        println!("{}", data1);
     }
 
     #[test]
@@ -90,7 +89,6 @@ mod tests {
         let data1 = datetime::timezone_full();
         let data2 = datetime::timezone_full();
         assert_ne!(data1, data2);
-        println!("{}", data1);
     }
 
     #[test]
@@ -98,7 +96,6 @@ mod tests {
         let data1 = datetime::timezone_abv();
         let data2 = datetime::timezone_abv();
         assert_ne!(data1, data2);
-        println!("{}", data1);
     }
 
     #[test]
@@ -106,7 +103,6 @@ mod tests {
         let data1 = datetime::timezone_offset();
         let data2 = datetime::timezone_offset();
         assert_ne!(data1, data2);
-        println!("{}", data1);
     }
 
     #[test]
@@ -114,6 +110,5 @@ mod tests {
         let data1 = datetime::date();
         let data2 = datetime::date();
         assert_ne!(data1, data2);
-        println!("{}", data1);
     }
 }

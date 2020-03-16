@@ -16,18 +16,18 @@ Port of the famous [Go fakeit](https://github.com/brianvoe/gofakeit) library for
 - [address](#address-16-functions)
 - [animal](#animal-6-functions)
 - [beer](#beer-8-functions)
-- bool
-- color
-- company
-- contact
-- currency
-- datetime
-- file
-- generator
-- hacker
-- hipster
-- image
-- internet
+- [bool](#bool-1-functions)
+- [color](#color-4-functions)
+- [company](#company-4-functions)
+- [contact](#contact-4-functions)
+- [currency](#currency-4-functions)
+- [datetime](#datetime-14-functions)
+- [file](#file-2-functions)
+- [generator](#generator-1-function)
+- [hacker](#hacker-6-functions)
+- [hipster](#hipster-3-functions)
+- [image](#image-1-function)
+- [internet](#internet-7-functions)
 - job
 - language
 - log-level
@@ -198,6 +198,93 @@ fn main() {
     let data = datetime::timezone_offset(); // timezone_offset: 13
     let data = datetime::date_range("RFC3339", "RFC3339"); // date_range: 1979-01-06 23:03:10.918301212 UTC
     let data = datetime::date(); // date: 1979-01-06 23:03:10.918301212 UTC
+}
+```
+
+##### file (2 functions)
+
+```rust
+extern crate fakeit;
+
+use fakeit::file;
+
+fn main() {
+    let data = file::mime_type(); // mime_type: text/x-fortran
+    let data = file::extension(); // extension: aspx
+}
+```
+
+##### generator (1 function)
+
+```rust
+extern crate fakeit;
+
+use fakeit::generator;
+
+fn main() {
+    let data = generator::generate("{person.first} {person.last} {contact.email} #?#?#?".to_string()); // data: Watson Connelly baileeprosacco@smitham.biz 6d0e0a
+    // More details about this later
+}
+```
+
+##### hacker (6 functions)
+
+```rust
+extern crate fakeit;
+
+use fakeit::hacker;
+
+fn main() {
+    let data = hacker::phrase(); // phrase: parsing the sensor won't do anything, we need to bypass the open-source AGP sensor!
+    let data = hacker::abbreviation(); // abbreviation: PCI
+    let data = hacker::adjective(); // adjective: bluetooth
+    let data = hacker::noun(); // noun: protocol
+    let data = hacker::verb(); // verb: copy
+    let data = hacker::ingverb(); // ingverb: transmitting
+}
+```
+
+##### hipster (3 functions)
+
+```rust
+extern crate fakeit;
+
+use fakeit::hipster;
+
+fn main() {
+    let data = hipster::word(); // word: fingerstache
+    let data = hipster::sentence(12); // sentence: Itaque aliquid id ex repudiandae adipisci quibusdam excepturi deleniti qui alias animi.
+    let data = hipster::paragraph(3, 4, 40, " ".to_string()); // paragraph: Voluptas minima delectus voluptatibus earum rerum accusamus consequatur sunt....
+}
+```
+
+##### image (1 function)
+
+```rust
+extern crate fakeit;
+
+use fakeit::image;
+
+fn main() {
+    let data = image::url(500, 500); // url: https://picsum.photos/500/500
+}
+```
+
+##### internet (7 functions)
+
+```rust
+extern crate fakeit;
+
+use fakeit::internet;
+
+fn main() {
+    let data = internet::domain_name(); // domain_name: productvisualize.net
+    let data = internet::http_method(); // http_method: DELETE
+    let data = internet::domain_suffix(); // domain_suffix: biz
+    let data = internet::ipv4_address(); // ipv4_address: 196.140.182.201
+    let data = internet::ipv6_address(); // ipv6_address: 2001:cafe:1248:1dc7:17dd:19f4:8798:621d
+    let data = internet::mac_address(); // mac_address: 2D:3F:7E:5D:61:C1
+    let data = internet::username(); // username: Nienow1881
 }
 ```
 

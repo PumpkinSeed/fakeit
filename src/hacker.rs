@@ -33,7 +33,43 @@ mod tests {
 
     #[test]
     fn phrase() {
-        let new = hacker::phrase();
-        println!("{}", new);
+        let data1 = hacker::phrase();
+        let data2 = hacker::phrase();
+        assert_ne!(data1, data2);
+    }
+
+    #[test]
+    fn abbreviation() {
+        let data1 = hacker::abbreviation();
+        let data2 = hacker::abbreviation();
+        assert_ne!(data1, data2);
+    }
+
+    #[test]
+    fn adjective() {
+        let data1 = hacker::adjective();
+        let data2 = hacker::adjective();
+        assert_ne!(data1, data2);
+    }
+
+    #[test]
+    fn noun() {
+        let data1 = hacker::noun();
+        let data2 = hacker::noun();
+        assert_ne!(data1, data2);
+    }
+
+    #[test]
+    fn verb() {
+        let data1 = hacker::verb();
+        let data2 = hacker::verb();
+        assert_ne!(data1, data2);
+    }
+
+    #[test]
+    fn ingverb() {
+        let data1 = hacker::ingverb();
+        let data2 = hacker::ingverb();
+        assert_ne!(data1, data2);
     }
 }

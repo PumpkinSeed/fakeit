@@ -71,48 +71,51 @@ mod tests {
     use crate::internet;
 
     #[test]
-    fn ipv6_address() {
-        let new = internet::ipv6_address();
-        println!("{}", new);
+    fn domain_name() {
+        let data1 = internet::domain_name();
+        let data2 = internet::domain_name();
+        assert_ne!(data1, data2);
+    }
+
+    #[test]
+    fn http_method() {
+        let data1 = internet::http_method();
+        let data2 = internet::http_method();
+        assert_ne!(data1, data2);
+    }
+
+    #[test]
+    fn domain_suffix() {
+        let data1 = internet::domain_suffix();
+        let data2 = internet::domain_suffix();
+        assert_ne!(data1, data2);
     }
 
     #[test]
     fn ipv4_address() {
-        let new = internet::ipv4_address();
-        println!("{}", new);
+        let data1 = internet::ipv4_address();
+        let data2 = internet::ipv4_address();
+        assert_ne!(data1, data2);
+    }
+
+    #[test]
+    fn ipv6_address() {
+        let data1 = internet::ipv6_address();
+        let data2 = internet::ipv6_address();
+        assert_ne!(data1, data2);
     }
 
     #[test]
     fn mac_address() {
-        let new = internet::mac_address();
-        println!("{}", new);
+        let data1 = internet::mac_address();
+        let data2 = internet::mac_address();
+        assert_ne!(data1, data2);
     }
 
     #[test]
     fn username() {
-        let new = internet::username();
-        println!("{}", new);
-    }
-
-    #[test]
-    fn domain_name() {
-        let new = internet::domain_name();
-        println!("{}", new);
+        let data1 = internet::username();
+        let data2 = internet::username();
+        assert_ne!(data1, data2);
     }
 }
-
-// // URL will generate a random url string
-// func URL() string {
-// 	url := "http" + RandString([]string{"s", ""}) + "://www."
-// 	url += DomainName()
-
-// 	// Slugs
-// 	num := Number(1, 4)
-// 	slug := make([]string, num)
-// 	for i := 0; i < num; i++ {
-// 		slug[i] = BS()
-// 	}
-// 	url += "/" + strings.ToLower(strings.Join(slug, "/"))
-
-// 	return url
-// }
