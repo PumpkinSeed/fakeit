@@ -117,8 +117,92 @@ mod tests {
     use crate::address;
 
     #[test]
+    fn street() {
+        let street = address::street();
+        println!("street: {}", street);
+    }
+
+    #[test]
+    fn street_number() {
+        let street_number = address::street_number();
+        println!("street_number: {}", street_number);
+    }
+
+    #[test]
+    fn street_prefix() {
+        let street_prefix = address::street_prefix();
+        println!("street_prefix: {}", street_prefix);
+    }
+
+    #[test]
+    fn street_name() {
+        let street_name = address::street_name();
+        println!("street_name: {}", street_name);
+    }
+
+    #[test]
+    fn street_suffix() {
+        let street_suffix = address::street_suffix();
+        println!("street_suffix: {}", street_suffix);
+    }
+
+    #[test]
+    fn city() {
+        let city = address::city();
+        println!("city: {}", city);
+    }
+
+    #[test]
+    fn state() {
+        let state = address::state();
+        println!("state: {}", state);
+    }
+
+    #[test]
+    fn state_abr() {
+        let state_abr = address::state_abr();
+        println!("state_abr: {}", state_abr);
+    }
+
+    #[test]
     fn zip() {
         let zip = address::zip();
-        println!("{}", zip);
+        println!("zip: {}", zip);
+    }
+
+    #[test]
+    fn country() {
+        let country = address::country();
+        println!("country: {}", country);
+    }
+
+    #[test]
+    fn country_abr() {
+        let country_abr = address::country_abr();
+        println!("country_abr: {}", country_abr);
+    }
+
+    #[test]
+    fn latitude() {
+        let latitude = address::latitude();
+        println!("latitude: {}", latitude);
+    }
+
+    #[test]
+    fn latitude_in_range() {
+        let latitude_in_range = address::latitude_in_range(-30.0, 30.0);
+        println!("latitude_in_range: {}", latitude_in_range);
+    }
+
+    #[test]
+    fn longitude() {
+        let longitude = address::longitude();
+        println!("longitude: {}", longitude);
+    }
+
+    #[test]
+    fn longitude_in_range() {
+        let longitude_in_range = address::longitude_in_range(-30.0, 30.0);
+        println!("longitude_in_range: {}", longitude_in_range);
     }
 }
