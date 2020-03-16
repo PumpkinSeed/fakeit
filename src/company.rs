@@ -23,3 +23,36 @@ pub fn buzzword() -> String {
 pub fn bs() -> String {
     misc::random_data(company::BS).to_string()
 }
+
+#[cfg(test)]
+mod tests {
+    use crate::company;
+
+    #[test]
+    fn company() {
+        let data1 = company::company();
+        let data2 = company::company();
+        assert_ne!(data1, data2);
+    }
+
+    #[test]
+    fn company_suffix() {
+        let data1 = company::company_suffix();
+        let data2 = company::company_suffix();
+        assert_ne!(data1, data2);
+    }
+
+    #[test]
+    fn buzzword() {
+        let data1 = company::buzzword();
+        let data2 = company::buzzword();
+        assert_ne!(data1, data2);
+    }
+
+    #[test]
+    fn bs() {
+        let data1 = company::bs();
+        let data2 = company::bs();
+        assert_ne!(data1, data2);
+    }
+}

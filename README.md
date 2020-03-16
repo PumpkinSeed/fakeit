@@ -62,9 +62,9 @@ fn main() {
     let data = address::country(); // country: Romania
     let data = address::country_abr(); // country_abr: BI
     let data = address::latitude(); // latitude: -69.14192
-    let data = address::latitude_in_range(); // latitude_in_range: -18.35571
+    let data = address::latitude_in_range(-30 as f64, 30 as f64); // latitude_in_range: -18.35571
     let data = address::longitude(); // longitude: 113.12952
-    let data = address::longitude_in_range(); // longitude_in_range: -16.484156
+    let data = address::longitude_in_range(-30 as f64, 30 as f64); // longitude_in_range: -16.484156
 }
 ```
 
@@ -101,6 +101,103 @@ fn main() {
     let data = beer::ibu(); // ibu: 75 IBU
     let data = beer::alcohol(); // alcohol: 2.943696 %
     let data = beer::blg(); // blg: 7.4607124°Blg
+}
+```
+
+##### bool (1 functions)
+
+```rust
+extern crate fakeit;
+
+use fakeit::bool;
+
+fn main() {
+    let data = bool::bool(); // true / false
+}
+```
+
+##### color (4 functions)
+
+```rust
+extern crate fakeit;
+
+use fakeit::beer;
+
+fn main() {
+    let data = color::full(); // full: LightYellow
+    let data = color::hex(); // hex: #662461
+    let data = color::safe(); // safe: black
+    let data = color::rgb(); // rgb: [162, 98, 22]
+}
+```
+
+##### company (4 functions)
+
+```rust
+extern crate fakeit;
+
+use fakeit::company;
+
+fn main() {
+    let data = company::company(); // company: Rowe-Schoen
+    let data = company::company_suffix(); // company_suffix: Inc
+    let data = company::buzzword(); // buzzword: systemic
+    let data = company::bs(); // bs: strategic
+}
+```
+
+##### contact (4 functions)
+
+```rust
+extern crate fakeit;
+
+use fakeit::contact;
+
+fn main() {
+    let data = contact::info(); // contect::Info
+    let data = contact::phone(); // phone: 5173757868
+    let data = contact::phone_formatted(); // phone_formatted: 382.450.6544
+    let data = contact::email(); // email: benkuvalis@marks.org
+}
+```
+
+##### currency (4 functions)
+
+```rust
+extern crate fakeit;
+
+use fakeit::currency;
+
+fn main() {
+    let data = currency::compact(); // currency::Info
+    let data = currency::short(); // short: SRD
+    let data = currency::long(); // long: Burundi Franc
+    let data = currency::price(1 as f64, 123 as f64); // price: 53.7
+}
+```
+
+##### datetime (14 functions)
+
+```rust
+extern crate fakeit;
+
+use fakeit::datetime;
+
+fn main() {
+    let data = datetime::month(); // month: 10
+    let data = datetime::day(); // day: 10
+    let data = datetime::week_day(); // week_day: 6
+    let data = datetime::year(); // year: 1986
+    let data = datetime::hour(); // hour: 10
+    let data = datetime::minute(); // minute: 10
+    let data = datetime::second(); // second: 10
+    let data = datetime::nanosecond(); // nanosecond: 959678991
+    let data = datetime::timezone(); // timezone: SA Pacific Standard Time
+    let data = datetime::timezone_full(); // timezone_full: (UTC-04:00) Atlantic Time (Canada)
+    let data = datetime::timezone_abv(); // timezone_abv: BST
+    let data = datetime::timezone_offset(); // timezone_offset: 13
+    let data = datetime::date_range("RFC3339", "RFC3339"); // date_range: 1979-01-06 23:03:10.918301212 UTC
+    let data = datetime::date(); // date: 1979-01-06 23:03:10.918301212 UTC
 }
 ```
 

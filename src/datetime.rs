@@ -17,7 +17,7 @@ pub fn week_day() -> String {
 }
 
 pub fn year() -> String {
-    misc::random::<i32>(0, Utc::now().year()).to_string()
+    misc::random::<i32>(1980, Utc::now().year()).to_string()
 }
 
 pub fn hour() -> String {
@@ -60,9 +60,10 @@ pub fn date_range(min: String, max: String) -> DateTime<Utc> {
     let max_nano = DateTime::parse_from_rfc3339(&max)
         .unwrap()
         .timestamp_nanos();
-
-    let ns = misc::random::<i64>(min_nano, max_nano);
-    DateTime::<Utc>::from_utc(NaiveDateTime::from_timestamp(0, ns as u32), Utc)
+    let ns = misc::random(min_nano, max_nano-10_000_000_000);
+    let secs = (ns / 1_000_000_000) as i64;
+    let nsecs= (ns - (secs * 1_000_000_000)) as u32;
+    DateTime::<Utc>::from_utc(NaiveDateTime::from_timestamp(secs, nsecs as u32), Utc)
 }
 
 pub fn date() -> DateTime<Utc> {
@@ -70,4 +71,49 @@ pub fn date() -> DateTime<Utc> {
         "1970-01-01T16:39:57-08:00".to_string(),
         Utc::now().to_rfc3339(),
     )
+}
+
+#[cfg(test)]
+mod tests {
+    use crate::datetime;
+
+    #[test]
+    fn timezone() {
+        let data1 = datetime::timezone();
+        let data2 = datetime::timezone();
+        assert_ne!(data1, data2);
+        println!("{}", data1);
+    }
+
+    #[test]
+    fn timezone_full() {
+        let data1 = datetime::timezone_full();
+        let data2 = datetime::timezone_full();
+        assert_ne!(data1, data2);
+        println!("{}", data1);
+    }
+
+    #[test]
+    fn timezone_abv() {
+        let data1 = datetime::timezone_abv();
+        let data2 = datetime::timezone_abv();
+        assert_ne!(data1, data2);
+        println!("{}", data1);
+    }
+
+    #[test]
+    fn timezone_offset() {
+        let data1 = datetime::timezone_offset();
+        let data2 = datetime::timezone_offset();
+        assert_ne!(data1, data2);
+        println!("{}", data1);
+    }
+
+    #[test]
+    fn date() {
+        let data1 = datetime::date();
+        let data2 = datetime::date();
+        assert_ne!(data1, data2);
+        println!("{}", data1);
+    }
 }

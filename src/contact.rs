@@ -34,3 +34,29 @@ pub fn email() -> String {
     )
     .to_lowercase()
 }
+
+#[cfg(test)]
+mod tests {
+    use crate::contact;
+
+    #[test]
+    fn phone() {
+        let data1 = contact::phone();
+        let data2 = contact::phone();
+        assert_ne!(data1, data2);
+    }
+
+    #[test]
+    fn phone_formatted() {
+        let data1 = contact::phone_formatted();
+        let data2 = contact::phone_formatted();
+        assert_ne!(data1, data2);
+    }
+
+    #[test]
+    fn email() {
+        let data1 = contact::email();
+        let data2 = contact::email();
+        assert_ne!(data1, data2);
+    }
+}

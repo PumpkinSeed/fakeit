@@ -31,37 +31,43 @@ mod tests {
 
     #[test]
     fn pet_name() {
-        let pet_name = animal::pet_name();
-        println!("pet_name: {}", pet_name);
+        let pet_name1 = animal::pet_name();
+        let pet_name2 = animal::pet_name();
+        assert_ne!(pet_name1, pet_name2);
     }
 
     #[test]
     fn animal() {
-        let animal = animal::animal();
-        println!("animal: {}", animal);
+        let animal1 = animal::animal();
+        let animal2 = animal::animal();
+        assert_ne!(animal1, animal2);
     }
 
     #[test]
     fn type_of() {
-        let type_of = animal::type_of();
-        println!("type_of: {}", type_of);
+        let type_of1 = animal::type_of();
+        let type_of2 = animal::type_of();
+        assert_ne!(type_of1, type_of2);
     }
 
     #[test]
     fn farm() {
-        let farm = animal::farm();
-        println!("farm: {}", farm);
+        let farm1 = animal::farm();
+        let farm2 = animal::farm();
+        assert_ne!(farm1, farm2);
     }
 
     #[test]
     fn cat() {
-        let cat = animal::cat();
-        println!("cat: {}", cat);
+        let cat1 = animal::cat();
+        let cat2 = animal::cat();
+        assert_ne!(cat1, cat2);
     }
 
     #[test]
     fn dog() {
-        let dog = animal::dog();
-        println!("dog: {}", dog);
+        let dog1 = animal::dog();
+        let dog2 = animal::dog();
+        assert_ne!(dog1, dog2);
     }
 }
