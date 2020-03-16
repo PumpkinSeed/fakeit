@@ -44,32 +44,41 @@ pub fn rgb() -> [i16; 3] {
 #[cfg(test)]
 mod tests {
     use crate::color;
+    use crate::test_helper;
 
     #[test]
     fn full() {
         let data1 = color::full();
-        let data2 = color::full();
-        assert_ne!(data1, data2);
+        assert_ne!(data1, "");
+        if test_helper::print() {
+            println!("{}", data1);
+        }
     }
 
     #[test]
     fn hex() {
         let data1 = color::hex();
-        let data2 = color::hex();
-        assert_ne!(data1, data2);
+        assert_ne!(data1, "");
+        if test_helper::print() {
+            println!("{}", data1);
+        }
     }
 
     #[test]
     fn safe() {
         let data1 = color::safe();
-        let data2 = color::safe();
-        assert_ne!(data1, data2);
+        assert_ne!(data1, "");
+        if test_helper::print() {
+            println!("{}", data1);
+        }
     }
 
     #[test]
     fn rgb() {
         let data1 = color::rgb();
-        let data2 = color::rgb();
-        assert_ne!(data1, data2);
+        assert_eq!(data1.len(), 3);
+        if test_helper::print() {
+            println!("{}, {}, {}", data1[0], data1[1], data1[2]);
+        }
     }
 }

@@ -28,46 +28,69 @@ pub fn dog() -> String {
 #[cfg(test)]
 mod tests {
     use crate::animal;
+    use crate::test_helper;
 
     #[test]
     fn pet_name() {
-        let pet_name1 = animal::pet_name();
-        let pet_name2 = animal::pet_name();
-        assert_ne!(pet_name1, pet_name2);
+        let data1 = animal::pet_name();
+        assert_ne!(data1, "");
+        if test_helper::print() {
+            println!("{}", data1);
+        }
     }
 
     #[test]
     fn animal() {
-        let animal1 = animal::animal();
-        let animal2 = animal::animal();
-        assert_ne!(animal1, animal2);
+        let data1 = animal::animal();
+        assert_ne!(data1, "");
+        if test_helper::print() {
+            println!("{}", data1);
+        }
     }
 
     #[test]
     fn type_of() {
-        let type_of1 = animal::type_of();
-        let type_of2 = animal::type_of();
-        assert_ne!(type_of1, type_of2);
+        let data1 = animal::type_of();
+        assert_ne!(data1, "");
+        if test_helper::print() {
+            println!("{}", data1);
+        }
     }
 
     #[test]
     fn farm() {
-        let farm1 = animal::farm();
-        let farm2 = animal::farm();
-        assert_ne!(farm1, farm2);
+        let data1 = animal::farm();
+        assert_ne!(data1, "");
+        if test_helper::print() {
+            println!("{}", data1);
+        }
     }
 
     #[test]
     fn cat() {
-        let cat1 = animal::cat();
-        let cat2 = animal::cat();
-        assert_ne!(cat1, cat2);
+        let data1 = animal::cat();
+        assert_ne!(data1, "");
+        if test_helper::print() {
+            println!("{}", data1);
+        }
     }
 
     #[test]
     fn dog() {
-        let dog1 = animal::dog();
-        let dog2 = animal::dog();
-        assert_ne!(dog1, dog2);
+        let data1 = animal::dog();
+        assert_ne!(data1, "");
+        if test_helper::print() {
+            println!("{}", data1);
+        }
+    }
+
+    use std::time::{Instant};
+    #[test]
+    fn dog_bench() {
+        let start = Instant::now();
+        animal::dog();
+        let duration = start.elapsed();
+
+        println!("Time elapsed in animal::dog() is: {:?}", duration);
     }
 }

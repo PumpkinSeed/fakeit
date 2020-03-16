@@ -4,7 +4,7 @@ use crate::data::vehicle;
 use crate::misc;
 use chrono::{Datelike, Utc};
 
-pub struct VehicleInfo {
+pub struct Info {
     vehicle_type: String,
     fuel: String,
     transmission_gear: String,
@@ -13,8 +13,8 @@ pub struct VehicleInfo {
     year: i32,
 }
 
-pub fn vehicle() -> VehicleInfo {
-    VehicleInfo {
+pub fn info() -> Info {
+    Info {
         vehicle_type: vehicle_type(),
         fuel: fuel(),
         transmission_gear: transmission_gear(),
@@ -44,13 +44,54 @@ pub fn car_model() -> String {
     misc::random_data(vehicle::MODEL).to_string()
 }
 
+
 #[cfg(test)]
 mod tests {
     use crate::vehicle;
+    use crate::test_helper;
 
     #[test]
     fn vehicle_type() {
-        let data = vehicle::vehicle_type();
-        println!("{}", data);
+        let data1 = vehicle::vehicle_type();
+        assert_ne!(data1, "");
+        if test_helper::print() {
+            println!("{}", data1);
+        }
+    }
+
+    #[test]
+    fn fuel() {
+        let data1 = vehicle::fuel();
+        assert_ne!(data1, "");
+        if test_helper::print() {
+            println!("{}", data1);
+        }
+    }
+
+    #[test]
+    fn transmission_gear() {
+        let data1 = vehicle::transmission_gear();
+        assert_ne!(data1, "");
+        if test_helper::print() {
+            println!("{}", data1);
+        }
+    }
+
+    #[test]
+    fn car_maker() {
+        let data1 = vehicle::car_maker();
+        assert_ne!(data1, "");
+        if test_helper::print() {
+            println!("{}", data1);
+        }
+    }
+
+    #[test]
+    fn car_model() {
+        let data1 = vehicle::car_model();
+        assert_ne!(data1, "");
+        if test_helper::print() {
+            println!("{}", data1);
+        }
     }
 }

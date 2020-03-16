@@ -82,22 +82,65 @@ fn title(s: String) -> String {
 #[cfg(test)]
 mod tests {
     use crate::words;
+    use crate::test_helper;
 
     #[test]
-    fn phrase() {
-        let new = words::sentence(100);
-        println!("{}", new);
+    fn word() {
+        let data1 = words::word();
+        assert_ne!(data1, "");
+        if test_helper::print() {
+            println!("{}", data1);
+        }
+    }
+
+    #[test]
+    fn sentence() {
+        let data1 = words::sentence(10);
+        assert_ne!(data1, "");
+        if test_helper::print() {
+            println!("{}", data1);
+        }
     }
 
     #[test]
     fn paragraph() {
+        let data1 = words::paragraph(5, 4, 11, "\n".to_string());
+        assert_ne!(data1, "");
+        if test_helper::print() {
+            println!("{}", data1);
+        }
+    }
+
+    #[test]
+    fn question() {
+        let data1 = words::question();
+        assert_ne!(data1, "");
+        if test_helper::print() {
+            println!("{}", data1);
+        }
+    }
+
+    #[test]
+    fn quote() {
+        let data1 = words::quote();
+        assert_ne!(data1, "");
+        if test_helper::print() {
+            println!("{}", data1);
+        }
+    }
+
+    #[test]
+    fn paragraph_generator() {
         let opts = words::ParagraphOpts {
             count: 5,
             sentence_count: 4,
             word_count: 11,
             separator: "\n".to_string(),
         };
-        let new = words::paragraph_generator(opts, &words::sentence);
-        println!("{}", new);
+        let data1 = words::paragraph_generator(opts, &words::sentence);
+        assert_ne!(data1, "");
+        if test_helper::print() {
+            println!("{}", data1);
+        }
     }
 }

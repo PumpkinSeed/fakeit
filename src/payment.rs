@@ -54,3 +54,45 @@ pub fn credit_card_exp() -> String {
 pub fn credit_card_cvv() -> String {
     misc::replace_with_numbers("###".to_string())
 }
+
+#[cfg(test)]
+mod tests {
+    use crate::payment;
+    use crate::test_helper;
+
+    #[test]
+    fn credit_card_type() {
+        let data1 = payment::credit_card_type();
+        assert_ne!(data1, "");
+        if test_helper::print() {
+            println!("{}", data1);
+        }
+    }
+
+    #[test]
+    fn credit_card_number() {
+        let data1 = payment::credit_card_number();
+        assert_ne!(data1, "");
+        if test_helper::print() {
+            println!("{}", data1);
+        }
+    }
+
+    #[test]
+    fn credit_card_exp() {
+        let data1 = payment::credit_card_exp();
+        assert_ne!(data1, "");
+        if test_helper::print() {
+            println!("{}", data1);
+        }
+    }
+
+    #[test]
+    fn credit_card_cvv() {
+        let data1 = payment::credit_card_cvv();
+        assert_ne!(data1, "");
+        if test_helper::print() {
+            println!("{}", data1);
+        }
+    }
+}

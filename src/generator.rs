@@ -47,11 +47,15 @@ fn resolve_tag(tag: &str) -> String {
 #[cfg(test)]
 mod tests {
     use crate::generator;
+    use crate::test_helper;
 
     #[test]
     fn generate() {
         let new =
             generator::generate("{person.first} {person.last} {contact.email} #?#?#?".to_string());
-        println!("{}", new);
+
+        if test_helper::print() {
+            println!("{}", new);
+        }
     }
 }

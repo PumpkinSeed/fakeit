@@ -11,7 +11,6 @@ Port of the famous [Go fakeit](https://github.com/brianvoe/gofakeit) library for
 - [docs.rs](https://docs.rs/fakeit)
 
 ### Functions 
-**(WIP, until checkout the docs.rs)**
 
 - [address](#address-16-functions)
 - [animal](#animal-6-functions)
@@ -28,18 +27,18 @@ Port of the famous [Go fakeit](https://github.com/brianvoe/gofakeit) library for
 - [hipster](#hipster-3-functions)
 - [image](#image-1-function)
 - [internet](#internet-7-functions)
-- job
-- language
-- log-level
-- name
-- password
-- payment
-- person
-- status code
-- unique
-- user agent
-- vehicle
-- words
+- [job](#job-4-functions)
+- [language](#language-3-functions)
+- [log-level](#log-level-3-functions)
+- [name](#name-5-functions)
+- [password](#password-1-function)
+- [payment](#payment-6-functions)
+- [person](#person-3-functions)
+- [status code](#status-code-2-functions)
+- [unique](#unique-2-functions)
+- [user agent](#user-agent-8-functions)
+- [vehicle](#vehicle-6-functions)
+- [words](#words-6-functions)
 
 ##### address (16 functions)
 
@@ -285,5 +284,193 @@ fn main() {
     let data = internet::ipv6_address(); // ipv6_address: 2001:cafe:1248:1dc7:17dd:19f4:8798:621d
     let data = internet::mac_address(); // mac_address: 2D:3F:7E:5D:61:C1
     let data = internet::username(); // username: Nienow1881
+}
+```
+
+##### job (4 functions)
+
+```rust
+extern crate fakeit;
+
+use fakeit::job;
+
+fn main() {
+    let data = job::info(); // job::Info
+    let data = job::title(); // title: Executive
+    let data = job::descriptor(); // descriptor: International
+    let data = job::level(); // level: Solutions
+}
+```
+
+##### language (3 functions)
+
+```rust
+extern crate fakeit;
+
+use fakeit::language;
+
+fn main() {
+    let data = language::random(); // random: Tatar
+    let data = language::abbreviation(); // abbreviation: co
+    let data = language::programming(); // programming: Rust
+}
+```
+
+##### log-level (3 functions)
+
+```rust
+extern crate fakeit;
+
+use fakeit::log_level;
+
+fn main() {
+    let data = log_level::general(); // general: info
+    let data = log_level::syslog(); // syslog: crit
+    let data = log_level::apache(); // apache: debug
+}
+```
+
+##### name (5 functions)
+
+```rust
+extern crate fakeit;
+
+use fakeit::name;
+
+fn main() {
+    let data = name::full(); // full: Keyshawn Auer
+    let data = name::first(); // first: Brycen
+    let data = name::last(); // last: Hartmann
+    let data = name::prefix(); // prefix: Mr.
+    let data = name::suffix(); // suffix: PhD
+}
+```
+
+##### password (1 function)
+
+```rust
+extern crate fakeit;
+
+use fakeit::password;
+
+fn main() {
+    let data = password::generate(upper, numeric, special, num); // #9e1Vv5s&Ng8L-#9@=!6+s1+0@R
+}
+```
+
+##### payment (6 functions)
+
+```rust
+extern crate fakeit;
+
+use fakeit::payment;
+
+fn main() {
+    let data = payment::credit_card(); // payment::CreditCard
+    let data = payment::credit_card_type(); // credit_card_type: Discover
+    let data = payment::credit_card_number(); // credit_card_number: 341545247171534
+    let data = payment::credit_card_luhn_number(); // @TODO
+    let data = payment::credit_card_exp(); // credit_card_exp: 04/21
+    let data = payment::credit_card_cvv(); // credit_card_cvv: 537
+}
+```
+
+##### person (3 functions)
+
+```rust
+extern crate fakeit;
+
+use fakeit::person;
+
+fn main() {
+    let data = person::info(); // person::Info
+    let data = person::ssn(); // ssn: 792671651
+    let data = person::gender(); // gender: male
+}
+```
+
+##### status code (2 functions)
+
+```rust
+extern crate fakeit;
+
+use fakeit::status_code;
+
+fn main() {
+    let data = status_code::simple(); // simple: 404
+    let data = status_code::general(); // general: 400
+}
+```
+
+##### unique (2 functions)
+
+```rust
+extern crate fakeit;
+
+use fakeit::unique;
+
+fn main() {
+    let data = unique::uuid_v1(); // uuid_v1: 13be40a6-1dd2-11b2-802a-010203040506
+    let data = unique::uuid_v4(); // uuid_v4: a474961e-936a-4897-966a-15fcff7bbc87
+}
+```
+
+##### user agent (8 functions)
+
+```rust
+extern crate fakeit;
+
+use fakeit::unique;
+
+fn main() {
+    let data = user_agent::chrome(); // chrome: Mozilla/5.0 (X11; Linux i686) AppleWebKit/532 (KHTML, like Gecko) Chrome/36.0.861.0 Mobile Safari/532
+    let data = user_agent::firefox(); // firefox: Mozilla/5.0 (X11; Linux x86_64; rv:7.0) Gecko/2005-5-27 Firefox/36.0
+    let data = user_agent::safari(); // safari: Mozilla/5.0 (Windows; U; Windows NT 6.2) AppleWebKit/531.23.3 (KHTML, like Gecko) Version/4.0 Safari/531.23.3
+    let data = user_agent::opera(); // opera: Opera/8.22 (Macintosh; PPC Mac OS X 10_6_8; en-US) Presto/2.11.181 Version/12.00
+    let data = user_agent::linux_platform_token(); // linux_platform_token: X11; Linux x86_64
+    let data = user_agent::mac_platform_token(); // mac_platform_token: Macintosh; U; PPC Mac OS X 10_6_2
+    let data = user_agent::windows_platform_token(); // windows_platform_token: Windows 98; Win 9x 4.90
+    let data = user_agent::random_platform(); // random_platform: Macintosh; Intel Mac OS X 10_7_5
+}
+```
+
+##### vehicle (6 functions)
+
+```rust
+extern crate fakeit;
+
+use fakeit::vehicle;
+
+fn main() {
+    let data = vehicle::info(); // vehicle::Info
+    let data = vehicle::vehicle_type(); // vehicle_type: Passenger car mini
+    let data = vehicle::fuel(); // fuel: Electric
+    let data = vehicle::transmission_gear(); // transmission_gear: Automatic
+    let data = vehicle::car_maker(); // car_maker: Chevrolet
+    let data = vehicle::car_model(); // car_model: Gti
+}
+```
+
+##### words (6 functions)
+
+```rust
+extern crate fakeit;
+
+use fakeit::words;
+
+fn main() {
+    let data = words::word(); // word: saepe
+    let data = words::sentence(word_count); // sentence: Nemo vitae rerum consequuntur vero animi incidunt esse doloribus eos.
+    let data = words::paragraph(count, sentence_count, word_count, separator); // paragraph: Minima aut numquam nihil rerum commodi pariatur dolores...
+    let data = words::question(); // question: Placeat voluptatem at ut eveniet suscipit similique dicta quis?
+    let data = words::quote(); // quote: "Dignissimos dolorem quam tempore excepturi facere dicta." - Willy Kihn
+    
+    let opts = words::ParagraphOpts {
+        count: 5,
+        sentence_count: 4,
+        word_count: 11,
+        separator: "\n".to_string(),
+    };
+    let data = words::paragraph_generator(opts, &words::sentence); // paragraph_generator: Quisquam aut consequuntur nobis voluptas porro...
 }
 ```

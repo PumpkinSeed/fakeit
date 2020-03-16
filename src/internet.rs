@@ -69,26 +69,33 @@ pub fn username() -> String {
 #[cfg(test)]
 mod tests {
     use crate::internet;
+    use crate::test_helper;
 
     #[test]
     fn domain_name() {
         let data1 = internet::domain_name();
-        let data2 = internet::domain_name();
-        assert_ne!(data1, data2);
+        assert_ne!(data1, "");
+        if test_helper::print() {
+            println!("{}", data1);
+        }
     }
 
     #[test]
     fn http_method() {
         let data1 = internet::http_method();
-        let data2 = internet::http_method();
-        assert_ne!(data1, data2);
+        assert_ne!(data1, "");
+        if test_helper::print() {
+            println!("{}", data1);
+        }
     }
 
     #[test]
     fn domain_suffix() {
         let data1 = internet::domain_suffix();
-        let data2 = internet::domain_suffix();
-        assert_ne!(data1, data2);
+        assert_ne!(data1, "");
+        if test_helper::print() {
+            println!("{}", data1);
+        }
     }
 
     #[test]
@@ -96,6 +103,9 @@ mod tests {
         let data1 = internet::ipv4_address();
         let data2 = internet::ipv4_address();
         assert_ne!(data1, data2);
+        if test_helper::print() {
+            println!("{}", data1);
+        }
     }
 
     #[test]
@@ -103,6 +113,9 @@ mod tests {
         let data1 = internet::ipv6_address();
         let data2 = internet::ipv6_address();
         assert_ne!(data1, data2);
+        if test_helper::print() {
+            println!("{}", data1);
+        }
     }
 
     #[test]
@@ -110,12 +123,17 @@ mod tests {
         let data1 = internet::mac_address();
         let data2 = internet::mac_address();
         assert_ne!(data1, data2);
+        if test_helper::print() {
+            println!("{}", data1);
+        }
     }
 
     #[test]
     fn username() {
         let data1 = internet::username();
-        let data2 = internet::username();
-        assert_ne!(data1, data2);
+        assert_ne!(data1, "");
+        if test_helper::print() {
+            println!("{}", data1);
+        }
     }
 }

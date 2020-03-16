@@ -107,3 +107,81 @@ pub fn random_platform() -> String {
         _ => windows_platform_token(),
     }
 }
+
+#[cfg(test)]
+mod tests {
+    use crate::user_agent;
+    use crate::test_helper;
+
+    #[test]
+    fn chrome() {
+        let data1 = user_agent::chrome();
+        assert_ne!(data1, "");
+        if test_helper::print() {
+            println!("{}", data1);
+        }
+    }
+
+    #[test]
+    fn firefox() {
+        let data1 = user_agent::firefox();
+        assert_ne!(data1, "");
+        if test_helper::print() {
+            println!("{}", data1);
+        }
+    }
+
+    #[test]
+    fn safari() {
+        let data1 = user_agent::safari();
+        assert_ne!(data1, "");
+        if test_helper::print() {
+            println!("{}", data1);
+        }
+    }
+
+    #[test]
+    fn opera() {
+        let data1 = user_agent::opera();
+        assert_ne!(data1, "");
+        if test_helper::print() {
+            println!("{}", data1);
+        }
+    }
+
+    #[test]
+    fn linux_platform_token() {
+        let data1 = user_agent::linux_platform_token();
+        assert_ne!(data1, "");
+        if test_helper::print() {
+            println!("{}", data1);
+        }
+    }
+
+    #[test]
+    fn mac_platform_token() {
+        let data1 = user_agent::mac_platform_token();
+        assert_ne!(data1, "");
+        if test_helper::print() {
+            println!("{}", data1);
+        }
+    }
+
+    #[test]
+    fn windows_platform_token() {
+        let data1 = user_agent::windows_platform_token();
+        assert_ne!(data1, "");
+        if test_helper::print() {
+            println!("{}", data1);
+        }
+    }
+
+    #[test]
+    fn random_platform() {
+        let data1 = user_agent::random_platform();
+        assert_ne!(data1, "");
+        if test_helper::print() {
+            println!("{}", data1);
+        }
+    }
+}

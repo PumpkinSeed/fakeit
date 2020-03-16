@@ -29,3 +29,9 @@ pub mod unique;
 pub mod user_agent;
 pub mod vehicle;
 pub mod words;
+
+mod test_helper {
+    pub fn print() -> bool {
+        true
+    }
+}

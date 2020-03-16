@@ -19,7 +19,7 @@ pub struct Info {
     credit_card: payment::CreditCard,
 }
 
-pub fn person() -> Info {
+pub fn info() -> Info {
     Info {
         first_name: name::first(),
         last_name: name::last(),
@@ -41,5 +41,29 @@ pub fn gender() -> String {
     match misc::random(1, 2) {
         1 => "male".to_string(),
         _ => "female".to_string(),
+    }
+}
+
+#[cfg(test)]
+mod tests {
+    use crate::person;
+    use crate::test_helper;
+
+    #[test]
+    fn ssn() {
+        let data1 = person::ssn();
+        assert_ne!(data1, "");
+        if test_helper::print() {
+            println!("{}", data1);
+        }
+    }
+
+    #[test]
+    fn gender() {
+        let data1 = person::gender();
+        assert_ne!(data1, "");
+        if test_helper::print() {
+            println!("{}", data1);
+        }
     }
 }

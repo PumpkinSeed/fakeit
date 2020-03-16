@@ -43,10 +43,14 @@ fn letter(upper: bool, numeric: bool, special: bool, num: i8) -> String {
 #[cfg(test)]
 mod tests {
     use crate::password;
+    use crate::test_helper;
 
     #[test]
     fn generate() {
         let data = password::generate(true, true, true, 26);
-        println!("{}", data);
+        assert_ne!(data, "");
+        if test_helper::print() {
+            println!("{}", data);
+        }
     }
 }

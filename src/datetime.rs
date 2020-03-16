@@ -76,33 +76,42 @@ pub fn date() -> DateTime<Utc> {
 #[cfg(test)]
 mod tests {
     use crate::datetime;
+    use crate::test_helper;
 
     #[test]
     fn timezone() {
         let data1 = datetime::timezone();
-        let data2 = datetime::timezone();
-        assert_ne!(data1, data2);
+        assert_ne!(data1, "");
+        if test_helper::print() {
+            println!("{}", data1);
+        }
     }
 
     #[test]
     fn timezone_full() {
         let data1 = datetime::timezone_full();
-        let data2 = datetime::timezone_full();
-        assert_ne!(data1, data2);
+        assert_ne!(data1, "");
+        if test_helper::print() {
+            println!("{}", data1);
+        }
     }
 
     #[test]
     fn timezone_abv() {
         let data1 = datetime::timezone_abv();
-        let data2 = datetime::timezone_abv();
-        assert_ne!(data1, data2);
+        assert_ne!(data1, "");
+        if test_helper::print() {
+            println!("{}", data1);
+        }
     }
 
     #[test]
     fn timezone_offset() {
         let data1 = datetime::timezone_offset();
-        let data2 = datetime::timezone_offset();
-        assert_ne!(data1, data2);
+        assert_ne!(data1, "");
+        if test_helper::print() {
+            println!("{}", data1);
+        }
     }
 
     #[test]
@@ -110,5 +119,8 @@ mod tests {
         let data1 = datetime::date();
         let data2 = datetime::date();
         assert_ne!(data1, data2);
+        if test_helper::print() {
+            println!("{}", data1);
+        }
     }
 }

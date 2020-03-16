@@ -12,18 +12,24 @@ pub fn extension() -> String {
 #[cfg(test)]
 mod tests {
     use crate::file;
+    use crate::test_helper;
 
     #[test]
     fn mime_type() {
         let data1 = file::mime_type();
-        let data2 = file::mime_type();
-        assert_ne!(data1, data2);
+        assert_ne!(data1, "");
+        if test_helper::print() {
+            println!("{}", data1);
+        }
+
     }
 
     #[test]
     fn extension() {
         let data1 = file::extension();
-        let data2 = file::extension();
-        assert_ne!(data1, data2);
+        assert_ne!(data1, "");
+        if test_helper::print() {
+            println!("{}", data1);
+        }
     }
 }

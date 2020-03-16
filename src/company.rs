@@ -27,32 +27,41 @@ pub fn bs() -> String {
 #[cfg(test)]
 mod tests {
     use crate::company;
+    use crate::test_helper;
 
     #[test]
     fn company() {
         let data1 = company::company();
-        let data2 = company::company();
-        assert_ne!(data1, data2);
+        assert_ne!(data1, "");
+        if test_helper::print() {
+            println!("{}", data1);
+        }
     }
 
     #[test]
     fn company_suffix() {
         let data1 = company::company_suffix();
-        let data2 = company::company_suffix();
-        assert_ne!(data1, data2);
+        assert_ne!(data1, "");
+        if test_helper::print() {
+            println!("{}", data1);
+        }
     }
 
     #[test]
     fn buzzword() {
         let data1 = company::buzzword();
-        let data2 = company::buzzword();
-        assert_ne!(data1, data2);
+        assert_ne!(data1, "");
+        if test_helper::print() {
+            println!("{}", data1);
+        }
     }
 
     #[test]
     fn bs() {
         let data1 = company::bs();
-        let data2 = company::bs();
-        assert_ne!(data1, data2);
+        assert_ne!(data1, "");
+        if test_helper::print() {
+            println!("{}", data1);
+        }
     }
 }

@@ -23,16 +23,23 @@ pub fn uuid_v4() -> String {
 #[cfg(test)]
 mod tests {
     use crate::unique;
+    use crate::test_helper;
 
     #[test]
     fn uuid_v1() {
-        let data = unique::uuid_v1();
-        println!("{}", data);
+        let data1 = unique::uuid_v1();
+        assert_ne!(data1, "");
+        if test_helper::print() {
+            println!("{}", data1);
+        }
     }
 
     #[test]
     fn uuid_v4() {
-        let data = unique::uuid_v4();
-        println!("{}", data);
+        let data1 = unique::uuid_v4();
+        assert_ne!(data1, "");
+        if test_helper::print() {
+            println!("{}", data1);
+        }
     }
 }
