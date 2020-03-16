@@ -1,13 +1,13 @@
 [package]
 name = "fakeit"
-version = "0.1.0"
+version = "1.0.0"
 authors = ["PumpkinSeed <qwer.kocka@gmail.com>"]
 edition = "2018"
 description = "Fake data generator library with 130+ functions"
 license = "MIT"
 readme = "README.md"
 repository = "https://github.com/PumpkinSeed/fakeit"
-keywords = ["fake", "data"]
+keywords = ["fake", "data", "random", "generator", "faker"]
 
 [[benches]]
 name = "fakeit"
