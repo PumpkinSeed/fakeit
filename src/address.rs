@@ -118,91 +118,106 @@ mod tests {
 
     #[test]
     fn street() {
-        let street = address::street();
-        println!("street: {}", street);
+        let street1 = address::street();
+        let street2 = address::street();
+        assert_ne!(street1, street2);
     }
 
     #[test]
     fn street_number() {
-        let street_number = address::street_number();
-        println!("street_number: {}", street_number);
+        let street_number1 = address::street_number();
+        let street_number2 = address::street_number();
+        assert_ne!(street_number1, street_number2);
     }
 
     #[test]
     fn street_prefix() {
-        let street_prefix = address::street_prefix();
-        println!("street_prefix: {}", street_prefix);
+        let street_prefix1 = address::street_prefix();
+        let street_prefix2 = address::street_prefix();
+        assert_ne!(street_prefix1, street_prefix2);
     }
 
     #[test]
     fn street_name() {
-        let street_name = address::street_name();
-        println!("street_name: {}", street_name);
+        let street_name1 = address::street_name();
+        let street_name2 = address::street_name();
+        assert_ne!(street_name1, street_name2);
     }
 
     #[test]
     fn street_suffix() {
-        let street_suffix = address::street_suffix();
-        println!("street_suffix: {}", street_suffix);
+        let street_suffix1 = address::street_suffix();
+        let street_suffix2 = address::street_suffix();
+        assert_ne!(street_suffix1, street_suffix2);
     }
 
     #[test]
     fn city() {
-        let city = address::city();
-        println!("city: {}", city);
+        let city1 = address::city();
+        let city2 = address::city();
+        assert_ne!(city1, city2);
     }
 
     #[test]
     fn state() {
-        let state = address::state();
-        println!("state: {}", state);
+        let state1 = address::state();
+        let state2 = address::state();
+        assert_ne!(state1, state2);
     }
 
     #[test]
     fn state_abr() {
-        let state_abr = address::state_abr();
-        println!("state_abr: {}", state_abr);
+        let state_abr1 = address::state_abr();
+        let state_abr2 = address::state_abr();
+        assert_ne!(state_abr1, state_abr2);
     }
 
     #[test]
     fn zip() {
-        let zip = address::zip();
-        println!("zip: {}", zip);
+        let zip1 = address::zip();
+        let zip2 = address::zip();
+        assert_ne!(zip1, zip2);
     }
 
     #[test]
     fn country() {
-        let country = address::country();
-        println!("country: {}", country);
+        let country1 = address::country();
+        let country2 = address::country();
+        assert_ne!(country1, country2);
     }
 
     #[test]
     fn country_abr() {
-        let country_abr = address::country_abr();
-        println!("country_abr: {}", country_abr);
+        let country_abr1 = address::country_abr();
+        let country_abr2 = address::country_abr();
+        assert_ne!(country_abr1, country_abr2);
     }
 
     #[test]
     fn latitude() {
-        let latitude = address::latitude();
-        println!("latitude: {}", latitude);
+        let latitude1 = address::latitude();
+        let latitude2 = address::latitude();
+        assert_ne!(latitude1, latitude2);
     }
 
     #[test]
     fn latitude_in_range() {
-        let latitude_in_range = address::latitude_in_range(-30.0, 30.0);
-        println!("latitude_in_range: {}", latitude_in_range);
+        let latitude_in_range1 = address::latitude_in_range(-30.0, 30.0);
+        let latitude_in_range2 = address::latitude_in_range(-30.0, 30.0);
+        assert_ne!(latitude_in_range1, latitude_in_range2);
     }
 
     #[test]
     fn longitude() {
-        let longitude = address::longitude();
-        println!("longitude: {}", longitude);
+        let longitude1 = address::longitude();
+        let longitude2 = address::longitude();
+        assert_ne!(longitude1, longitude2);
     }
 
     #[test]
     fn longitude_in_range() {
-        let longitude_in_range = address::longitude_in_range(-30.0, 30.0);
-        println!("longitude_in_range: {}", longitude_in_range);
+        let longitude_in_range1 = address::longitude_in_range(-30.0, 30.0);
+        let longitude_in_range2 = address::longitude_in_range(-30.0, 30.0);
+        assert_ne!(longitude_in_range1, longitude_in_range2);
     }
 }
