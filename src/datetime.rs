@@ -62,7 +62,14 @@ pub fn date_range(min: String, max: String) -> DateTime<Utc> {
         .timestamp_nanos();
     let ns = misc::random(min_nano, max_nano-10_000_000_000);
     let secs = (ns / 1_000_000_000) as i64;
-    let nsecs= (ns - (secs * 1_000_000_000)) as u32;
+    let mut nsecs= (ns - (secs * 1_000_000_000)) as u32;
+    
+    // This case will cause the `NaiveDateTime::from_timestamp` function to panic.
+    // So we just roll it back to the maximum allowed value.
+    if nsecs >= 2_000_000_000 {
+        nsecs = 1_999_999_999;
+    }
+    
     DateTime::<Utc>::from_utc(NaiveDateTime::from_timestamp(secs, nsecs as u32), Utc)
 }
 
