@@ -83,42 +83,34 @@ pub fn date() -> DateTime<Utc> {
 #[cfg(test)]
 mod tests {
     use crate::datetime;
-    use crate::test_helper;
+    use crate::testify::exec_mes;
 
     #[test]
     fn timezone() {
-        let data1 = datetime::timezone();
-        assert_ne!(data1, "");
-        if test_helper::print() {
-            println!("{}", data1);
-        }
+        exec_mes("datetime::timezone", || {
+            datetime::timezone()
+        });
     }
 
     #[test]
     fn timezone_full() {
-        let data1 = datetime::timezone_full();
-        assert_ne!(data1, "");
-        if test_helper::print() {
-            println!("{}", data1);
-        }
+        exec_mes("datetime::timezone_full", || {
+            datetime::timezone_full()
+        });
     }
 
     #[test]
     fn timezone_abv() {
-        let data1 = datetime::timezone_abv();
-        assert_ne!(data1, "");
-        if test_helper::print() {
-            println!("{}", data1);
-        }
+        exec_mes("datetime::timezone_abv", || {
+            datetime::timezone_abv()
+        });
     }
 
     #[test]
     fn timezone_offset() {
-        let data1 = datetime::timezone_offset();
-        assert_ne!(data1, "");
-        if test_helper::print() {
-            println!("{}", data1);
-        }
+        exec_mes("datetime::timezone_offset", || {
+            datetime::timezone_offset()
+        });
     }
 
     #[test]
@@ -126,8 +118,5 @@ mod tests {
         let data1 = datetime::date();
         let data2 = datetime::date();
         assert_ne!(data1, data2);
-        if test_helper::print() {
-            println!("{}", data1);
-        }
     }
 }

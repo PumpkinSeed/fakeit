@@ -16,32 +16,26 @@ pub fn programming() -> String {
 #[cfg(test)]
 mod tests {
     use crate::language;
-    use crate::test_helper;
+    use crate::testify::exec_mes;
 
     #[test]
     fn random() {
-        let data1 = language::random();
-        assert_ne!(data1, "");
-        if test_helper::print() {
-            println!("{}", data1);
-        }
+        exec_mes("language::random", || {
+            language::random()
+        });
     }
 
     #[test]
     fn abbreviation() {
-        let data1 = language::abbreviation();
-        assert_ne!(data1, "");
-        if test_helper::print() {
-            println!("{}", data1);
-        }
+        exec_mes("language::abbreviation", || {
+            language::abbreviation()
+        });
     }
 
     #[test]
     fn programming() {
-        let data1 = language::programming();
-        assert_ne!(data1, "");
-        if test_helper::print() {
-            println!("{}", data1);
-        }
+        exec_mes("language::programming", || {
+            language::programming()
+        });
     }
 }

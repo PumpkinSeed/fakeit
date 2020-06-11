@@ -32,32 +32,26 @@ pub fn price(min: f64, max: f64) -> f64 {
 #[cfg(test)]
 mod tests {
     use crate::currency;
-    use crate::test_helper;
+    use crate::testify::exec_mes;
 
     #[test]
     fn short() {
-        let data1 = currency::short();
-        assert_ne!(data1, "");
-        if test_helper::print() {
-            println!("{}", data1);
-        }
+        exec_mes("currency::short", || {
+            currency::short()
+        });
     }
 
     #[test]
     fn long() {
-        let data1 = currency::long();
-        assert_ne!(data1, "");
-        if test_helper::print() {
-            println!("{}", data1);
-        }
+        exec_mes("currency::long", || {
+            currency::long()
+        });
     }
 
     #[test]
     fn price() {
-        let data1 = currency::price(1 as f64, 123 as f64);
-        assert_ne!(data1, 0 as f64);
-        if test_helper::print() {
-            println!("{}", data1);
-        }
+        exec_mes("currency::short", || {
+            format!("{}", currency::price(1 as f64, 123 as f64))
+        });
     }
 }

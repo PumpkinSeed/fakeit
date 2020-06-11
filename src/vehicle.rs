@@ -48,50 +48,40 @@ pub fn car_model() -> String {
 #[cfg(test)]
 mod tests {
     use crate::vehicle;
-    use crate::test_helper;
+    use crate::testify::exec_mes;
 
     #[test]
     fn vehicle_type() {
-        let data1 = vehicle::vehicle_type();
-        assert_ne!(data1, "");
-        if test_helper::print() {
-            println!("{}", data1);
-        }
+        exec_mes("vehicle::vehicle_type", || {
+            vehicle::vehicle_type()
+        });
     }
 
     #[test]
     fn fuel() {
-        let data1 = vehicle::fuel();
-        assert_ne!(data1, "");
-        if test_helper::print() {
-            println!("{}", data1);
-        }
+        exec_mes("vehicle::fuel", || {
+            vehicle::fuel()
+        });
     }
 
     #[test]
     fn transmission_gear() {
-        let data1 = vehicle::transmission_gear();
-        assert_ne!(data1, "");
-        if test_helper::print() {
-            println!("{}", data1);
-        }
+        exec_mes("vehicle::transmission_gear", || {
+            vehicle::transmission_gear()
+        });
     }
 
     #[test]
     fn car_maker() {
-        let data1 = vehicle::car_maker();
-        assert_ne!(data1, "");
-        if test_helper::print() {
-            println!("{}", data1);
-        }
+        exec_mes("vehicle::car_maker", || {
+            vehicle::car_maker()
+        });
     }
 
     #[test]
     fn car_model() {
-        let data1 = vehicle::car_model();
-        assert_ne!(data1, "");
-        if test_helper::print() {
-            println!("{}", data1);
-        }
+        exec_mes("vehicle::car_model", || {
+            vehicle::car_model()
+        });
     }
 }

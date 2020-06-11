@@ -12,23 +12,19 @@ pub fn general() -> i16 {
 #[cfg(test)]
 mod tests {
     use crate::status_code;
-    use crate::test_helper;
+    use crate::testify::exec_mes;
 
     #[test]
     fn simple() {
-        let data1 = status_code::simple();
-        assert_ne!(data1, 0 as i16);
-        if test_helper::print() {
-            println!("{}", data1);
-        }
+        exec_mes("status_code::simple", || {
+            format!("{}", status_code::simple())
+        });
     }
 
     #[test]
     fn general() {
-        let data1 = status_code::general();
-        assert_ne!(data1, 0 as i16);
-        if test_helper::print() {
-            println!("{}", data1);
-        }
+        exec_mes("status_code::general", || {
+            format!("{}", status_code::general())
+        });
     }
 }

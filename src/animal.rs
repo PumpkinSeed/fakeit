@@ -28,69 +28,47 @@ pub fn dog() -> String {
 #[cfg(test)]
 mod tests {
     use crate::animal;
-    use crate::test_helper;
+    use crate::testify::exec_mes;
 
     #[test]
     fn pet_name() {
-        let data1 = animal::pet_name();
-        assert_ne!(data1, "");
-        if test_helper::print() {
-            println!("{}", data1);
-        }
+        exec_mes("animal::pet_name", || {
+            animal::pet_name()
+        });
     }
 
     #[test]
     fn animal() {
-        let data1 = animal::animal();
-        assert_ne!(data1, "");
-        if test_helper::print() {
-            println!("{}", data1);
-        }
+        exec_mes("animal::animal", || {
+            animal::animal()
+        });
     }
 
     #[test]
     fn type_of() {
-        let data1 = animal::type_of();
-        assert_ne!(data1, "");
-        if test_helper::print() {
-            println!("{}", data1);
-        }
+        exec_mes("animal::type_of", || {
+            animal::type_of()
+        });
     }
 
     #[test]
     fn farm() {
-        let data1 = animal::farm();
-        assert_ne!(data1, "");
-        if test_helper::print() {
-            println!("{}", data1);
-        }
+        exec_mes("animal::farm", || {
+            animal::farm()
+        });
     }
 
     #[test]
     fn cat() {
-        let data1 = animal::cat();
-        assert_ne!(data1, "");
-        if test_helper::print() {
-            println!("{}", data1);
-        }
+        exec_mes("animal::cat", || {
+            animal::cat()
+        });
     }
 
     #[test]
     fn dog() {
-        let data1 = animal::dog();
-        assert_ne!(data1, "");
-        if test_helper::print() {
-            println!("{}", data1);
-        }
-    }
-
-    use std::time::{Instant};
-    #[test]
-    fn dog_bench() {
-        let start = Instant::now();
-        animal::dog();
-        let duration = start.elapsed();
-
-        println!("Time elapsed in animal::dog() is: {:?}", duration);
+        exec_mes("animal::dog", || {
+            animal::dog()
+        });
     }
 }

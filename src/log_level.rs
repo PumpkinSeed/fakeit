@@ -16,32 +16,26 @@ pub fn apache() -> String {
 #[cfg(test)]
 mod tests {
     use crate::log_level;
-    use crate::test_helper;
+    use crate::testify::exec_mes;
 
     #[test]
     fn general() {
-        let data1 = log_level::general();
-        assert_ne!(data1, "");
-        if test_helper::print() {
-            println!("{}", data1);
-        }
+        exec_mes("log_level::general", || {
+            log_level::general()
+        });
     }
 
     #[test]
     fn apache() {
-        let data1 = log_level::apache();
-        assert_ne!(data1, "");
-        if test_helper::print() {
-            println!("{}", data1);
-        }
+        exec_mes("log_level::apache", || {
+            log_level::apache()
+        });
     }
 
     #[test]
     fn syslog() {
-        let data1 = log_level::syslog();
-        assert_ne!(data1, "");
-        if test_helper::print() {
-            println!("{}", data1);
-        }
+        exec_mes("log_level::syslog", || {
+            log_level::syslog()
+        });
     }
 }

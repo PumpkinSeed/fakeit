@@ -30,59 +30,47 @@ pub fn ingverb() -> String {
 #[cfg(test)]
 mod tests {
     use crate::hacker;
-    use crate::test_helper;
+    use crate::testify::exec_mes;
 
     #[test]
     fn phrase() {
-        let data1 = hacker::phrase();
-        assert_ne!(data1, "");
-        if test_helper::print() {
-            println!("{}", data1);
-        }
+        exec_mes("hacker::phrase", || {
+            hacker::phrase()
+        });
     }
 
     #[test]
     fn abbreviation() {
-        let data1 = hacker::abbreviation();
-        assert_ne!(data1, "");
-        if test_helper::print() {
-            println!("{}", data1);
-        }
+        exec_mes("hacker::abbreviation", || {
+            hacker::abbreviation()
+        });
     }
 
     #[test]
     fn adjective() {
-        let data1 = hacker::adjective();
-        assert_ne!(data1, "");
-        if test_helper::print() {
-            println!("{}", data1);
-        }
+        exec_mes("hacker::adjective", || {
+            hacker::adjective()
+        });
     }
 
     #[test]
     fn noun() {
-        let data1 = hacker::noun();
-        assert_ne!(data1, "");
-        if test_helper::print() {
-            println!("{}", data1);
-        }
+        exec_mes("hacker::noun", || {
+            hacker::noun()
+        });
     }
 
     #[test]
     fn verb() {
-        let data1 = hacker::verb();
-        assert_ne!(data1, "");
-        if test_helper::print() {
-            println!("{}", data1);
-        }
+        exec_mes("hacker::verb", || {
+            hacker::verb()
+        });
     }
 
     #[test]
     fn ingverb() {
-        let data1 = hacker::ingverb();
-        assert_ne!(data1, "");
-        if test_helper::print() {
-            println!("{}", data1);
-        }
+        exec_mes("hacker::ingverb", || {
+            hacker::ingverb()
+        });
     }
 }

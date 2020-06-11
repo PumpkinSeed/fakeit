@@ -17,24 +17,20 @@ pub fn paragraph(count: i64, sentence_count: i64, word_count: i64, separator: St
 #[cfg(test)]
 mod tests {
     use crate::hipster;
-    use crate::test_helper;
+    use crate::testify::exec_mes;
 
     #[test]
     fn word() {
-        let data1 = hipster::word();
-        assert_ne!(data1, "");
-        if test_helper::print() {
-            println!("{}", data1);
-        }
+        exec_mes("hipster::word", || {
+            hipster::word()
+        });
     }
 
     #[test]
     fn sentence() {
-        let data1 = hipster::sentence(12);
-        assert_ne!(data1, "");
-        if test_helper::print() {
-            println!("{}", data1);
-        }
+        exec_mes("hipster::sentence", || {
+            hipster::sentence(12)
+        });
     }
 
     #[test]
@@ -42,8 +38,5 @@ mod tests {
         let data1 = hipster::paragraph(3, 4, 40, " ".to_string());
         let data2 = hipster::paragraph(3, 4, 40, " ".to_string());
         assert_ne!(data1, data2);
-        if test_helper::print() {
-            println!("{}", data1);
-        }
     }
 }

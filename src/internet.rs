@@ -69,71 +69,66 @@ pub fn username() -> String {
 #[cfg(test)]
 mod tests {
     use crate::internet;
-    use crate::test_helper;
+    use crate::testify::exec_mes;
 
     #[test]
     fn domain_name() {
-        let data1 = internet::domain_name();
-        assert_ne!(data1, "");
-        if test_helper::print() {
-            println!("{}", data1);
-        }
+        exec_mes("internet::domain_name", || {
+            internet::domain_name()
+        });
     }
 
     #[test]
     fn http_method() {
-        let data1 = internet::http_method();
-        assert_ne!(data1, "");
-        if test_helper::print() {
-            println!("{}", data1);
-        }
+        exec_mes("internet::http_method", || {
+            internet::http_method()
+        });
     }
 
     #[test]
     fn domain_suffix() {
-        let data1 = internet::domain_suffix();
-        assert_ne!(data1, "");
-        if test_helper::print() {
-            println!("{}", data1);
-        }
+        exec_mes("internet::domain_suffix", || {
+            internet::domain_suffix()
+        });
     }
 
     #[test]
     fn ipv4_address() {
+        exec_mes("internet::ipv4_address", || {
+            internet::ipv4_address()
+        });
+
         let data1 = internet::ipv4_address();
         let data2 = internet::ipv4_address();
         assert_ne!(data1, data2);
-        if test_helper::print() {
-            println!("{}", data1);
-        }
     }
 
     #[test]
     fn ipv6_address() {
+        exec_mes("internet::ipv6_address", || {
+            internet::ipv6_address()
+        });
+
         let data1 = internet::ipv6_address();
         let data2 = internet::ipv6_address();
         assert_ne!(data1, data2);
-        if test_helper::print() {
-            println!("{}", data1);
-        }
     }
 
     #[test]
     fn mac_address() {
+        exec_mes("internet::mac_address", || {
+            internet::mac_address()
+        });
+
         let data1 = internet::mac_address();
         let data2 = internet::mac_address();
         assert_ne!(data1, data2);
-        if test_helper::print() {
-            println!("{}", data1);
-        }
     }
 
     #[test]
     fn username() {
-        let data1 = internet::username();
-        assert_ne!(data1, "");
-        if test_helper::print() {
-            println!("{}", data1);
-        }
+        exec_mes("internet::username", || {
+            internet::username()
+        });
     }
 }

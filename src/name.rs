@@ -25,50 +25,40 @@ pub fn suffix() -> String {
 #[cfg(test)]
 mod tests {
     use crate::name;
-    use crate::test_helper;
+    use crate::testify::exec_mes;
 
     #[test]
     fn full() {
-        let data1 = name::full();
-        assert_ne!(data1, "");
-        if test_helper::print() {
-            println!("{}", data1);
-        }
+        exec_mes("name::full", || {
+            name::full()
+        });
     }
 
     #[test]
     fn first() {
-        let data1 = name::first();
-        assert_ne!(data1, "");
-        if test_helper::print() {
-            println!("{}", data1);
-        }
+        exec_mes("name::first", || {
+            name::first()
+        });
     }
 
     #[test]
     fn last() {
-        let data1 = name::last();
-        assert_ne!(data1, "");
-        if test_helper::print() {
-            println!("{}", data1);
-        }
+        exec_mes("name::last", || {
+            name::last()
+        });
     }
 
     #[test]
     fn prefix() {
-        let data1 = name::prefix();
-        assert_ne!(data1, "");
-        if test_helper::print() {
-            println!("{}", data1);
-        }
+        exec_mes("name::prefix", || {
+            name::prefix()
+        });
     }
 
     #[test]
     fn suffix() {
-        let data1 = name::suffix();
-        assert_ne!(data1, "");
-        if test_helper::print() {
-            println!("{}", data1);
-        }
+        exec_mes("name::suffix", || {
+            name::suffix()
+        });
     }
 }

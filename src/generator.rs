@@ -47,15 +47,12 @@ fn resolve_tag(tag: &str) -> String {
 #[cfg(test)]
 mod tests {
     use crate::generator;
-    use crate::test_helper;
+    use crate::testify::exec_mes;
 
     #[test]
     fn generate() {
-        let new =
-            generator::generate("{person.first} {person.last} {contact.email} #?#?#?".to_string());
-
-        if test_helper::print() {
-            println!("{}", new);
-        }
+        exec_mes("beer::name", || {
+            generator::generate("{person.first} {person.last} {contact.email} #?#?#?".to_string())
+        });
     }
 }

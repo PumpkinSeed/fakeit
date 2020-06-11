@@ -83,64 +83,53 @@ fn title(s: String) -> String {
 mod tests {
     use crate::words;
     use crate::test_helper;
+    use crate::testify::exec_mes;
 
     #[test]
     fn word() {
-        let data1 = words::word();
-        assert_ne!(data1, "");
-        if test_helper::print() {
-            println!("{}", data1);
-        }
+        exec_mes("words::word", || {
+            words::word()
+        });
     }
 
     #[test]
     fn sentence() {
-        let data1 = words::sentence(10);
-        assert_ne!(data1, "");
-        if test_helper::print() {
-            println!("{}", data1);
-        }
+        exec_mes("words::sentence", || {
+            words::sentence(10)
+        });
     }
 
     #[test]
     fn paragraph() {
-        let data1 = words::paragraph(5, 4, 11, "\n".to_string());
-        assert_ne!(data1, "");
-        if test_helper::print() {
-            println!("{}", data1);
-        }
+        exec_mes("words::paragraph", || {
+            words::paragraph(5, 4, 11, "\n".to_string())
+        });
     }
 
     #[test]
     fn question() {
-        let data1 = words::question();
-        assert_ne!(data1, "");
-        if test_helper::print() {
-            println!("{}", data1);
-        }
+        exec_mes("words::question", || {
+            words::question()
+        });
     }
 
     #[test]
     fn quote() {
-        let data1 = words::quote();
-        assert_ne!(data1, "");
-        if test_helper::print() {
-            println!("{}", data1);
-        }
+        exec_mes("words::quote", || {
+            words::quote()
+        });
     }
 
     #[test]
     fn paragraph_generator() {
-        let opts = words::ParagraphOpts {
-            count: 5,
-            sentence_count: 4,
-            word_count: 11,
-            separator: "\n".to_string(),
-        };
-        let data1 = words::paragraph_generator(opts, &words::sentence);
-        assert_ne!(data1, "");
-        if test_helper::print() {
-            println!("{}", data1);
-        }
+        exec_mes("words::paragraph_generator", || {
+            let opts = words::ParagraphOpts {
+                count: 5,
+                sentence_count: 4,
+                word_count: 11,
+                separator: "\n".to_string(),
+            };
+            words::paragraph_generator(opts, &words::sentence)
+        });
     }
 }

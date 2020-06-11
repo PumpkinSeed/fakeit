@@ -27,41 +27,33 @@ pub fn bs() -> String {
 #[cfg(test)]
 mod tests {
     use crate::company;
-    use crate::test_helper;
+    use crate::testify::exec_mes;
 
     #[test]
     fn company() {
-        let data1 = company::company();
-        assert_ne!(data1, "");
-        if test_helper::print() {
-            println!("{}", data1);
-        }
+        exec_mes("company::company", || {
+            company::company()
+        });
     }
 
     #[test]
     fn company_suffix() {
-        let data1 = company::company_suffix();
-        assert_ne!(data1, "");
-        if test_helper::print() {
-            println!("{}", data1);
-        }
+        exec_mes("company::company_suffix", || {
+            company::company_suffix()
+        });
     }
 
     #[test]
     fn buzzword() {
-        let data1 = company::buzzword();
-        assert_ne!(data1, "");
-        if test_helper::print() {
-            println!("{}", data1);
-        }
+        exec_mes("company::buzzword", || {
+            company::buzzword()
+        });
     }
 
     #[test]
     fn bs() {
-        let data1 = company::bs();
-        assert_ne!(data1, "");
-        if test_helper::print() {
-            println!("{}", data1);
-        }
+        exec_mes("company::bs", || {
+            company::bs()
+        });
     }
 }

@@ -58,41 +58,33 @@ pub fn credit_card_cvv() -> String {
 #[cfg(test)]
 mod tests {
     use crate::payment;
-    use crate::test_helper;
+    use crate::testify::exec_mes;
 
     #[test]
     fn credit_card_type() {
-        let data1 = payment::credit_card_type();
-        assert_ne!(data1, "");
-        if test_helper::print() {
-            println!("{}", data1);
-        }
+        exec_mes("payment::credit_card_type", || {
+            payment::credit_card_type()
+        });
     }
 
     #[test]
     fn credit_card_number() {
-        let data1 = payment::credit_card_number();
-        assert_ne!(data1, "");
-        if test_helper::print() {
-            println!("{}", data1);
-        }
+        exec_mes("payment::credit_card_number", || {
+            payment::credit_card_number()
+        });
     }
 
     #[test]
     fn credit_card_exp() {
-        let data1 = payment::credit_card_exp();
-        assert_ne!(data1, "");
-        if test_helper::print() {
-            println!("{}", data1);
-        }
+        exec_mes("payment::credit_card_exp", || {
+            payment::credit_card_exp()
+        });
     }
 
     #[test]
     fn credit_card_cvv() {
-        let data1 = payment::credit_card_cvv();
-        assert_ne!(data1, "");
-        if test_helper::print() {
-            println!("{}", data1);
-        }
+        exec_mes("payment::credit_card_cvv", || {
+            payment::credit_card_cvv()
+        });
     }
 }

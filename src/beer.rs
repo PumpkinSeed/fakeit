@@ -36,77 +36,61 @@ pub fn blg() -> String {
 #[cfg(test)]
 mod tests {
     use crate::beer;
-    use crate::test_helper;
+    use crate::testify::exec_mes;
 
     #[test]
     fn name() {
-        let data1 = beer::name();
-        assert_ne!(data1, "");
-        if test_helper::print() {
-            println!("{}", data1);
-        }
+        exec_mes("beer::name", || {
+            beer::name()
+        });
     }
 
     #[test]
     fn style() {
-        let data1 = beer::style();
-        assert_ne!(data1, "");
-        if test_helper::print() {
-            println!("{}", data1);
-        }
+        exec_mes("beer::style", || {
+            beer::style()
+        });
     }
 
     #[test]
     fn hop() {
-        let data1 = beer::hop();
-        assert_ne!(data1, "");
-        if test_helper::print() {
-            println!("{}", data1);
-        }
+        exec_mes("beer::hop", || {
+            beer::hop()
+        });
     }
 
     #[test]
     fn yeast() {
-        let data1 = beer::yeast();
-        assert_ne!(data1, "");
-        if test_helper::print() {
-            println!("{}", data1);
-        }
+        exec_mes("beer::yeast", || {
+            beer::yeast()
+        });
     }
 
     #[test]
     fn malt() {
-        let data1 = beer::malt();
-        assert_ne!(data1, "");
-        if test_helper::print() {
-            println!("{}", data1);
-        }
+        exec_mes("beer::malt", || {
+            beer::malt()
+        });
     }
 
     #[test]
     fn ibu() {
-        let data1 = beer::ibu();
-        assert_ne!(data1, "");
-        if test_helper::print() {
-            println!("{}", data1);
-        }
+        exec_mes("beer::ibu", || {
+            beer::ibu()
+        });
     }
 
     #[test]
     fn alcohol() {
-        let data1 = beer::alcohol();
-        assert_ne!(data1, "");
-        if test_helper::print() {
-            println!("{}", data1);
-        }
+        exec_mes("beer::alcohol", || {
+            beer::alcohol()
+        });
     }
 
     #[test]
     fn blg() {
-        let data1 = beer::blg();
-        assert_ne!(data1, "");
-        if test_helper::print() {
-            println!("{}", data1);
-        }
+        exec_mes("beer::blg", || {
+            beer::blg()
+        });
     }
 }

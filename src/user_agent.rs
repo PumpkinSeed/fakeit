@@ -111,77 +111,61 @@ pub fn random_platform() -> String {
 #[cfg(test)]
 mod tests {
     use crate::user_agent;
-    use crate::test_helper;
+    use crate::testify::exec_mes;
 
     #[test]
     fn chrome() {
-        let data1 = user_agent::chrome();
-        assert_ne!(data1, "");
-        if test_helper::print() {
-            println!("{}", data1);
-        }
+        exec_mes("user_agent::chrome", || {
+            user_agent::chrome()
+        });
     }
 
     #[test]
     fn firefox() {
-        let data1 = user_agent::firefox();
-        assert_ne!(data1, "");
-        if test_helper::print() {
-            println!("{}", data1);
-        }
+        exec_mes("user_agent::firefox", || {
+            user_agent::firefox()
+        });
     }
 
     #[test]
     fn safari() {
-        let data1 = user_agent::safari();
-        assert_ne!(data1, "");
-        if test_helper::print() {
-            println!("{}", data1);
-        }
+        exec_mes("user_agent::safari", || {
+            user_agent::safari()
+        });
     }
 
     #[test]
     fn opera() {
-        let data1 = user_agent::opera();
-        assert_ne!(data1, "");
-        if test_helper::print() {
-            println!("{}", data1);
-        }
+        exec_mes("user_agent::opera", || {
+            user_agent::opera()
+        });
     }
 
     #[test]
     fn linux_platform_token() {
-        let data1 = user_agent::linux_platform_token();
-        assert_ne!(data1, "");
-        if test_helper::print() {
-            println!("{}", data1);
-        }
+        exec_mes("user_agent::linux_platform_token", || {
+            user_agent::linux_platform_token()
+        });
     }
 
     #[test]
     fn mac_platform_token() {
-        let data1 = user_agent::mac_platform_token();
-        assert_ne!(data1, "");
-        if test_helper::print() {
-            println!("{}", data1);
-        }
+        exec_mes("user_agent::mac_platform_token", || {
+            user_agent::mac_platform_token()
+        });
     }
 
     #[test]
     fn windows_platform_token() {
-        let data1 = user_agent::windows_platform_token();
-        assert_ne!(data1, "");
-        if test_helper::print() {
-            println!("{}", data1);
-        }
+        exec_mes("user_agent::windows_platform_token", || {
+            user_agent::windows_platform_token()
+        });
     }
 
     #[test]
     fn random_platform() {
-        let data1 = user_agent::random_platform();
-        assert_ne!(data1, "");
-        if test_helper::print() {
-            println!("{}", data1);
-        }
+        exec_mes("user_agent::random_platform", || {
+            user_agent::random_platform()
+        });
     }
 }

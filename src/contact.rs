@@ -38,32 +38,26 @@ pub fn email() -> String {
 #[cfg(test)]
 mod tests {
     use crate::contact;
-    use crate::test_helper;
+    use crate::testify::exec_mes;
 
     #[test]
     fn phone() {
-        let data1 = contact::phone();
-        assert_ne!(data1, "");
-        if test_helper::print() {
-            println!("{}", data1);
-        }
+        exec_mes("contact::phone", || {
+            contact::phone()
+        });
     }
 
     #[test]
     fn phone_formatted() {
-        let data1 = contact::phone_formatted();
-        assert_ne!(data1, "");
-        if test_helper::print() {
-            println!("{}", data1);
-        }
+        exec_mes("contact::phone_formatted", || {
+            contact::phone_formatted()
+        });
     }
 
     #[test]
     fn email() {
-        let data1 = contact::email();
-        assert_ne!(data1, "");
-        if test_helper::print() {
-            println!("{}", data1);
-        }
+        exec_mes("contact::email", || {
+            contact::email()
+        });
     }
 }

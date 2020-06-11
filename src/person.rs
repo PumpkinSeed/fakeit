@@ -47,23 +47,19 @@ pub fn gender() -> String {
 #[cfg(test)]
 mod tests {
     use crate::person;
-    use crate::test_helper;
+    use crate::testify::exec_mes;
 
     #[test]
     fn ssn() {
-        let data1 = person::ssn();
-        assert_ne!(data1, "");
-        if test_helper::print() {
-            println!("{}", data1);
-        }
+        exec_mes("person::ssn", || {
+            person::ssn()
+        });
     }
 
     #[test]
     fn gender() {
-        let data1 = person::gender();
-        assert_ne!(data1, "");
-        if test_helper::print() {
-            println!("{}", data1);
-        }
+        exec_mes("person::gender", || {
+            person::gender()
+        });
     }
 }

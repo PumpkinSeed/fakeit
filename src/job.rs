@@ -33,32 +33,26 @@ pub fn level() -> String {
 #[cfg(test)]
 mod tests {
     use crate::job;
-    use crate::test_helper;
+    use crate::testify::exec_mes;
 
     #[test]
     fn title() {
-        let data1 = job::title();
-        assert_ne!(data1, "");
-        if test_helper::print() {
-            println!("{}", data1);
-        }
+        exec_mes("job::title", || {
+            job::title()
+        });
     }
 
     #[test]
     fn descriptor() {
-        let data1 = job::descriptor();
-        assert_ne!(data1, "");
-        if test_helper::print() {
-            println!("{}", data1);
-        }
+        exec_mes("job::descriptor", || {
+            job::descriptor()
+        });
     }
 
     #[test]
     fn level() {
-        let data1 = job::level();
-        assert_ne!(data1, "");
-        if test_helper::print() {
-            println!("{}", data1);
-        }
+        exec_mes("job::level", || {
+            job::level()
+        });
     }
 }
