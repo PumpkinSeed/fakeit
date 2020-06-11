@@ -116,139 +116,110 @@ pub fn longitude_in_range(min: f32, max: f32) -> f32 {
 mod tests {
     use crate::address;
     use crate::test_helper;
+    use crate::testify::exec_mes;
 
     #[test]
     fn street() {
-        let data1 = address::street();
-        assert_ne!(data1, "");
-        if test_helper::print() {
-            println!("{}", data1);
-        }
+        exec_mes("street", || {
+            address::street()
+        });
     }
 
     #[test]
     fn street_number() {
-        let data1 = address::street_number();
-        assert_ne!(data1, "");
-        if test_helper::print() {
-            println!("{}", data1);
-        }
+        exec_mes("street_number", || {
+            address::street_number()
+        });
     }
 
     #[test]
     fn street_prefix() {
-        let data1 = address::street_prefix();
-        assert_ne!(data1, "");
-        if test_helper::print() {
-            println!("{}", data1);
-        }
+        exec_mes("street_prefix", || {
+            address::street_prefix()
+        });
     }
 
     #[test]
     fn street_name() {
-        let data1 = address::street_name();
-        assert_ne!(data1, "");
-        if test_helper::print() {
-            println!("{}", data1);
-        }
+        exec_mes("street_name", || {
+            address::street_name()
+        });
     }
 
     #[test]
     fn street_suffix() {
-        let data1 = address::street_suffix();
-        assert_ne!(data1, "");
-        if test_helper::print() {
-            println!("{}", data1);
-        }
+        exec_mes("street_suffix", || {
+            address::street_suffix()
+        });
     }
 
     #[test]
     fn city() {
-        let data1 = address::city();
-        assert_ne!(data1, "");
-        if test_helper::print() {
-            println!("{}", data1);
-        }
+        exec_mes("city", || {
+            address::city()
+        });
     }
 
     #[test]
     fn state() {
-        let data1 = address::state();
-        assert_ne!(data1, "");
-        if test_helper::print() {
-            println!("{}", data1);
-        }
+        exec_mes("state", || {
+            address::state()
+        });
     }
 
     #[test]
     fn state_abr() {
-        let data1 = address::state_abr();
-        assert_ne!(data1, "");
-        if test_helper::print() {
-            println!("{}", data1);
-        }
+        exec_mes("state_abr", || {
+            address::state_abr()
+        });
     }
 
     #[test]
     fn zip() {
-        let data1 = address::zip();
-        assert_ne!(data1, "");
-        if test_helper::print() {
-            println!("{}", data1);
-        }
+        exec_mes("zip", || {
+            address::zip()
+        });
     }
 
     #[test]
     fn country() {
-        let data1 = address::country();
-        assert_ne!(data1, "");
-        if test_helper::print() {
-            println!("{}", data1);
-        }
+        exec_mes("country", || {
+            address::country()
+        });
     }
 
     #[test]
     fn country_abr() {
-        let data1 = address::country_abr();
-        assert_ne!(data1, "");
-        if test_helper::print() {
-            println!("{}", data1);
-        }
+        exec_mes("country_abr", || {
+            address::country_abr()
+        });
     }
 
     #[test]
     fn latitude() {
-        let data1 = address::latitude();
-        assert_ne!(data1, 0 as f32);
-        if test_helper::print() {
-            println!("{}", data1);
-        }
+        exec_mes("latitude", || {
+            format!("{}", address::latitude())
+        });
     }
 
     #[test]
     fn latitude_in_range() {
-        let data1 = address::latitude_in_range(-30.0, 30.0);
-        assert_ne!(data1, 0 as f32);
-        if test_helper::print() {
-            println!("{}", data1);
-        }
+        exec_mes("latitude_in_range", || {
+            format!("{}", address::latitude_in_range(-30.0, 30.0))
+        });
     }
 
     #[test]
     fn longitude() {
-        let data1 = address::longitude();
-        assert_ne!(data1, 0 as f32);
-        if test_helper::print() {
-            println!("{}", data1);
-        }
+        exec_mes("longitude", || {
+            format!("{}", address::longitude())
+        });
     }
 
     #[test]
     fn longitude_in_range() {
-        let data1 = address::longitude_in_range(-30.0, 30.0);
-        assert_ne!(data1, 0 as f32);
-        if test_helper::print() {
-            println!("{}", data1);
-        }
+        exec_mes("longitude_in_range", || {
+            format!("{}", address::longitude_in_range(-30.0, 30.0))
+        });
     }
 }

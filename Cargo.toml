@@ -15,7 +15,6 @@ harness = false
 
 [dependencies]
 rand = "0.6.5"
-bencher = "0.1.5"
 libmath = "0.2.1"
 chrono = "0.4"
 uuid = { version = "0.8", features = ["v1", "v4"] }
