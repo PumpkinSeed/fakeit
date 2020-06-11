@@ -98,6 +98,16 @@ pub fn random_char_from_string(s: &[u8]) -> char {
 mod tests {
     use crate::data::address;
     use crate::misc;
+    // use crate::testify::{exec_mes, rng};
+    // use rand::{Rng};
+
+    // #[test]
+    // fn random_mesaurement() {
+    //     exec_mes("random_mesaurement", || {
+    //         let n: usize = rng.gen_range(0, 399);
+    //         format!("{}", n)
+    //     });
+    // }
 
     #[test]
     fn random_data_str() {
