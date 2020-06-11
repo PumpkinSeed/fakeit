@@ -31,9 +31,3 @@ pub mod vehicle;
 pub mod words;
 
 pub mod testify;
-
-mod test_helper {
-    pub fn print() -> bool {
-        true
-    }
-}
