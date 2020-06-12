@@ -16,11 +16,11 @@ impl Rng {
         Rng{
             tap: 0,
             feed: RNG_LEN - RNG_TAP,
-            vec: Vec::new(),
+            vec: RNG_COOKED.to_vec(),
         }
     }
 
-    pub fn seed(mut self, mut s: i64) {
+    pub fn seed(mut self, mut s: i64) -> Self {
         self.tap = 0;
         self.feed = RNG_LEN - RNG_TAP;
 
@@ -33,10 +33,9 @@ impl Rng {
         }
 
         let mut x: i32 = s as i32;
-        for i in 0..RNG_LEN+20 {
-            let i_normal = i - 20;
+        for i in 0..RNG_LEN {
             x = seedrand(x);
-            if i_normal >= 0 {
+            if i >= 20 {
                 let mut x64 = x as i64;
                 let mut u: i64 = x64 << 40;
                 
@@ -51,10 +50,11 @@ impl Rng {
                 self.vec[i] = u;
             }
         }
+        self
     }
 
     pub fn u64(mut self) -> u64 {
-        self.tap = self.tap - 1;
+        // self.tap = self.tap - 1;
         if self.tap < 0 {
             self.tap += RNG_LEN;
         }
@@ -80,7 +80,7 @@ fn seedrand(mut x: i32) -> i32 {
     let lo: i32 = x % Q;
     x = A*lo - R*hi;
     if x < 0 {
-        x = x + I32_MAX;
+        x = I32_MAX;
     }
  
     x
@@ -244,12 +244,20 @@ const RNG_COOKED: [i64; RNG_LEN] = [
 #[cfg(test)]
 mod tests {
     use crate::rand;
+    use std::time::Instant;
 
     #[test]
-    fn rd() {
-        let r = rand::Rng::new();
-        // r.seed(5234234234);
+    fn own_rand() {
+        
+        let r = rand::Rng{
+            tap: 0,
+            feed: rand::RNG_LEN - rand::RNG_TAP,
+            vec: rand::RNG_COOKED.to_vec(),
+        };
+        let rr = r.seed(5234234234);
+        let now = Instant::now();
+        println!("{}", rr.u64());
 
-        println!("{}", r.u64())
+        println!("elapsed time: {:.2?}", now.elapsed());
     }
 }
