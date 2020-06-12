@@ -1,6 +1,4 @@
 #![allow(dead_code)]
-#[macro_use]
-extern crate lazy_static;
 
 pub mod address;
 pub mod animal;
@@ -33,4 +31,4 @@ pub mod vehicle;
 pub mod words;
 
 pub mod testify;
-pub mod rand;
+// pub mod rand;
