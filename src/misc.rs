@@ -1,28 +1,24 @@
 extern crate rand;
+extern crate simplerand;
 
-use rand::seq::SliceRandom;
-use rand::{thread_rng, Rng};
 use std::clone::Clone;
+use simplerand::{rand_range, Randomable};
 
 pub const HASHTAG: &str = "#";
 pub const QUESTIONMARK: &str = "?";
 
 pub fn random_data<T: Clone>(d: &[T]) -> T {
-    let mut rng = thread_rng();
-    let n: usize = rng.gen_range(0, d.len());
-
-    let res = d[n].clone();
+    let n = rand_range(0, d.len() as i64);
+    let res = d[n as usize].clone();
     res
 }
 
 pub fn random_data_index<T>(d: &[T]) -> usize {
-    let mut rng = thread_rng();
-    rng.gen_range(0, d.len())
+    rand_range(0, d.len() as i64) as usize
 }
 
-pub fn random<T: rand::distributions::uniform::SampleUniform>(min: T, max: T) -> T {
-    let mut rng = thread_rng();
-    rng.gen_range(min, max)
+pub fn random<T: Randomable>(min: T, max: T) -> T {
+    rand_range::<T>(min, max)
 }
 
 pub fn replace_with_numbers(s: String) -> String {
@@ -90,24 +86,27 @@ pub fn replace_with_letter(s: String) -> String {
 }
 
 pub fn random_char_from_string(s: &[u8]) -> char {
-    let mut r = thread_rng();
-    s.choose(&mut r).cloned().unwrap().into()
+    let end_boundry = s.len() - 1;
+    let n = rand_range(0, end_boundry as i64);
+    s[n as usize] as char
 }
 
 #[cfg(test)]
 mod tests {
     use crate::data::address;
     use crate::misc;
-    // use crate::testify::{exec_mes, rng};
-    // use rand::{Rng};
 
-    // #[test]
-    // fn random_mesaurement() {
-    //     exec_mes("random_mesaurement", || {
-    //         let n: usize = rng.gen_range(0, 399);
-    //         format!("{}", n)
-    //     });
-    // }
+    #[test]
+    fn random_data_test() {
+        let mut street1 = misc::random_data(address::STREET_NAME);
+        println!("{}", street1);
+
+        street1 = misc::random_data(address::STREET_NAME);
+        println!("{}", street1);
+
+        street1 = misc::random_data(address::STREET_NAME);
+        println!("{}", street1);
+    }
 
     #[test]
     fn random_data_str() {

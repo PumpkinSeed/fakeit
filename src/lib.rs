@@ -31,4 +31,3 @@ pub mod vehicle;
 pub mod words;
 
 pub mod testify;
-// pub mod rand;
