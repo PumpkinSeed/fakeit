@@ -1,11 +1,8 @@
 extern crate rand;
 extern crate simplerand;
 
-// use rand::seq::SliceRandom;
-// use rand::{Rng};
-// use rand::prelude::*;
 use std::clone::Clone;
-use simplerand::{rand_range};
+use simplerand::{rand_range, Randomable};
 
 pub const HASHTAG: &str = "#";
 pub const QUESTIONMARK: &str = "?";
@@ -20,8 +17,10 @@ pub fn random_data_index<T>(d: &[T]) -> usize {
     rand_range(0, d.len() as i64) as usize
 }
 
-pub fn random<T: rand::distributions::uniform::SampleUniform>(min: T, max: T) -> T {
-    rand_range(min as i64, max)
+pub fn random<T: Randomable>(min: T, max: T) -> T {
+    // let mut rng = thread_rng();
+    // rng.gen_range(min, max)
+    rand_range::<T>(min, max)
 }
 
 pub fn replace_with_numbers(s: String) -> String {
@@ -89,8 +88,9 @@ pub fn replace_with_letter(s: String) -> String {
 }
 
 pub fn random_char_from_string(s: &[u8]) -> char {
-    let mut r = thread_rng();
-    s.choose(&mut r).cloned().unwrap().into()
+    let end_boundry = s.len() - 1;
+    let n = rand_range(0, end_boundry as i64);
+    s[n as usize] as char
 }
 
 #[cfg(test)]
