@@ -18,8 +18,6 @@ pub fn random_data_index<T>(d: &[T]) -> usize {
 }
 
 pub fn random<T: Randomable>(min: T, max: T) -> T {
-    // let mut rng = thread_rng();
-    // rng.gen_range(min, max)
     rand_range::<T>(min, max)
 }
 
