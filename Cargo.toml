@@ -1,6 +1,6 @@
 [package]
 name = "fakeit"
-version = "1.0.0"
+version = "1.1.0"
 authors = ["PumpkinSeed <qwer.kocka@gmail.com>"]
 edition = "2018"
 description = "Fake data generator library with 130+ functions"
