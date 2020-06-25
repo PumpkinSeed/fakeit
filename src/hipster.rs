@@ -21,16 +21,12 @@ mod tests {
 
     #[test]
     fn word() {
-        exec_mes("hipster::word", || {
-            hipster::word()
-        });
+        exec_mes("hipster::word", || hipster::word());
     }
 
     #[test]
     fn sentence() {
-        exec_mes("hipster::sentence", || {
-            hipster::sentence(12)
-        });
+        exec_mes("hipster::sentence", || hipster::sentence(12));
     }
 
     #[test]

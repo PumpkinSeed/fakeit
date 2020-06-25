@@ -1,8 +1,8 @@
 extern crate rand;
 extern crate simplerand;
 
-use std::clone::Clone;
 use simplerand::{rand_range, Randomable};
+use std::clone::Clone;
 
 pub const HASHTAG: &str = "#";
 pub const QUESTIONMARK: &str = "?";
@@ -75,7 +75,7 @@ pub fn replace_with_letter(s: String) -> String {
         .split("")
         .map(|s| {
             if s == QUESTIONMARK {
-                let i = random::<usize>(0, letters.len()-1);
+                let i = random::<usize>(0, letters.len() - 1);
                 return letters[i].to_string();
             }
             s.to_string()

@@ -48,29 +48,21 @@ mod tests {
 
     #[test]
     fn full() {
-        exec_mes("color::full", || {
-            color::full()
-        });
+        exec_mes("color::full", || color::full());
     }
 
     #[test]
     fn hex() {
-        exec_mes("color::hex", || {
-            color::hex()
-        });
+        exec_mes("color::hex", || color::hex());
     }
 
     #[test]
     fn safe() {
-        exec_mes("color::safe", || {
-            color::safe()
-        });
+        exec_mes("color::safe", || color::safe());
     }
 
     #[test]
     fn rgb() {
-        exec_mes("color::rgb", || {
-            format!("{:?}", color::rgb())
-        });
+        exec_mes("color::rgb", || format!("{:?}", color::rgb()));
     }
 }

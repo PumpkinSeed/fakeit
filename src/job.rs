@@ -37,22 +37,16 @@ mod tests {
 
     #[test]
     fn title() {
-        exec_mes("job::title", || {
-            job::title()
-        });
+        exec_mes("job::title", || job::title());
     }
 
     #[test]
     fn descriptor() {
-        exec_mes("job::descriptor", || {
-            job::descriptor()
-        });
+        exec_mes("job::descriptor", || job::descriptor());
     }
 
     #[test]
     fn level() {
-        exec_mes("job::level", || {
-            job::level()
-        });
+        exec_mes("job::level", || job::level());
     }
 }

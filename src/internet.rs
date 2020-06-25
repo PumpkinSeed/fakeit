@@ -73,30 +73,22 @@ mod tests {
 
     #[test]
     fn domain_name() {
-        exec_mes("internet::domain_name", || {
-            internet::domain_name()
-        });
+        exec_mes("internet::domain_name", || internet::domain_name());
     }
 
     #[test]
     fn http_method() {
-        exec_mes("internet::http_method", || {
-            internet::http_method()
-        });
+        exec_mes("internet::http_method", || internet::http_method());
     }
 
     #[test]
     fn domain_suffix() {
-        exec_mes("internet::domain_suffix", || {
-            internet::domain_suffix()
-        });
+        exec_mes("internet::domain_suffix", || internet::domain_suffix());
     }
 
     #[test]
     fn ipv4_address() {
-        exec_mes("internet::ipv4_address", || {
-            internet::ipv4_address()
-        });
+        exec_mes("internet::ipv4_address", || internet::ipv4_address());
 
         let data1 = internet::ipv4_address();
         let data2 = internet::ipv4_address();
@@ -105,9 +97,7 @@ mod tests {
 
     #[test]
     fn ipv6_address() {
-        exec_mes("internet::ipv6_address", || {
-            internet::ipv6_address()
-        });
+        exec_mes("internet::ipv6_address", || internet::ipv6_address());
 
         let data1 = internet::ipv6_address();
         let data2 = internet::ipv6_address();
@@ -116,9 +106,7 @@ mod tests {
 
     #[test]
     fn mac_address() {
-        exec_mes("internet::mac_address", || {
-            internet::mac_address()
-        });
+        exec_mes("internet::mac_address", || internet::mac_address());
 
         let data1 = internet::mac_address();
         let data2 = internet::mac_address();
@@ -127,8 +115,6 @@ mod tests {
 
     #[test]
     fn username() {
-        exec_mes("internet::username", || {
-            internet::username()
-        });
+        exec_mes("internet::username", || internet::username());
     }
 }

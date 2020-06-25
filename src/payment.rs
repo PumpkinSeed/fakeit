@@ -62,9 +62,7 @@ mod tests {
 
     #[test]
     fn credit_card_type() {
-        exec_mes("payment::credit_card_type", || {
-            payment::credit_card_type()
-        });
+        exec_mes("payment::credit_card_type", || payment::credit_card_type());
     }
 
     #[test]
@@ -76,15 +74,11 @@ mod tests {
 
     #[test]
     fn credit_card_exp() {
-        exec_mes("payment::credit_card_exp", || {
-            payment::credit_card_exp()
-        });
+        exec_mes("payment::credit_card_exp", || payment::credit_card_exp());
     }
 
     #[test]
     fn credit_card_cvv() {
-        exec_mes("payment::credit_card_cvv", || {
-            payment::credit_card_cvv()
-        });
+        exec_mes("payment::credit_card_cvv", || payment::credit_card_cvv());
     }
 }

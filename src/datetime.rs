@@ -60,16 +60,16 @@ pub fn date_range(min: String, max: String) -> DateTime<Utc> {
     let max_nano = DateTime::parse_from_rfc3339(&max)
         .unwrap()
         .timestamp_nanos();
-    let ns = misc::random(min_nano, max_nano-10_000_000_000);
+    let ns = misc::random(min_nano, max_nano - 10_000_000_000);
     let secs = (ns / 1_000_000_000) as i64;
-    let mut nsecs= (ns - (secs * 1_000_000_000)) as u32;
-    
+    let mut nsecs = (ns - (secs * 1_000_000_000)) as u32;
+
     // This case will cause the `NaiveDateTime::from_timestamp` function to panic.
     // So we just roll it back to the maximum allowed value.
     if nsecs >= 2_000_000_000 {
         nsecs = 1_999_999_999;
     }
-    
+
     DateTime::<Utc>::from_utc(NaiveDateTime::from_timestamp(secs, nsecs as u32), Utc)
 }
 
@@ -87,30 +87,22 @@ mod tests {
 
     #[test]
     fn timezone() {
-        exec_mes("datetime::timezone", || {
-            datetime::timezone()
-        });
+        exec_mes("datetime::timezone", || datetime::timezone());
     }
 
     #[test]
     fn timezone_full() {
-        exec_mes("datetime::timezone_full", || {
-            datetime::timezone_full()
-        });
+        exec_mes("datetime::timezone_full", || datetime::timezone_full());
     }
 
     #[test]
     fn timezone_abv() {
-        exec_mes("datetime::timezone_abv", || {
-            datetime::timezone_abv()
-        });
+        exec_mes("datetime::timezone_abv", || datetime::timezone_abv());
     }
 
     #[test]
     fn timezone_offset() {
-        exec_mes("datetime::timezone_offset", || {
-            datetime::timezone_offset()
-        });
+        exec_mes("datetime::timezone_offset", || datetime::timezone_offset());
     }
 
     #[test]

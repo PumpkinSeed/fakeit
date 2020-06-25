@@ -81,21 +81,17 @@ fn title(s: String) -> String {
 
 #[cfg(test)]
 mod tests {
-    use crate::words;
     use crate::testify::exec_mes;
+    use crate::words;
 
     #[test]
     fn word() {
-        exec_mes("words::word", || {
-            words::word()
-        });
+        exec_mes("words::word", || words::word());
     }
 
     #[test]
     fn sentence() {
-        exec_mes("words::sentence", || {
-            words::sentence(10)
-        });
+        exec_mes("words::sentence", || words::sentence(10));
     }
 
     #[test]
@@ -107,16 +103,12 @@ mod tests {
 
     #[test]
     fn question() {
-        exec_mes("words::question", || {
-            words::question()
-        });
+        exec_mes("words::question", || words::question());
     }
 
     #[test]
     fn quote() {
-        exec_mes("words::quote", || {
-            words::quote()
-        });
+        exec_mes("words::quote", || words::quote());
     }
 
     #[test]

@@ -20,22 +20,16 @@ mod tests {
 
     #[test]
     fn random() {
-        exec_mes("language::random", || {
-            language::random()
-        });
+        exec_mes("language::random", || language::random());
     }
 
     #[test]
     fn abbreviation() {
-        exec_mes("language::abbreviation", || {
-            language::abbreviation()
-        });
+        exec_mes("language::abbreviation", || language::abbreviation());
     }
 
     #[test]
     fn programming() {
-        exec_mes("language::programming", || {
-            language::programming()
-        });
+        exec_mes("language::programming", || language::programming());
     }
 }

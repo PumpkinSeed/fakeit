@@ -44,24 +44,19 @@ pub fn car_model() -> String {
     misc::random_data(vehicle::MODEL).to_string()
 }
 
-
 #[cfg(test)]
 mod tests {
-    use crate::vehicle;
     use crate::testify::exec_mes;
+    use crate::vehicle;
 
     #[test]
     fn vehicle_type() {
-        exec_mes("vehicle::vehicle_type", || {
-            vehicle::vehicle_type()
-        });
+        exec_mes("vehicle::vehicle_type", || vehicle::vehicle_type());
     }
 
     #[test]
     fn fuel() {
-        exec_mes("vehicle::fuel", || {
-            vehicle::fuel()
-        });
+        exec_mes("vehicle::fuel", || vehicle::fuel());
     }
 
     #[test]
@@ -73,15 +68,11 @@ mod tests {
 
     #[test]
     fn car_maker() {
-        exec_mes("vehicle::car_maker", || {
-            vehicle::car_maker()
-        });
+        exec_mes("vehicle::car_maker", || vehicle::car_maker());
     }
 
     #[test]
     fn car_model() {
-        exec_mes("vehicle::car_model", || {
-            vehicle::car_model()
-        });
+        exec_mes("vehicle::car_model", || vehicle::car_model());
     }
 }

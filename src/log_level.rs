@@ -20,22 +20,16 @@ mod tests {
 
     #[test]
     fn general() {
-        exec_mes("log_level::general", || {
-            log_level::general()
-        });
+        exec_mes("log_level::general", || log_level::general());
     }
 
     #[test]
     fn apache() {
-        exec_mes("log_level::apache", || {
-            log_level::apache()
-        });
+        exec_mes("log_level::apache", || log_level::apache());
     }
 
     #[test]
     fn syslog() {
-        exec_mes("log_level::syslog", || {
-            log_level::syslog()
-        });
+        exec_mes("log_level::syslog", || log_level::syslog());
     }
 }

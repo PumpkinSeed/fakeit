@@ -29,36 +29,26 @@ mod tests {
 
     #[test]
     fn full() {
-        exec_mes("name::full", || {
-            name::full()
-        });
+        exec_mes("name::full", || name::full());
     }
 
     #[test]
     fn first() {
-        exec_mes("name::first", || {
-            name::first()
-        });
+        exec_mes("name::first", || name::first());
     }
 
     #[test]
     fn last() {
-        exec_mes("name::last", || {
-            name::last()
-        });
+        exec_mes("name::last", || name::last());
     }
 
     #[test]
     fn prefix() {
-        exec_mes("name::prefix", || {
-            name::prefix()
-        });
+        exec_mes("name::prefix", || name::prefix());
     }
 
     #[test]
     fn suffix() {
-        exec_mes("name::suffix", || {
-            name::suffix()
-        });
+        exec_mes("name::suffix", || name::suffix());
     }
 }

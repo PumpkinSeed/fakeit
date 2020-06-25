@@ -22,20 +22,16 @@ pub fn uuid_v4() -> String {
 
 #[cfg(test)]
 mod tests {
-    use crate::unique;
     use crate::testify::exec_mes;
+    use crate::unique;
 
     #[test]
     fn uuid_v1() {
-        exec_mes("unique::uuid_v1", || {
-            unique::uuid_v1()
-        });
+        exec_mes("unique::uuid_v1", || unique::uuid_v1());
     }
 
     #[test]
     fn uuid_v4() {
-        exec_mes("unique::uuid_v4", || {
-            unique::uuid_v4()
-        });
+        exec_mes("unique::uuid_v4", || unique::uuid_v4());
     }
 }
