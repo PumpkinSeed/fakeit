@@ -46,7 +46,7 @@ mod tests {
     use crate::testify::exec_mes;
 
     #[test]
-    fn generate() {
+    fn password_generate() {
         exec_mes("password::generate", || {
             password::generate(true, true, true, 26)
         });
