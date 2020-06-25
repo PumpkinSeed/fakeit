@@ -42,22 +42,16 @@ mod tests {
 
     #[test]
     fn phone() {
-        exec_mes("contact::phone", || {
-            contact::phone()
-        });
+        exec_mes("contact::phone", || contact::phone());
     }
 
     #[test]
     fn phone_formatted() {
-        exec_mes("contact::phone_formatted", || {
-            contact::phone_formatted()
-        });
+        exec_mes("contact::phone_formatted", || contact::phone_formatted());
     }
 
     #[test]
     fn email() {
-        exec_mes("contact::email", || {
-            contact::email()
-        });
+        exec_mes("contact::email", || contact::email());
     }
 }

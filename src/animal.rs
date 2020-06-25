@@ -32,43 +32,31 @@ mod tests {
 
     #[test]
     fn pet_name() {
-        exec_mes("animal::pet_name", || {
-            animal::pet_name()
-        });
+        exec_mes("animal::pet_name", || animal::pet_name());
     }
 
     #[test]
     fn animal() {
-        exec_mes("animal::animal", || {
-            animal::animal()
-        });
+        exec_mes("animal::animal", || animal::animal());
     }
 
     #[test]
     fn type_of() {
-        exec_mes("animal::type_of", || {
-            animal::type_of()
-        });
+        exec_mes("animal::type_of", || animal::type_of());
     }
 
     #[test]
     fn farm() {
-        exec_mes("animal::farm", || {
-            animal::farm()
-        });
+        exec_mes("animal::farm", || animal::farm());
     }
 
     #[test]
     fn cat() {
-        exec_mes("animal::cat", || {
-            animal::cat()
-        });
+        exec_mes("animal::cat", || animal::cat());
     }
 
     #[test]
     fn dog() {
-        exec_mes("animal::dog", || {
-            animal::dog()
-        });
+        exec_mes("animal::dog", || animal::dog());
     }
 }

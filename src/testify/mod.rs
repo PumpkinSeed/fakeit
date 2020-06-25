@@ -5,7 +5,6 @@ use std::time::Instant;
 //     pub static ref rng: ThreadRng = ThreadRng::default();
 // }
 
-
 pub fn exec_mes(name: &str, f: fn() -> String) {
     let now = Instant::now();
     let res = f();

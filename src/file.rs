@@ -16,15 +16,11 @@ mod tests {
 
     #[test]
     fn mime_type() {
-        exec_mes("file::mime_type", || {
-            file::mime_type()
-        });
+        exec_mes("file::mime_type", || file::mime_type());
     }
 
     #[test]
     fn extension() {
-        exec_mes("file::extension", || {
-            file::extension()
-        });
+        exec_mes("file::extension", || file::extension());
     }
 }
