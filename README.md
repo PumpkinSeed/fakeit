@@ -120,7 +120,7 @@ fn main() {
 ```rust
 extern crate fakeit;
 
-use fakeit::beer;
+use fakeit::color;
 
 fn main() {
     let data = color::full(); // full: LightYellow
