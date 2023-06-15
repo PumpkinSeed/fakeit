@@ -70,7 +70,9 @@ pub fn date_range(min: String, max: String) -> DateTime<Utc> {
         nsecs = 1_999_999_999;
     }
 
-    DateTime::<Utc>::from_utc(NaiveDateTime::from_timestamp(secs, nsecs as u32), Utc)
+    let datetime = NaiveDateTime::from_timestamp_opt(secs, nsecs as u32)
+        .expect("invalid or out-of-range datetime");
+    DateTime::<Utc>::from_utc(datetime, Utc)
 }
 
 pub fn date() -> DateTime<Utc> {

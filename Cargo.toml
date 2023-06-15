@@ -16,6 +16,6 @@ harness = false
 [dependencies]
 rand = "0.6.5"
 libmath = "0.2.1"
-chrono = "0.4"
+chrono = { version = "0.4", default-features = false, features = ["clock"] }
 uuid = { version = "0.8", features = ["v1", "v4"] }
 simplerand = "1.2.0"
