@@ -1,8 +1,5 @@
-extern crate chrono;
-
 use crate::data::payment;
 use crate::misc;
-use chrono::{Datelike, Utc};
 
 pub struct CreditCard {
     type_of: String,
@@ -34,7 +31,7 @@ pub fn credit_card_luhn_number() -> String {
 }
 
 pub fn credit_card_exp() -> String {
-    let current_year = Utc::now().year() - 2000;
+    let current_year = misc::current_year() as i32 - 2000;
     let month = misc::random(1, 12);
     if month < 10 {
         format!(

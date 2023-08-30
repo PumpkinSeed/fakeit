@@ -3,6 +3,7 @@ extern crate simplerand;
 
 use simplerand::{rand_range, Randomable};
 use std::clone::Clone;
+use std::time::{SystemTime, UNIX_EPOCH};
 
 pub const HASHTAG: &str = "#";
 pub const QUESTIONMARK: &str = "?";
@@ -91,10 +92,24 @@ pub fn random_char_from_string(s: &[u8]) -> char {
     s[n as usize] as char
 }
 
+pub fn current_year() -> u16 {
+    let now = SystemTime::now()
+        .duration_since(UNIX_EPOCH)
+        .expect("system time before Unix epoch");
+    let secs = now.as_secs();
+    (secs / 60 / 60 / 24 / 365) as u16 + 1970
+}
+
 #[cfg(test)]
 mod tests {
     use crate::data::address;
     use crate::misc;
+    use crate::misc::current_year;
+
+    #[test]
+    fn test_current_year() {
+        println!("{}", current_year());
+    }
 
     #[test]
     fn random_data_test() {
