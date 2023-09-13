@@ -1,8 +1,5 @@
-extern crate chrono;
-
 use crate::data::vehicle;
 use crate::misc;
-use chrono::{Datelike, Utc};
 
 pub struct Info {
     vehicle_type: String,
@@ -20,7 +17,7 @@ pub fn info() -> Info {
         transmission_gear: transmission_gear(),
         brand: car_maker(),
         model: car_model(),
-        year: misc::random::<i32>(0, Utc::now().year()),
+        year: misc::random::<i32>(0, misc::current_year() as i32),
     }
 }
 
