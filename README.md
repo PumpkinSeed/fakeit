@@ -5,6 +5,34 @@
 
 Port of the famous [Go fakeit](https://github.com/brianvoe/gofakeit) library for Rust with more than 130 functions.
 
+### Warning
+
+v1.2.0 breaks the backward compatibility with the previous versions. The `chrono` package have been completely removed, so the following functions returns simplified structs:
+
+- `datetime::date_range("RFC3339", "RFC3339");`
+- `datetime::date();`
+
+There is the workaround to get the same behaviour as before: 
+
+```rust
+extern crate fakeit;
+extern crate chrono;
+
+use fakeit::datetime;
+use chrono::{DateTime, NaiveDateTime, Utc};
+
+fn main() {
+    let data = datetime::date_range("RFC3339", "RFC3339");
+    // OR
+    let data = datetime::date();
+
+    let datetime = NaiveDateTime::from_timestamp_opt(data.secs, data.nsecs)
+        .expect("invalid or out-of-range datetime");
+    let dt = DateTime::<Utc>::from_utc(datetime, Utc);
+    println!("{}", dt.to_rfc3339());
+}
+```
+
 ### Usage
 
 - [Crates.io/fakeit](https://crates.io/crates/fakeit)
@@ -195,8 +223,8 @@ fn main() {
     let data = datetime::timezone_full(); // timezone_full: (UTC-04:00) Atlantic Time (Canada)
     let data = datetime::timezone_abv(); // timezone_abv: BST
     let data = datetime::timezone_offset(); // timezone_offset: 13
-    let data = datetime::date_range("RFC3339", "RFC3339"); // date_range: 1979-01-06 23:03:10.918301212 UTC
-    let data = datetime::date(); // date: 1979-01-06 23:03:10.918301212 UTC
+    let data = datetime::date_range("RFC3339", "RFC3339"); // secs/nsecs to create chrono Datetime
+    let data = datetime::date(); // secs/nsecs to create chrono Datetime
 }
 ```
 

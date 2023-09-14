@@ -1,12 +1,9 @@
-extern crate chrono;
-
 use crate::data::datetime;
 use crate::misc;
-use chrono::{Datelike, Utc};
 use std::str::from_utf8;
 
 #[derive(Default, Debug, PartialEq)]
-pub struct DateTime2 {
+pub struct DateTime {
     pub secs: i64,
     pub nsecs: u32,
 }
@@ -59,7 +56,7 @@ pub fn timezone_offset() -> String {
     misc::random_data(datetime::OFFSET).to_string()
 }
 
-pub fn date_range(min: String, max: String) -> DateTime2 {
+pub fn date_range(min: String, max: String) -> DateTime {
     // RFC3339
     let min_nano = parse_from_rfc3339(min).unwrap();
     let max_nano = parse_from_rfc3339(max).unwrap();
@@ -73,17 +70,17 @@ pub fn date_range(min: String, max: String) -> DateTime2 {
         nsecs = 1_999_999_999;
     }
 
-    DateTime2 { secs, nsecs }
+    DateTime { secs, nsecs }
 
     // let datetime = NaiveDateTime::from_timestamp_opt(secs, nsecs as u32)
     //     .expect("invalid or out-of-range datetime");
     // DateTime::<Utc>::from_utc(datetime, Utc)
 }
 
-pub fn date() -> DateTime2 {
+pub fn date() -> DateTime {
     date_range(
         "1970-01-01T16:39:57-08:00".to_string(),
-        Utc::now().to_rfc3339(),
+        "2023-09-14T13:21:06-00:00".to_string(),
     )
 }
 
@@ -140,7 +137,6 @@ mod tests {
     use crate::datetime;
     use crate::datetime::parse_from_rfc3339;
     use crate::testify::exec_mes;
-    use chrono::DateTime;
 
     #[test]
     fn timezone() {
@@ -172,12 +168,13 @@ mod tests {
     #[test]
     fn test_parse() {
         let min = "1970-02-02T16:16:34-00:00".to_string();
-        let min_nano = DateTime::parse_from_rfc3339(&min)
-            .unwrap()
-            .timestamp_nanos();
-
         let min_nano_internal = parse_from_rfc3339(min).unwrap();
-        println!("Chrono: {}", min_nano);
         println!("Own:    {}", min_nano_internal);
+    }
+
+    #[test]
+    fn test_date() {
+        let date1 = datetime::date();
+        println!("{:?}", date1);
     }
 }
