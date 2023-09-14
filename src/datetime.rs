@@ -2,7 +2,14 @@ extern crate chrono;
 
 use crate::data::datetime;
 use crate::misc;
-use chrono::{DateTime, Datelike, NaiveDateTime, Utc};
+use chrono::{DateTime, Datelike, Utc};
+use std::str::from_utf8;
+
+#[derive(Default, Debug, PartialEq)]
+pub struct DateTime2 {
+    pub secs: i64,
+    pub nsecs: u32,
+}
 
 pub fn month() -> String {
     misc::random::<i8>(1, 12).to_string()
@@ -52,7 +59,7 @@ pub fn timezone_offset() -> String {
     misc::random_data(datetime::OFFSET).to_string()
 }
 
-pub fn date_range(min: String, max: String) -> DateTime<Utc> {
+pub fn date_range(min: String, max: String) -> DateTime2 {
     // RFC3339
     let min_nano = DateTime::parse_from_rfc3339(&min)
         .unwrap()
@@ -70,22 +77,73 @@ pub fn date_range(min: String, max: String) -> DateTime<Utc> {
         nsecs = 1_999_999_999;
     }
 
-    let datetime = NaiveDateTime::from_timestamp_opt(secs, nsecs as u32)
-        .expect("invalid or out-of-range datetime");
-    DateTime::<Utc>::from_utc(datetime, Utc)
+    DateTime2 { secs, nsecs }
+
+    // let datetime = NaiveDateTime::from_timestamp_opt(secs, nsecs as u32)
+    //     .expect("invalid or out-of-range datetime");
+    // DateTime::<Utc>::from_utc(datetime, Utc)
 }
 
-pub fn date() -> DateTime<Utc> {
+pub fn date() -> DateTime2 {
     date_range(
         "1970-01-01T16:39:57-08:00".to_string(),
         Utc::now().to_rfc3339(),
     )
 }
 
+#[derive(Debug)]
+struct InternalDateTime {
+    year: u16,
+    month: u8,
+    day: u8,
+    hour: u8,
+    min: u8,
+    sec: u8,
+}
+
+fn parse_from_rfc3339(str: String) -> Result<i64, String> {
+    let bytes = str.as_bytes();
+
+    let year = number_parse::<u16>(&bytes[0..4])?;
+
+    let dt = InternalDateTime {
+        year: number_parse::<u16>(&bytes[0..4])?,
+        month: number_parse::<u8>(&bytes[5..7])?,
+        day: number_parse::<u8>(&bytes[8..10])?,
+        hour: number_parse::<u8>(&bytes[11..13])?,
+        min: number_parse::<u8>(&bytes[14..16])?,
+        sec: number_parse::<u8>(&bytes[17..19])?,
+    };
+
+    println!("{:?}", dt);
+    let mut secs: i64 = 0;
+    secs += dt.sec as i64;
+    secs += dt.min as i64 * 60;
+    secs += dt.hour as i64 * 60 * 60;
+    secs += dt.day as i64 * 60 * 60 * 24;
+    secs += dt.month as i64 * 2_629_746;
+    secs += dt.year as i64 * 31_556_952 ;
+
+    Ok(secs)
+}
+
+fn number_parse<T: std::str::FromStr>(s: &[u8]) -> Result<T, String> {
+    let s_str = match from_utf8(s) {
+        Ok(s) => s,
+        Err(e) => return Err(e.to_string()),
+    };
+    match s_str.parse::<T>() {
+        Ok(y) => Ok(y),
+        Err(_e) => Err(String::from("Parsing the str to T failed")),
+    }
+}
+
 #[cfg(test)]
 mod tests {
     use crate::datetime;
+    use crate::datetime::parse_from_rfc3339;
     use crate::testify::exec_mes;
+    use chrono::DateTime;
 
     #[test]
     fn timezone() {
@@ -112,5 +170,17 @@ mod tests {
         let data1 = datetime::date();
         let data2 = datetime::date();
         assert_ne!(data1, data2);
+    }
+
+    #[test]
+    fn test_parse() {
+        let min = "1970-01-01T16:39:57-08:00".to_string();
+        let min_nano = DateTime::parse_from_rfc3339(&min)
+            .unwrap()
+            .timestamp_nanos();
+
+        let min_nano_internal = parse_from_rfc3339(min).unwrap();
+        println!("{}", min_nano);
+        println!("{}", min_nano_internal);
     }
 }
