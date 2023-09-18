@@ -26,8 +26,38 @@ pub fn credit_card_number() -> String {
 }
 
 pub fn credit_card_luhn_number() -> String {
-    // @TODO
-    return String::from("");
+    let mut cc_str = credit_card_number();
+    let mut cc_num = cc_str
+        .parse::<u64>()
+        .expect("generated bad credit card number");
+
+    // iterate until you hit a cc number that passes the luhn check
+    while !is_luhn(&cc_str) {
+        cc_num += 1;
+        cc_str = cc_num.to_string();
+    }
+
+    cc_str
+}
+
+// is_luhn check is used for checking if credit card is a valid luhn card
+fn is_luhn(cc_str: &String) -> bool {
+    let parity = cc_str.len() & 1;
+    let mut sum = 0;
+    for (i, ch) in cc_str.chars().enumerate() {
+        let Some(digit) = ch.to_digit(10) else {
+            return false;
+        };
+
+        if i & 1 != parity {
+            sum += digit;
+        } else if digit > 4 {
+            sum += digit * 2 - 9;
+        } else {
+            sum += digit * 2;
+        }
+    }
+    sum % 10 == 0
 }
 
 pub fn credit_card_exp() -> String {
@@ -66,6 +96,25 @@ mod tests {
     fn credit_card_number() {
         exec_mes("payment::credit_card_number", || {
             payment::credit_card_number()
+        });
+    }
+
+    #[test]
+    fn is_luhn() {
+        exec_mes("payment::is_luhn", || {
+            (if payment::is_luhn(&"4716685826369360".to_string()) {
+                "luhn"
+            } else {
+                ""
+            })
+            .to_string()
+        });
+    }
+
+    #[test]
+    fn credit_card_luhn_number() {
+        exec_mes("payment::credit_card_luhn_number", || {
+            payment::credit_card_luhn_number()
         });
     }
 
