@@ -442,12 +442,12 @@ fn main() {
     let data = string::letter(); // letter: l
     let data = string::letter_n(4); // letter_n: ailf
     let data = string::vowel(); // vowel: e
-    let data = string::digit(): // digit: 7
-    let data = string::digit_n(2): // digit_n: 92
-    let data = string::numerify("H#LL# W#RLD!!".to_owned()) // string: "H3LL7 W2RLD!!"
-    let data = string::lexify("H?LL? W?RLD!!".to_owned()) // string: "HoLLu WiRLD!!"
-    let data = string::shuffle_strings(test_strings) // [String]: shuffled array of given strings
-    let data = string::random_string(test_strings) // random_string: a random string from the given array
+    let data = string::digit(); // digit: 7
+    let data = string::digit_n(2); // digit_n: 92
+    let data = string::numerify("H#LL# W#RLD!!".to_owned()); // string: "H3LL7 W2RLD!!"
+    let data = string::lexify("H?LL? W?RLD!!".to_owned()); // string: "HoLLu WiRLD!!"
+    let data = string::shuffle_strings(test_strings); // [String]: shuffled array of given strings
+    let data = string::random_string(test_strings); // random_string: a random string from the given array
 }
 ```
 
