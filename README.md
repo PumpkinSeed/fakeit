@@ -63,6 +63,7 @@ fn main() {
 - [payment](#payment-6-functions)
 - [person](#person-3-functions)
 - [status code](#status-code-2-functions)
+- [string](#string-9-functions)
 - [unique](#unique-2-functions)
 - [user agent](#user-agent-8-functions)
 - [vehicle](#vehicle-6-functions)
@@ -427,6 +428,26 @@ use fakeit::status_code;
 fn main() {
     let data = status_code::simple(); // simple: 404
     let data = status_code::general(); // general: 400
+}
+```
+
+##### string (9 functions)
+
+```rust
+extern crate fakeit;
+
+use fakeit::string;
+
+fn main() {
+    let data = string::letter(); // letter: l
+    let data = string::letter_n(4); // letter_n: ailf
+    let data = string::vowel(); // vowel: e
+    let data = string::digit(): // digit: 7
+    let data = string::digit_n(2): // digit_n: 92
+    let data = string::numerify("H#LL# W#RLD!!".to_owned()) // string: "H3LL7 W2RLD!!"
+    let data = string::lexify("H?LL? W?RLD!!".to_owned()) // string: "HoLLu WiRLD!!"
+    let data = string::shuffle_strings(test_strings) // [String]: shuffled array of given strings
+    let data = string::random_string(test_strings) // random_string: a random string from the given array
 }
 ```
 
