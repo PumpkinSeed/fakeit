@@ -1,5 +1,5 @@
-use rand::Rng;
 use rand::seq::SliceRandom;
+use rand::Rng;
 
 use crate::data::string;
 use crate::misc;
@@ -20,7 +20,7 @@ pub fn letter_n(n: i32) -> String {
 
 fn rand_letter_n(n: i32) -> String {
     let mut values: String = String::from("");
-    let counter: i32 = if n == 0 {1} else {n};
+    let counter: i32 = if n == 0 { 1 } else { n };
 
     for _ in 0..counter {
         values = values + &*rand_letter();
@@ -53,7 +53,7 @@ pub fn digit_n(n: i32) -> String {
 
 fn rand_digit_n(n: i32) -> String {
     let mut values: String = String::from("");
-    let counter: i32 = if n == 0 {1} else {n};
+    let counter: i32 = if n == 0 { 1 } else { n };
 
     for _ in 0..counter {
         values = values + &*rand_digit();
@@ -62,17 +62,17 @@ fn rand_digit_n(n: i32) -> String {
 }
 
 // numerify will replace # with random numerical values
-pub fn numerify(initial_string:String) -> String {
+pub fn numerify(initial_string: String) -> String {
     misc::replace_with_numbers(initial_string)
 }
 
 // lexify will replace ? with random generated letters
-pub fn lexify(initial_string:String) -> String {
+pub fn lexify(initial_string: String) -> String {
     misc::replace_with_letter(initial_string)
 }
 
 // shuffle_strings will randomize a slice of strings
-pub fn shuffle_strings(s: &mut [String]){
+pub fn shuffle_strings(s: &mut [String]) {
     let mut rng = rand::thread_rng();
     s.shuffle(&mut rng)
 }
@@ -84,7 +84,7 @@ pub fn random_string(s: &mut [String]) -> String {
 
 fn return_random_string(s: &mut [String]) -> String {
     let mut rng = rand::thread_rng();
-    let rand_index = rng.gen_range(0, s.len()-1);
+    let rand_index = rng.gen_range(0, s.len() - 1);
     s[rand_index].clone()
 }
 
@@ -100,15 +100,15 @@ mod tests {
 
     #[test]
     fn letter_n() {
-        exec_mes("string::letter_n",|| string::letter_n(7));
+        exec_mes("string::letter_n", || string::letter_n(7));
         exec_mes("string::letter_n", || string::letter_n(3));
     }
-    
+
     #[test]
     fn vowel() {
         exec_mes("string::vowel", || string::vowel());
     }
-    
+
     #[test]
     fn digit() {
         exec_mes("string::digit", || string::digit());
@@ -122,12 +122,16 @@ mod tests {
 
     #[test]
     fn numerify() {
-        exec_mes("string::numerify", || string::numerify("H#LL# W#RLD!!".to_owned()));
+        exec_mes("string::numerify", || {
+            string::numerify("H#LL# W#RLD!!".to_owned())
+        });
     }
 
     #[test]
     fn lexify() {
-        exec_mes("string::lexify", || string::lexify("H?LL? W?RLD!!".to_owned()))
+        exec_mes("string::lexify", || {
+            string::lexify("H?LL? W?RLD!!".to_owned())
+        })
     }
 
     #[test]
@@ -137,14 +141,14 @@ mod tests {
             "second".to_string(),
             "third".to_string(),
             "fourth".to_string(),
-            "fifth".to_string()
+            "fifth".to_string(),
         ];
         let test_strings: &mut [String] = &mut [
             "first".to_string(),
             "second".to_string(),
             "third".to_string(),
             "fourth".to_string(),
-            "fifth".to_string()
+            "fifth".to_string(),
         ];
         string::shuffle_strings(test_strings);
         println!("{:?}", test_strings);
@@ -158,7 +162,7 @@ mod tests {
             "second".to_string(),
             "third".to_string(),
             "fourth".to_string(),
-            "fifth".to_string()
+            "fifth".to_string(),
         ];
         let return_string: String = string::random_string(stable_strings);
         println!("return string: {:?}", return_string);
