@@ -1,7 +1,7 @@
 use rand::Rng;
 use rand::seq::SliceRandom;
 
-use crate::helpers;
+use crate::data::string;
 use crate::misc;
 
 // letter will generate a single random lower case ASCII letter
@@ -10,7 +10,7 @@ pub fn letter() -> String {
 }
 
 fn rand_letter() -> String {
-    String::from(misc::random_data(helpers::LOWER_CASE))
+    String::from(misc::random_data(string::LOWER_CASE))
 }
 
 // letter_n will generate a random ASCII string with length N. Note that this function returns a string with a length of 1 when 0 is passed.
@@ -34,7 +34,7 @@ pub fn vowel() -> String {
 }
 
 fn rand_vowel() -> String {
-    String::from(misc::random_data(helpers::LOWER_VOWELS))
+    String::from(misc::random_data(string::LOWER_VOWELS))
 }
 
 // Digit will generate a single ASCII digit
@@ -43,7 +43,7 @@ pub fn digit() -> String {
 }
 
 fn rand_digit() -> String {
-    String::from(misc::random_data(helpers::DIGITS))
+    String::from(misc::random_data(string::DIGITS))
 }
 
 // digit_n will generate a random string of length N consists of ASCII digits. Note that the string generated can start with 0 and this function returns a string with a length of 1 when 0 is passed.

@@ -13,7 +13,6 @@ pub mod datetime;
 pub mod file;
 pub mod generator;
 pub mod hacker;
-pub mod helpers;
 pub mod hipster;
 pub mod image;
 pub mod internet;

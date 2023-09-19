@@ -1,3 +1,4 @@
+#[allow(dead_code)]
 pub static LOWER_CASE: &'static [&str] = &[
     "a",
     "b",
@@ -27,6 +28,7 @@ pub static LOWER_CASE: &'static [&str] = &[
     "z"
 ];
 
+#[allow(dead_code)]
 pub static UPPER_CASE: &'static [&str] = &[
     "A",
     "B",
@@ -56,6 +58,7 @@ pub static UPPER_CASE: &'static [&str] = &[
     "Z"
 ];
 
+#[allow(dead_code)]
 pub static LOWER_VOWELS: &'static [&str] = &[
     "a",
     "e",
@@ -64,6 +67,7 @@ pub static LOWER_VOWELS: &'static [&str] = &[
     "u"
 ];
 
+#[allow(dead_code)]
 pub static UPPER_VOWELS: &'static [&str] = &[
     "A",
     "E",
@@ -72,6 +76,7 @@ pub static UPPER_VOWELS: &'static [&str] = &[
     "U"
 ];
 
+#[allow(dead_code)]
 pub static DIGITS: &'static [&str] = &[
     "0",
     "1",
