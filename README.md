@@ -448,7 +448,7 @@ fn main() {
 ```rust
 extern crate fakeit;
 
-use fakeit::unique;
+use fakeit::user_agent;
 
 fn main() {
     let data = user_agent::chrome(); // chrome: Mozilla/5.0 (X11; Linux i686) AppleWebKit/532 (KHTML, like Gecko) Chrome/36.0.861.0 Mobile Safari/532
