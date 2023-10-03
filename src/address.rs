@@ -1,7 +1,6 @@
 use crate::data::address;
 use crate::misc;
 use crate::name;
-// use ::std::string::String;
 
 pub struct Info {
     address: String,

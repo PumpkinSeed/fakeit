@@ -9,16 +9,34 @@ pub const HASHTAG: &str = "#";
 pub const QUESTIONMARK: &str = "?";
 
 pub fn random_data<T: Clone>(d: &[T]) -> T {
-    let n = rand_range(0, d.len() as i64);
+    let rng = simplerand::Rng::new();
+
+    internal_random_data(d, rng)
+}
+
+fn internal_random_data<T: Clone>(d: &[T], mut rng: simplerand::Rng) -> T {
+    let n = rng.rand_range(0, d.len() as u128);
     let res = d[n as usize].clone();
     res
 }
 
 pub fn random_data_index<T>(d: &[T]) -> usize {
-    rand_range(0, d.len() as i64) as usize
+    let rng = simplerand::Rng::new();
+
+    internal_random_data_index(d, rng)
+}
+
+fn internal_random_data_index<T>(d: &[T], mut rng: simplerand::Rng) -> usize {
+    rng.rand_range(0, d.len() as u128) as usize
 }
 
 pub fn random<T: Randomable>(min: T, max: T) -> T {
+    let rng = simplerand::Rng::new();
+
+    internal_random(min, max, rng)
+}
+
+fn internal_random<T: Randomable>(min: T, max: T, mut rng: simplerand::Rng) -> T {
     rand_range::<T>(min, max)
 }
 
