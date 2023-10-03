@@ -18,4 +18,5 @@ pub mod lorem;
 pub mod payment;
 pub mod person;
 pub mod status_code;
+pub mod string;
 pub mod vehicle;
