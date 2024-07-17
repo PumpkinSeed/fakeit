@@ -25,6 +25,7 @@ pub mod password;
 pub mod payment;
 pub mod person;
 pub mod status_code;
+pub mod string;
 pub mod unique;
 pub mod user_agent;
 pub mod vehicle;
