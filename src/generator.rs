@@ -1,8 +1,16 @@
+use simplerand::{Randomable, Rng};
 use crate::contact;
 use crate::data::person;
 use crate::hacker;
+use crate::data::address;
 
 use crate::misc;
+
+pub const HASHTAG: &str = "#";
+
+pub struct Generator {
+    pub rng: Rng,
+}
 
 pub fn generate(data: String) -> String {
     let mut d_validate_left = data.matches("{").count();
@@ -41,6 +49,41 @@ fn resolve_tag(tag: &str) -> String {
         "person.last" => return misc::random_data(person::LAST).to_string(),
 
         _ => return "".to_string(),
+    }
+}
+
+impl Generator {
+    pub fn new(rng: Rng) -> Generator {
+        Generator { rng }
+    }
+
+    pub fn replace_with_numbers(&mut self, s: String) -> String {
+        if s == String::from("") {
+            return s;
+        }
+
+        let res: Vec<String> = s
+            .split("")
+            .map(|s| {
+                if s == HASHTAG {
+                    let i = self.random::<i64>(0, 9);
+                    return i.to_string();
+                }
+                s.to_string()
+            })
+            .collect();
+
+        res.join("")
+    }
+
+    pub fn random<T: Randomable>(&mut self, min: T, max: T) -> T {
+        self.rng.rand_range(min, max)
+    }
+
+    pub fn random_data<T: Clone>(&mut self, d: &[T]) -> T {
+        let n = rand_range(0, d.len() as i64);
+        let res = d[n as usize].clone();
+        res
     }
 }
 

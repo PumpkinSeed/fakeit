@@ -17,4 +17,4 @@ harness = false
 rand = "0.6.5"
 libmath = "0.2.1"
 uuid = { version = "0.8", features = ["v1", "v4"] }
-simplerand = "1.2.0"
+simplerand = "1.3.0"

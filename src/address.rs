@@ -1,4 +1,5 @@
 use crate::data::address;
+use crate::generator::Generator;
 use crate::misc;
 use crate::name;
 // use ::std::string::String;
@@ -110,6 +111,40 @@ pub fn longitude_in_range(min: f32, max: f32) -> f32 {
     }
 
     misc::random::<f32>(min, max)
+}
+
+impl Generator {
+    pub fn street(&mut self) -> String {
+        match self.rng.rand_range(1, 2) {
+            1 => {
+                return format!(
+                    "{} {} {} {}",
+                    self.street_number(),
+                    street_prefix(),
+                    street_name(),
+                    street_suffix()
+                )
+            }
+            2 => return format!("{} {} {}", self.street_number(), street_name(), street_suffix()),
+            _ => format!("impossible"),
+        }
+    }
+
+    pub fn street_number(&mut self) -> String {
+        self.replace_with_numbers(misc::random_data(address::NUMBER).to_string())
+    }
+
+    pub fn street_prefix(&mut self) -> String {
+        misc::random_data(address::STREET_PREFIX).to_string()
+    }
+
+    pub fn street_name(&mut self) -> String {
+        misc::random_data(address::STREET_NAME).to_string()
+    }
+
+    pub fn street_suffix(&mut self) -> String {
+        misc::random_data(address::STREET_SUFFIX).to_string()
+    }
 }
 
 #[cfg(test)]
