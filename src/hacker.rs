@@ -27,6 +27,7 @@ pub fn ingverb() -> String {
     misc::random_data(hacker::INGVERB).to_string()
 }
 
+
 #[cfg(test)]
 mod tests {
     use crate::hacker;

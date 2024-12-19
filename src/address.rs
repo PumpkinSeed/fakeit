@@ -1,5 +1,6 @@
 use crate::data::address;
 use crate::generator::Generator;
+use crate::generator;
 use crate::misc;
 use crate::name;
 // use ::std::string::String;
@@ -45,19 +46,19 @@ pub fn street() -> String {
 }
 
 pub fn street_number() -> String {
-    misc::replace_with_numbers(misc::random_data(address::NUMBER).to_string())
+    generator::BASE_GENERATOR.lock().unwrap().street_number()
 }
 
 pub fn street_prefix() -> String {
-    misc::random_data(address::STREET_PREFIX).to_string()
+    generator::BASE_GENERATOR.lock().unwrap().street_prefix()
 }
 
 pub fn street_name() -> String {
-    misc::random_data(address::STREET_NAME).to_string()
+    generator::BASE_GENERATOR.lock().unwrap().street_name()
 }
 
 pub fn street_suffix() -> String {
-    misc::random_data(address::STREET_SUFFIX).to_string()
+    generator::BASE_GENERATOR.lock().unwrap().street_suffix()
 }
 
 pub fn city() -> String {
@@ -180,6 +181,10 @@ mod tests {
     #[test]
     fn street_number() {
         exec_mes("address::street_number", || address::street_number());
+
+        let result1 = address::street_number();
+        let result2 = address::street_number();
+        assert_ne!(result1, result2);
     }
 
     #[test]

@@ -1,4 +1,3 @@
-extern crate rand;
 extern crate simplerand;
 
 use simplerand::{rand_range, Randomable};

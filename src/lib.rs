@@ -1,5 +1,7 @@
 #![allow(dead_code)]
 
+extern crate lazy_static;
+
 pub mod address;
 pub mod animal;
 pub mod beer;

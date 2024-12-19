@@ -1,15 +1,14 @@
 use crate::contact;
 use crate::data::person;
 use crate::hacker;
+use lazy_static::lazy_static;
 use simplerand::{base, Random};
+use std::sync::Mutex;
+use std::time::{SystemTime, UNIX_EPOCH};
 
 use crate::misc;
 
 pub const HASHTAG: &str = "#";
-
-pub struct Generator {
-    pub rng: Random,
-}
 
 pub fn generate(data: String) -> String {
     let mut d_validate_left = data.matches("{").count();
@@ -51,10 +50,29 @@ fn resolve_tag(tag: &str) -> String {
     }
 }
 
+lazy_static! {
+    pub static ref BASE_GENERATOR: Mutex<Generator> = Mutex::new(Generator::new_default());
+}
+
+pub struct Generator {
+    pub rng: Random,
+}
+
 impl Generator {
     pub fn new(seed: u128) -> Generator {
         Generator {
             rng: Random::new(seed),
+        }
+    }
+
+    pub fn new_default() -> Generator {
+        Generator {
+            rng: Random::new(
+                SystemTime::now()
+                    .duration_since(UNIX_EPOCH)
+                    .unwrap()
+                    .as_nanos(),
+            ),
         }
     }
 
