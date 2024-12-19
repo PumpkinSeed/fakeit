@@ -1,15 +1,14 @@
-use simplerand::{Randomable, Rng};
 use crate::contact;
 use crate::data::person;
 use crate::hacker;
-use crate::data::address;
+use simplerand::{base, Random};
 
 use crate::misc;
 
 pub const HASHTAG: &str = "#";
 
 pub struct Generator {
-    pub rng: Rng,
+    pub rng: Random,
 }
 
 pub fn generate(data: String) -> String {
@@ -39,26 +38,28 @@ pub fn generate(data: String) -> String {
 
 fn resolve_tag(tag: &str) -> String {
     match tag {
-        "contact.email" => return contact::email(),
-        "hacker.abbreviation" => return hacker::abbreviation(),
-        "hacker.adjective" => return hacker::adjective(),
-        "hacker.noun" => return hacker::noun(),
-        "hacker.verb" => return hacker::verb(),
-        "hacker.ingverb" => return hacker::ingverb(),
-        "person.first" => return misc::random_data(person::FIRST).to_string(),
-        "person.last" => return misc::random_data(person::LAST).to_string(),
+        "contact.email" => contact::email(),
+        "hacker.abbreviation" => hacker::abbreviation(),
+        "hacker.adjective" => hacker::adjective(),
+        "hacker.noun" => hacker::noun(),
+        "hacker.verb" => hacker::verb(),
+        "hacker.ingverb" => hacker::ingverb(),
+        "person.first" => misc::random_data(person::FIRST).to_string(),
+        "person.last" => misc::random_data(person::LAST).to_string(),
 
-        _ => return "".to_string(),
+        _ => "".to_string(),
     }
 }
 
 impl Generator {
-    pub fn new(rng: Rng) -> Generator {
-        Generator { rng }
+    pub fn new(seed: u128) -> Generator {
+        Generator {
+            rng: Random::new(seed),
+        }
     }
 
     pub fn replace_with_numbers(&mut self, s: String) -> String {
-        if s == String::from("") {
+        if s == *"" {
             return s;
         }
 
@@ -76,14 +77,13 @@ impl Generator {
         res.join("")
     }
 
-    pub fn random<T: Randomable>(&mut self, min: T, max: T) -> T {
+    pub fn random<T: base::Randomable>(&mut self, min: T, max: T) -> T {
         self.rng.rand_range(min, max)
     }
 
     pub fn random_data<T: Clone>(&mut self, d: &[T]) -> T {
-        let n = rand_range(0, d.len() as i64);
-        let res = d[n as usize].clone();
-        res
+        let n = self.rng.rand_range(0, d.len() as u128);
+        d[n as usize].clone()
     }
 }
 

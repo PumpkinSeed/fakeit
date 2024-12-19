@@ -1,13 +1,13 @@
 #[allow(dead_code)]
-pub static PREFIX: &'static [&str] = &["Mr.", "Mrs.", "Ms.", "Miss", "Dr."];
+pub static PREFIX: &[&str] = &["Mr.", "Mrs.", "Ms.", "Miss", "Dr."];
 
 #[allow(dead_code)]
-pub static SUFFIX: &'static [&str] = &[
+pub static SUFFIX: &[&str] = &[
     "Jr.", "Sr.", "I", "II", "III", "IV", "V", "MD", "DDS", "PhD", "DVM",
 ];
 
 #[allow(dead_code)]
-pub static FIRST: &'static [&str] = &[
+pub static FIRST: &[&str] = &[
     "Aaliyah",
     "Aaron",
     "Abagail",
@@ -3018,7 +3018,7 @@ pub static FIRST: &'static [&str] = &[
 ];
 
 #[allow(dead_code)]
-pub static LAST: &'static [&str] = &[
+pub static LAST: &[&str] = &[
     "Abbott",
     "Abernathy",
     "Abshire",

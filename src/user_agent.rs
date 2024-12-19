@@ -83,14 +83,14 @@ pub fn opera() -> String {
 pub fn linux_platform_token() -> String {
     format!(
         "X11; Linux {}",
-        misc::random_data(computer::LINUX_PROCESSOR).to_string()
+        misc::random_data(computer::LINUX_PROCESSOR)
     )
 }
 
 pub fn mac_platform_token() -> String {
     format!(
         "Macintosh; {} Mac OS X 10_{}_{}",
-        misc::random_data(computer::MAC_PROCESSOR).to_string(),
+        misc::random_data(computer::MAC_PROCESSOR),
         misc::random(5, 9),
         misc::random(0, 10),
     )

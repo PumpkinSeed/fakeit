@@ -1,15 +1,15 @@
 #[allow(dead_code)]
-pub static NAME: &'static [&str] = &[
+pub static NAME: &[&str] = &[
     "{person.last} {company.suffix}",
     "{person.last}-{person.last}",
     "{person.last}, {person.last} and {person.last}",
 ];
 
 #[allow(dead_code)]
-pub static SUFFIX: &'static [&str] = &["Inc", "and Sons", "LLC", "Group"];
+pub static SUFFIX: &[&str] = &["Inc", "and Sons", "LLC", "Group"];
 
 #[allow(dead_code)]
-pub static BUZZWORDS: &'static [&str] = &[
+pub static BUZZWORDS: &[&str] = &[
     "Adaptive",
     "Advanced",
     "Ameliorated",
@@ -318,7 +318,7 @@ pub static BUZZWORDS: &'static [&str] = &[
 ];
 
 #[allow(dead_code)]
-pub static BS: &'static [&str] = &[
+pub static BS: &[&str] = &[
     "aggregate",
     "architect",
     "benchmark",

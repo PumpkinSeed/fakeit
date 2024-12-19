@@ -30,7 +30,7 @@ pub fn email() -> String {
         name::first(),
         name::last(),
         name::last(),
-        misc::random_data(internet::DOMAIN_SUFFIX).to_string()
+        misc::random_data(internet::DOMAIN_SUFFIX)
     )
     .to_lowercase()
 }

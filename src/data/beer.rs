@@ -1,5 +1,5 @@
 #[allow(dead_code)]
-pub static NAME: &'static [&str] = &[
+pub static NAME: &[&str] = &[
     "Pliny The Elder",
     "Founders Kentucky Breakfast",
     "Trappistes Rochefort 10",
@@ -53,7 +53,7 @@ pub static NAME: &'static [&str] = &[
 ];
 
 #[allow(dead_code)]
-pub static HOP: &'static [&str] = &[
+pub static HOP: &[&str] = &[
     "Ahtanum",
     "Amarillo",
     "Bitter Gold",
@@ -108,7 +108,7 @@ pub static HOP: &'static [&str] = &[
 ];
 
 #[allow(dead_code)]
-pub static YEAST: &'static [&str] = &[
+pub static YEAST: &[&str] = &[
     "1007 - German Ale",
     "1010 - American Wheat",
     "1028 - London Ale",
@@ -161,7 +161,7 @@ pub static YEAST: &'static [&str] = &[
 ];
 
 #[allow(dead_code)]
-pub static MALT: &'static [&str] = &[
+pub static MALT: &[&str] = &[
     "Black malt",
     "Caramel",
     "Carapils",
@@ -181,7 +181,7 @@ pub static MALT: &'static [&str] = &[
 ];
 
 #[allow(dead_code)]
-pub static STYLE: &'static [&str] = &[
+pub static STYLE: &[&str] = &[
     "Light Lager",
     "Pilsner",
     "European Amber Lager",

@@ -1,12 +1,12 @@
 #[allow(dead_code)]
-pub static NUMBER: &'static [&str] = &["#####", "####", "###"];
+pub static NUMBER: &[&str] = &["#####", "####", "###"];
 
 #[allow(dead_code)]
-pub static STREET_PREFIX: &'static [&str] =
+pub static STREET_PREFIX: &[&str] =
     &["North", "East", "West", "South", "New", "Lake", "Port"];
 
 #[allow(dead_code)]
-pub static STREET_NAME: &'static [&str] = &[
+pub static STREET_NAME: &[&str] = &[
     "Alley",
     "Avenue",
     "Branch",
@@ -235,13 +235,13 @@ pub static STREET_NAME: &'static [&str] = &[
 ];
 
 #[allow(dead_code)]
-pub static STREET_SUFFIX: &'static [&str] = &[
+pub static STREET_SUFFIX: &[&str] = &[
     "town", "ton", "land", "ville", "berg", "burgh", "borough", "bury", "view", "port", "mouth",
     "stad", "furt", "chester", "mouth", "fort", "haven", "side", "shire",
 ];
 
 #[allow(dead_code)]
-pub static CITY: &'static [&str] = &[
+pub static CITY: &[&str] = &[
     "{address.street_prefix} {name.first}{address.street_suffix}",
     "{address.street_prefix} {name.first}",
     "{name.first}{address.street_suffix}",
@@ -249,7 +249,7 @@ pub static CITY: &'static [&str] = &[
 ];
 
 #[allow(dead_code)]
-pub static STATE: &'static [&str] = &[
+pub static STATE: &[&str] = &[
     "Alabama",
     "Alaska",
     "Arizona",
@@ -303,7 +303,7 @@ pub static STATE: &'static [&str] = &[
 ];
 
 #[allow(dead_code)]
-pub static STATE_ABR: &'static [&str] = &[
+pub static STATE_ABR: &[&str] = &[
     "AL", "AK", "AS", "AZ", "AR", "CA", "CO", "CT", "DE", "DC", "FM", "FL", "GA", "GU", "HI", "ID",
     "IL", "IN", "IA", "KS", "KY", "LA", "ME", "MH", "MD", "MA", "MI", "MN", "MS", "MO", "MT", "NE",
     "NV", "NH", "NJ", "NM", "NY", "NC", "ND", "MP", "OH", "OK", "OR", "PW", "PA", "PR", "RI", "SC",
@@ -311,10 +311,10 @@ pub static STATE_ABR: &'static [&str] = &[
 ];
 
 #[allow(dead_code)]
-pub static ZIP: &'static [&str] = &["#####"];
+pub static ZIP: &[&str] = &["#####"];
 
 #[allow(dead_code)]
-pub static COUNTRY: &'static [&str] = &[
+pub static COUNTRY: &[&str] = &[
     "Afghanistan",
     "Albania",
     "Algeria",
@@ -563,7 +563,7 @@ pub static COUNTRY: &'static [&str] = &[
 ];
 
 #[allow(dead_code)]
-pub static COUNTRY_ABR: &'static [&str] = &[
+pub static COUNTRY_ABR: &[&str] = &[
     "AF", "AL", "DZ", "AS", "AD", "AO", "AI", "AQ", "AG", "AR", "AM", "AW", "AU", "AT", "AZ", "BS",
     "BH", "BD", "BB", "BY", "BE", "BZ", "BJ", "BM", "BT", "BO", "BA", "BW", "BV", "BR", "IO", "BN",
     "BG", "BF", "BI", "KH", "CM", "CA", "CV", "KY", "CF", "TD", "CL", "CN", "CX", "CC", "CO", "KM",
