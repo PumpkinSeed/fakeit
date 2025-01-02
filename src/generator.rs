@@ -1,9 +1,9 @@
 use crate::contact;
 use crate::data::person;
 use crate::hacker;
-use lazy_static::lazy_static;
 use simplerand::{base, Random};
 use std::time::{SystemTime, UNIX_EPOCH};
+use std::sync::OnceLock;
 
 use crate::misc;
 
@@ -49,8 +49,10 @@ fn resolve_tag(tag: &str) -> String {
     }
 }
 
-lazy_static! {
-    pub static ref BASE_GENERATOR: Generator = Generator::new_default();
+pub static BASE_GENERATOR: OnceLock<Generator> = OnceLock::new();
+
+pub fn get_base_generator() -> &'static Generator {
+    BASE_GENERATOR.get_or_init(Generator::new_default)
 }
 
 pub struct Generator {

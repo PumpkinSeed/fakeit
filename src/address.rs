@@ -45,19 +45,19 @@ pub fn street() -> String {
 }
 
 pub fn street_number() -> String {
-    generator::BASE_GENERATOR.street_number()
+    generator::get_base_generator().street_number()
 }
 
 pub fn street_prefix() -> String {
-    generator::BASE_GENERATOR.street_prefix()
+    generator::get_base_generator().street_prefix()
 }
 
 pub fn street_name() -> String {
-    generator::BASE_GENERATOR.street_name()
+    generator::get_base_generator().street_name()
 }
 
 pub fn street_suffix() -> String {
-    generator::BASE_GENERATOR.street_suffix()
+    generator::get_base_generator().street_suffix()
 }
 
 pub fn city() -> String {
