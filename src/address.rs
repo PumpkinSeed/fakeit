@@ -173,6 +173,14 @@ mod tests {
     }
 
     #[test]
+    fn street_diff() {
+        let result = address::street();
+        let result2 = address::street();
+
+        assert_ne!(result, result2);
+    }
+
+    #[test]
     fn street() {
         exec_mes("address::street", || address::street());
     }
