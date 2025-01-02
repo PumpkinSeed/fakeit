@@ -1,7 +1,8 @@
 use crate::data::address;
+use crate::generator::Generator;
+use crate::generator;
 use crate::misc;
 use crate::name;
-// use ::std::string::String;
 
 pub struct Info {
     address: String,
@@ -30,7 +31,7 @@ pub fn info() -> Info {
 pub fn street() -> String {
     match misc::random::<i64>(1, 2) {
         1 => {
-            return format!(
+            format!(
                 "{} {} {} {}",
                 street_number(),
                 street_prefix(),
@@ -38,33 +39,33 @@ pub fn street() -> String {
                 street_suffix()
             )
         }
-        2 => return format!("{} {} {}", street_number(), street_name(), street_suffix()),
-        _ => format!("impossible"),
+        2 => format!("{} {} {}", street_number(), street_name(), street_suffix()),
+        _ => "impossible".to_string(),
     }
 }
 
 pub fn street_number() -> String {
-    misc::replace_with_numbers(misc::random_data(address::NUMBER).to_string())
+    generator::get_base_generator().street_number()
 }
 
 pub fn street_prefix() -> String {
-    misc::random_data(address::STREET_PREFIX).to_string()
+    generator::get_base_generator().street_prefix()
 }
 
 pub fn street_name() -> String {
-    misc::random_data(address::STREET_NAME).to_string()
+    generator::get_base_generator().street_name()
 }
 
 pub fn street_suffix() -> String {
-    misc::random_data(address::STREET_SUFFIX).to_string()
+    generator::get_base_generator().street_suffix()
 }
 
 pub fn city() -> String {
     match misc::random::<i64>(1, 3) {
-        1 => return format!("{}{}", name::first(), street_suffix()),
-        2 => return format!("{}{}", name::last(), street_suffix()),
-        3 => return format!("{} {}", street_prefix(), name::last()),
-        _ => format!("impossible"),
+        1 => format!("{}{}", name::first(), street_suffix()),
+        2 => format!("{}{}", name::last(), street_suffix()),
+        3 => format!("{} {}", street_prefix(), name::last()),
+        _ => "impossible".to_string(),
     }
 }
 
@@ -93,6 +94,7 @@ pub fn latitude() -> f32 {
 }
 
 pub fn latitude_in_range(min: f32, max: f32) -> f32 {
+    #[allow(clippy::manual_range_contains)]
     if min > max || min < -90.0 || min > 90.0 || max < -90.0 || max > 90.0 {
         return latitude();
     }
@@ -105,6 +107,7 @@ pub fn longitude() -> f32 {
 }
 
 pub fn longitude_in_range(min: f32, max: f32) -> f32 {
+    #[allow(clippy::manual_range_contains)]
     if min > max || min < -180.0 || min > 180.0 || max < -180.0 || max > 180.0 {
         return latitude();
     }
@@ -112,10 +115,70 @@ pub fn longitude_in_range(min: f32, max: f32) -> f32 {
     misc::random::<f32>(min, max)
 }
 
+impl Generator {
+    pub fn street(&self) -> String {
+        match self.rng.rand_range(1, 2) {
+            1 => {
+                format!(
+                    "{} {} {} {}",
+                    self.street_number(),
+                    self.street_prefix(),
+                    self.street_name(),
+                    self.street_suffix()
+                )
+            }
+            2 => format!(
+                "{} {} {}",
+                self.street_number(),
+                self.street_name(),
+                self.street_suffix()
+            ),
+            _ => "impossible".to_string(),
+        }
+    }
+
+    pub fn street_number(&self) -> String {
+        let random_data = self.random_data(address::NUMBER).to_string();
+        self.replace_with_numbers(random_data)
+    }
+
+    pub fn street_prefix(&self) -> String {
+        self.random_data(address::STREET_PREFIX).to_string()
+    }
+
+    pub fn street_name(&self) -> String {
+        self.random_data(address::STREET_NAME).to_string()
+    }
+
+    pub fn street_suffix(&self) -> String {
+        self.random_data(address::STREET_SUFFIX).to_string()
+    }
+}
+
 #[cfg(test)]
 mod tests {
     use crate::address;
+    use crate::generator::Generator;
     use crate::testify::exec_mes;
+
+    #[test]
+    fn gen_street() {
+        let g = Generator::new(1);
+        let result = g.street();
+
+        let g = Generator::new(1);
+        let result2 = g.street();
+
+        assert_eq!(result, result2);
+    }
+
+    #[test]
+    fn street_diff() {
+        let result = address::street();
+        let result2 = address::street();
+
+        assert_ne!(result, result2);
+    }
 
     #[test]
     fn street() {
@@ -125,6 +188,10 @@ mod tests {
     #[test]
     fn street_number() {
         exec_mes("address::street_number", || address::street_number());
+
+        let result1 = address::street_number();
+        let result2 = address::street_number();
+        assert_ne!(result1, result2);
     }
 
     #[test]

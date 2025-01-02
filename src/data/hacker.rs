@@ -1,12 +1,12 @@
 #[allow(dead_code)]
-pub static ABBREVIATION: &'static [&str] = &[
+pub static ABBREVIATION: &[&str] = &[
     "TCP", "HTTP", "SDD", "RAM", "GB", "CSS", "SSL", "AGP", "SQL", "FTP", "PCI", "AI", "ADP",
     "RSS", "XML", "EXE", "COM", "HDD", "THX", "SMTP", "SMS", "USB", "PNG", "SAS", "IB", "SCSI",
     "JSON", "XSS", "JBOD",
 ];
 
 #[allow(dead_code)]
-pub static ADJECTIVE: &'static [&str] = &[
+pub static ADJECTIVE: &[&str] = &[
     "auxiliary",
     "primary",
     "back-end",
@@ -28,7 +28,7 @@ pub static ADJECTIVE: &'static [&str] = &[
 ];
 
 #[allow(dead_code)]
-pub static NOUN: &'static [&str] = &[
+pub static NOUN: &[&str] = &[
     "driver",
     "protocol",
     "bandwidth",
@@ -56,7 +56,7 @@ pub static NOUN: &'static [&str] = &[
 ];
 
 #[allow(dead_code)]
-pub static VERB: &'static [&str] = &[
+pub static VERB: &[&str] = &[
     "back up",
     "bypass",
     "hack",
@@ -78,7 +78,7 @@ pub static VERB: &'static [&str] = &[
 ];
 
 #[allow(dead_code)]
-pub static INGVERB: &'static [&str] = &[
+pub static INGVERB: &[&str] = &[
     "backing up",
     "bypassing",
     "hacking",
@@ -98,7 +98,7 @@ pub static INGVERB: &'static [&str] = &[
 ];
 
 #[allow(dead_code)]
-pub static PHRASE: &'static [&str] = &[
+pub static PHRASE: &[&str] = &[
 		"If we {hacker.verb} the {hacker.noun}, we can get to the {hacker.abbreviation} {hacker.noun} through the {hacker.adjective} {hacker.abbreviation} {hacker.noun}!",
 		"We need to {hacker.verb} the {hacker.adjective} {hacker.abbreviation} {hacker.noun}!",
 		"Try to {hacker.verb} the {hacker.abbreviation} {hacker.noun}, maybe it will {hacker.verb} the {hacker.adjective} {hacker.noun}!",

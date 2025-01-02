@@ -1,8 +1,13 @@
 use crate::contact;
 use crate::data::person;
 use crate::hacker;
+use simplerand::{base, Random};
+use std::time::{SystemTime, UNIX_EPOCH};
+use std::sync::OnceLock;
 
 use crate::misc;
+
+pub const HASHTAG: &str = "#";
 
 pub fn generate(data: String) -> String {
     let mut d_validate_left = data.matches("{").count();
@@ -31,16 +36,73 @@ pub fn generate(data: String) -> String {
 
 fn resolve_tag(tag: &str) -> String {
     match tag {
-        "contact.email" => return contact::email(),
-        "hacker.abbreviation" => return hacker::abbreviation(),
-        "hacker.adjective" => return hacker::adjective(),
-        "hacker.noun" => return hacker::noun(),
-        "hacker.verb" => return hacker::verb(),
-        "hacker.ingverb" => return hacker::ingverb(),
-        "person.first" => return misc::random_data(person::FIRST).to_string(),
-        "person.last" => return misc::random_data(person::LAST).to_string(),
+        "contact.email" => contact::email(),
+        "hacker.abbreviation" => hacker::abbreviation(),
+        "hacker.adjective" => hacker::adjective(),
+        "hacker.noun" => hacker::noun(),
+        "hacker.verb" => hacker::verb(),
+        "hacker.ingverb" => hacker::ingverb(),
+        "person.first" => misc::random_data(person::FIRST).to_string(),
+        "person.last" => misc::random_data(person::LAST).to_string(),
 
-        _ => return "".to_string(),
+        _ => "".to_string(),
+    }
+}
+
+pub static BASE_GENERATOR: OnceLock<Generator> = OnceLock::new();
+
+pub fn get_base_generator() -> &'static Generator {
+    BASE_GENERATOR.get_or_init(Generator::new_default)
+}
+
+pub struct Generator {
+    pub rng: Random,
+}
+
+impl Generator {
+    pub fn new(seed: u128) -> Generator {
+        Generator {
+            rng: Random::new(seed),
+        }
+    }
+
+    pub fn new_default() -> Generator {
+        Generator {
+            rng: Random::new(
+                SystemTime::now()
+                    .duration_since(UNIX_EPOCH)
+                    .unwrap()
+                    .as_nanos(),
+            ),
+        }
+    }
+
+    pub fn replace_with_numbers(&self, s: String) -> String {
+        if s == *"" {
+            return s;
+        }
+
+        let res: Vec<String> = s
+            .split("")
+            .map(|s| {
+                if s == HASHTAG {
+                    let i = self.random::<i64>(0, 9);
+                    return i.to_string();
+                }
+                s.to_string()
+            })
+            .collect();
+
+        res.join("")
+    }
+
+    pub fn random<T: base::Randomable>(&self, min: T, max: T) -> T {
+        self.rng.rand_range(min, max)
+    }
+
+    pub fn random_data<T: Clone>(&self, d: &[T]) -> T {
+        let n = self.rng.rand_range(0, d.len() as u128);
+        d[n as usize].clone()
     }
 }
 

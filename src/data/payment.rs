@@ -1,8 +1,8 @@
 #[allow(dead_code)]
-pub static CARD_TYPE: &'static [&str] = &["Visa", "MasterCard", "American Express", "Discover"];
+pub static CARD_TYPE: &[&str] = &["Visa", "MasterCard", "American Express", "Discover"];
 
 #[allow(dead_code)]
-pub static NUMBER: &'static [&str] = &[
+pub static NUMBER: &[&str] = &[
     // Visa
     "4###############",
     "4###############",

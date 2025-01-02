@@ -5,10 +5,10 @@ use ::std::string::String;
 
 pub fn company() -> String {
     match misc::random::<i64>(1, 3) {
-        1 => return format!("{}, {} and {}", name::last(), name::last(), name::last()),
-        2 => return format!("{}-{}", name::last(), name::last()),
-        3 => return format!("{} {}", name::last(), company_suffix()),
-        _ => format!("impossible"),
+        1 => format!("{}, {} and {}", name::last(), name::last(), name::last()),
+        2 => format!("{}-{}", name::last(), name::last()),
+        3 => format!("{} {}", name::last(), company_suffix()),
+        _ => "impossible".to_string(),
     }
 }
 

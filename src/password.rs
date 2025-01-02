@@ -35,7 +35,7 @@ fn letter(upper: bool, numeric: bool, special: bool, num: i8) -> String {
     }
 
     match num {
-        0 => format!("{}", pw),
+        0 => pw,
         _ => format!("{}{}", pw, letter(upper, numeric, special, num - 1)),
     }
 }

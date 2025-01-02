@@ -1,5 +1,5 @@
 #[allow(dead_code)]
-pub static TYPE: &'static [&str] = &[
+pub static TYPE: &[&str] = &[
     "Passenger car mini",
     "Passenger car light",
     "Passenger car compact",
@@ -11,15 +11,15 @@ pub static TYPE: &'static [&str] = &[
 ];
 
 #[allow(dead_code)]
-pub static FUEL_TYPE: &'static [&str] = &[
+pub static FUEL_TYPE: &[&str] = &[
     "Gasoline", "Methanol", "Ethanol", "Diesel", "LPG", "CNG", "Electric",
 ];
 
 #[allow(dead_code)]
-pub static TRANSMISSION_TYPE: &'static [&str] = &["Manual", "Automatic"];
+pub static TRANSMISSION_TYPE: &[&str] = &["Manual", "Automatic"];
 
 #[allow(dead_code)]
-pub static MAKER: &'static [&str] = &[
+pub static MAKER: &[&str] = &[
     "Alfa Romeo",
     "Aston Martin",
     "Audi",
@@ -92,7 +92,7 @@ pub static MAKER: &'static [&str] = &[
 ];
 
 #[allow(dead_code)]
-pub static MODEL: &'static [&str] = &[
+pub static MODEL: &[&str] = &[
     "Db9 Coupe",
     "Db9 Coupe Manual",
     "Db9 Volante",

@@ -1,4 +1,3 @@
-extern crate rand;
 extern crate simplerand;
 
 use simplerand::{rand_range, Randomable};
@@ -10,8 +9,7 @@ pub const QUESTIONMARK: &str = "?";
 
 pub fn random_data<T: Clone>(d: &[T]) -> T {
     let n = rand_range(0, d.len() as i64);
-    let res = d[n as usize].clone();
-    res
+    d[n as usize].clone()
 }
 
 pub fn random_data_index<T>(d: &[T]) -> usize {
@@ -23,7 +21,7 @@ pub fn random<T: Randomable>(min: T, max: T) -> T {
 }
 
 pub fn replace_with_numbers(s: String) -> String {
-    if s == String::from("") {
+    if s == *"" {
         return s;
     }
 
@@ -42,7 +40,7 @@ pub fn replace_with_numbers(s: String) -> String {
 }
 
 pub fn replace_with_letter_hex(s: String) -> String {
-    if s == String::from("") {
+    if s == *"" {
         return s;
     }
 
@@ -63,7 +61,7 @@ pub fn replace_with_letter_hex(s: String) -> String {
 }
 
 pub fn replace_with_letter(s: String) -> String {
-    if s == String::from("") {
+    if s == *"" {
         return s;
     }
 

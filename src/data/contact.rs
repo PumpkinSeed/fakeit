@@ -1,5 +1,5 @@
 #[allow(dead_code)]
-pub static PHONE: &'static [&str] = &[
+pub static PHONE: &[&str] = &[
     "###-###-####",
     "(###)###-####",
     "1-###-###-####",

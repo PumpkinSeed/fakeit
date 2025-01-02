@@ -36,10 +36,10 @@ pub fn sentence(word_count: i64) -> String {
 
 pub fn paragraph(count: i64, sentence_count: i64, word_count: i64, separator: String) -> String {
     let opts = ParagraphOpts {
-        count: count,
-        sentence_count: sentence_count,
-        word_count: word_count,
-        separator: separator,
+        count,
+        sentence_count,
+        word_count,
+        separator,
     };
 
     paragraph_generator(opts, &sentence)
@@ -75,7 +75,7 @@ pub fn quote() -> String {
 
 fn title(s: String) -> String {
     let mut v: Vec<char> = s.chars().collect();
-    v[0] = v[0].to_uppercase().nth(0).unwrap();
+    v[0] = v[0].to_uppercase().next().unwrap();
     v.into_iter().collect()
 }
 

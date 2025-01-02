@@ -27,7 +27,7 @@ pub fn credit_card_number() -> String {
 
 pub fn credit_card_luhn_number() -> String {
     // @TODO
-    return String::from("");
+    String::from("")
 }
 
 pub fn credit_card_exp() -> String {
