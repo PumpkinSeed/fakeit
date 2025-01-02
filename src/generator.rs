@@ -3,7 +3,6 @@ use crate::data::person;
 use crate::hacker;
 use lazy_static::lazy_static;
 use simplerand::{base, Random};
-use std::sync::Mutex;
 use std::time::{SystemTime, UNIX_EPOCH};
 
 use crate::misc;
@@ -51,7 +50,7 @@ fn resolve_tag(tag: &str) -> String {
 }
 
 lazy_static! {
-    pub static ref BASE_GENERATOR: Mutex<Generator> = Mutex::new(Generator::new_default());
+    pub static ref BASE_GENERATOR: Generator = Generator::new_default();
 }
 
 pub struct Generator {
@@ -76,7 +75,7 @@ impl Generator {
         }
     }
 
-    pub fn replace_with_numbers(&mut self, s: String) -> String {
+    pub fn replace_with_numbers(&self, s: String) -> String {
         if s == *"" {
             return s;
         }
@@ -95,11 +94,11 @@ impl Generator {
         res.join("")
     }
 
-    pub fn random<T: base::Randomable>(&mut self, min: T, max: T) -> T {
+    pub fn random<T: base::Randomable>(&self, min: T, max: T) -> T {
         self.rng.rand_range(min, max)
     }
 
-    pub fn random_data<T: Clone>(&mut self, d: &[T]) -> T {
+    pub fn random_data<T: Clone>(&self, d: &[T]) -> T {
         let n = self.rng.rand_range(0, d.len() as u128);
         d[n as usize].clone()
     }

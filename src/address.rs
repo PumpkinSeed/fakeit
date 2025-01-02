@@ -3,7 +3,6 @@ use crate::generator::Generator;
 use crate::generator;
 use crate::misc;
 use crate::name;
-// use ::std::string::String;
 
 pub struct Info {
     address: String,
@@ -46,19 +45,19 @@ pub fn street() -> String {
 }
 
 pub fn street_number() -> String {
-    generator::BASE_GENERATOR.lock().unwrap().street_number()
+    generator::BASE_GENERATOR.street_number()
 }
 
 pub fn street_prefix() -> String {
-    generator::BASE_GENERATOR.lock().unwrap().street_prefix()
+    generator::BASE_GENERATOR.street_prefix()
 }
 
 pub fn street_name() -> String {
-    generator::BASE_GENERATOR.lock().unwrap().street_name()
+    generator::BASE_GENERATOR.street_name()
 }
 
 pub fn street_suffix() -> String {
-    generator::BASE_GENERATOR.lock().unwrap().street_suffix()
+    generator::BASE_GENERATOR.street_suffix()
 }
 
 pub fn city() -> String {
@@ -117,7 +116,7 @@ pub fn longitude_in_range(min: f32, max: f32) -> f32 {
 }
 
 impl Generator {
-    pub fn street(&mut self) -> String {
+    pub fn street(&self) -> String {
         match self.rng.rand_range(1, 2) {
             1 => {
                 format!(
@@ -138,20 +137,20 @@ impl Generator {
         }
     }
 
-    pub fn street_number(&mut self) -> String {
+    pub fn street_number(&self) -> String {
         let random_data = self.random_data(address::NUMBER).to_string();
         self.replace_with_numbers(random_data)
     }
 
-    pub fn street_prefix(&mut self) -> String {
+    pub fn street_prefix(&self) -> String {
         self.random_data(address::STREET_PREFIX).to_string()
     }
 
-    pub fn street_name(&mut self) -> String {
+    pub fn street_name(&self) -> String {
         self.random_data(address::STREET_NAME).to_string()
     }
 
-    pub fn street_suffix(&mut self) -> String {
+    pub fn street_suffix(&self) -> String {
         self.random_data(address::STREET_SUFFIX).to_string()
     }
 }
@@ -164,10 +163,10 @@ mod tests {
 
     #[test]
     fn gen_street() {
-        let mut g = Generator::new(1);
+        let g = Generator::new(1);
         let result = g.street();
 
-        let mut g = Generator::new(1);
+        let g = Generator::new(1);
         let result2 = g.street();
 
         assert_eq!(result, result2);

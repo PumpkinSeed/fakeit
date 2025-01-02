@@ -75,7 +75,7 @@ pub fn quote() -> String {
 
 fn title(s: String) -> String {
     let mut v: Vec<char> = s.chars().collect();
-    v[0] = v[0].to_uppercase().nth(0).unwrap();
+    v[0] = v[0].to_uppercase().next().unwrap();
     v.into_iter().collect()
 }
 
