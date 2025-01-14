@@ -1,5 +1,6 @@
 use crate::data::payment;
 use crate::misc;
+use rand::prelude::*;
 
 pub struct CreditCard {
     type_of: String,
@@ -25,9 +26,42 @@ pub fn credit_card_number() -> String {
     misc::replace_with_numbers(misc::random_data(payment::NUMBER).to_string())
 }
 
+fn gen_random_num(length:usize) -> Vec<i32> {
+    let distr=rand::distributions::Uniform::new_inclusive(0, 9);
+    let mut nums=vec![0i32;length];
+    let mut rng = thread_rng();
+    for x in &mut nums {
+        *x=rng.sample(distr);
+    }
+    nums
+}
+
+
 pub fn credit_card_luhn_number() -> String {
-    // @TODO
-    return String::from("");
+    let mii=rand::thread_rng().gen_range(0, 9);//MII (Major Industry Identifier)
+    let nums=gen_random_num(14);
+    let iin=[mii.to_string(),nums.iter().map(ToString::to_string).collect()].join("");
+    let mut total=0;
+
+    for (i,val) in iin.chars().rev().enumerate() {
+        if i%2!=0 {
+            total+=val.to_digit(10).expect("error");
+        }
+        else {
+            let double=val.to_digit(10).expect("error")*2;
+            let digits=double.to_string();
+            if digits.len()>1 {
+                for j in digits.chars() {
+                    total+=j.to_digit(10).expect("error");
+                }
+            }
+            else {
+                total+=double;
+            }
+        }  
+    }
+    let check=10-(total % 10)%10;
+    String::from(format!("{iin}{check}"))
 }
 
 pub fn credit_card_exp() -> String {
@@ -66,6 +100,13 @@ mod tests {
     fn credit_card_number() {
         exec_mes("payment::credit_card_number", || {
             payment::credit_card_number()
+        });
+    }
+
+    #[test]
+    fn credit_card_luhn_number() {
+        exec_mes("payment::credit_card_luhn_number", || {
+            payment::credit_card_luhn_number()
         });
     }
 
