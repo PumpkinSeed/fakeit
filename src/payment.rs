@@ -1,6 +1,6 @@
 use crate::data::payment;
 use crate::misc;
-use rand::prelude::*;
+use simplerand::randn;
 
 pub struct CreditCard {
     type_of: String,
@@ -27,18 +27,15 @@ pub fn credit_card_number() -> String {
 }
 
 fn gen_random_num(length:usize) -> Vec<i32> {
-    let distr=rand::distributions::Uniform::new_inclusive(0, 9);
     let mut nums=vec![0i32;length];
-    let mut rng = thread_rng();
     for x in &mut nums {
-        *x=rng.sample(distr);
+        *x=randn(9);
     }
     nums
 }
 
-
 pub fn credit_card_luhn_number() -> String {
-    let mii=rand::thread_rng().gen_range(0, 9);//MII (Major Industry Identifier)
+    let mii=randn(9);//MII (Major Industry Identifier)
     let nums=gen_random_num(14);
     let iin=[mii.to_string(),nums.iter().map(ToString::to_string).collect()].join("");
     let mut total=0;
