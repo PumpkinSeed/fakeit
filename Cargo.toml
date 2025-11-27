@@ -9,10 +9,6 @@ readme = "README.md"
 repository = "https://github.com/PumpkinSeed/fakeit"
 keywords = ["fake", "data", "random", "generator", "faker"]
 
-[[benches]]
-name = "fakeit"
-harness = false
-
 [dependencies]
 rand = "0.6.5"
 libmath = "0.2.1"
