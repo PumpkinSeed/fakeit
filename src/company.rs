@@ -31,21 +31,21 @@ mod tests {
 
     #[test]
     fn company() {
-        exec_mes("company::company", || company::company());
+        exec_mes("company::company", company::company);
     }
 
     #[test]
     fn company_suffix() {
-        exec_mes("company::company_suffix", || company::company_suffix());
+        exec_mes("company::company_suffix", company::company_suffix);
     }
 
     #[test]
     fn buzzword() {
-        exec_mes("company::buzzword", || company::buzzword());
+        exec_mes("company::buzzword", company::buzzword);
     }
 
     #[test]
     fn bs() {
-        exec_mes("company::bs", || company::bs());
+        exec_mes("company::bs", company::bs);
     }
 }

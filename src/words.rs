@@ -86,7 +86,7 @@ mod tests {
 
     #[test]
     fn word() {
-        exec_mes("words::word", || words::word());
+        exec_mes("words::word", words::word);
     }
 
     #[test]
@@ -103,12 +103,12 @@ mod tests {
 
     #[test]
     fn question() {
-        exec_mes("words::question", || words::question());
+        exec_mes("words::question", words::question);
     }
 
     #[test]
     fn quote() {
-        exec_mes("words::quote", || words::quote());
+        exec_mes("words::quote", words::quote);
     }
 
     #[test]

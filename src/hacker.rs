@@ -34,31 +34,31 @@ mod tests {
 
     #[test]
     fn phrase() {
-        exec_mes("hacker::phrase", || hacker::phrase());
+        exec_mes("hacker::phrase", hacker::phrase);
     }
 
     #[test]
     fn abbreviation() {
-        exec_mes("hacker::abbreviation", || hacker::abbreviation());
+        exec_mes("hacker::abbreviation", hacker::abbreviation);
     }
 
     #[test]
     fn adjective() {
-        exec_mes("hacker::adjective", || hacker::adjective());
+        exec_mes("hacker::adjective", hacker::adjective);
     }
 
     #[test]
     fn noun() {
-        exec_mes("hacker::noun", || hacker::noun());
+        exec_mes("hacker::noun", hacker::noun);
     }
 
     #[test]
     fn verb() {
-        exec_mes("hacker::verb", || hacker::verb());
+        exec_mes("hacker::verb", hacker::verb);
     }
 
     #[test]
     fn ingverb() {
-        exec_mes("hacker::ingverb", || hacker::ingverb());
+        exec_mes("hacker::ingverb", hacker::ingverb);
     }
 }

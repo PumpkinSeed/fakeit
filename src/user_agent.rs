@@ -115,22 +115,22 @@ mod tests {
 
     #[test]
     fn chrome() {
-        exec_mes("user_agent::chrome", || user_agent::chrome());
+        exec_mes("user_agent::chrome", user_agent::chrome);
     }
 
     #[test]
     fn firefox() {
-        exec_mes("user_agent::firefox", || user_agent::firefox());
+        exec_mes("user_agent::firefox", user_agent::firefox);
     }
 
     #[test]
     fn safari() {
-        exec_mes("user_agent::safari", || user_agent::safari());
+        exec_mes("user_agent::safari", user_agent::safari);
     }
 
     #[test]
     fn opera() {
-        exec_mes("user_agent::opera", || user_agent::opera());
+        exec_mes("user_agent::opera", user_agent::opera);
     }
 
     #[test]

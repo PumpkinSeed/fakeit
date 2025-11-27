@@ -140,22 +140,22 @@ mod tests {
 
     #[test]
     fn timezone() {
-        exec_mes("datetime::timezone", || datetime::timezone());
+        exec_mes("datetime::timezone", datetime::timezone);
     }
 
     #[test]
     fn timezone_full() {
-        exec_mes("datetime::timezone_full", || datetime::timezone_full());
+        exec_mes("datetime::timezone_full", datetime::timezone_full);
     }
 
     #[test]
     fn timezone_abv() {
-        exec_mes("datetime::timezone_abv", || datetime::timezone_abv());
+        exec_mes("datetime::timezone_abv", datetime::timezone_abv);
     }
 
     #[test]
     fn timezone_offset() {
-        exec_mes("datetime::timezone_offset", || datetime::timezone_offset());
+        exec_mes("datetime::timezone_offset", datetime::timezone_offset);
     }
 
     #[test]

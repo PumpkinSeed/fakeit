@@ -119,57 +119,57 @@ mod tests {
 
     #[test]
     fn street() {
-        exec_mes("address::street", || address::street());
+        exec_mes("address::street", address::street);
     }
 
     #[test]
     fn street_number() {
-        exec_mes("address::street_number", || address::street_number());
+        exec_mes("address::street_number", address::street_number);
     }
 
     #[test]
     fn street_prefix() {
-        exec_mes("address::street_prefix", || address::street_prefix());
+        exec_mes("address::street_prefix", address::street_prefix);
     }
 
     #[test]
     fn street_name() {
-        exec_mes("address::street_name", || address::street_name());
+        exec_mes("address::street_name", address::street_name);
     }
 
     #[test]
     fn street_suffix() {
-        exec_mes("address::street_suffix", || address::street_suffix());
+        exec_mes("address::street_suffix", address::street_suffix);
     }
 
     #[test]
     fn city() {
-        exec_mes("address::city", || address::city());
+        exec_mes("address::city", address::city);
     }
 
     #[test]
     fn state() {
-        exec_mes("address::state", || address::state());
+        exec_mes("address::state", address::state);
     }
 
     #[test]
     fn state_abr() {
-        exec_mes("address::state_abr", || address::state_abr());
+        exec_mes("address::state_abr", address::state_abr);
     }
 
     #[test]
     fn zip() {
-        exec_mes("address::zip", || address::zip());
+        exec_mes("address::zip", address::zip);
     }
 
     #[test]
     fn country() {
-        exec_mes("address::country", || address::country());
+        exec_mes("address::country", address::country);
     }
 
     #[test]
     fn country_abr() {
-        exec_mes("address::country_abr", || address::country_abr());
+        exec_mes("address::country_abr", address::country_abr);
     }
 
     #[test]
