@@ -46,6 +46,8 @@ mod tests {
 
     #[test]
     fn price() {
-        exec_mes("currency::short", || format!("{}", currency::price(1_f64, 123_f64)));
+        exec_mes("currency::short", || {
+            format!("{}", currency::price(1_f64, 123_f64))
+        });
     }
 }
