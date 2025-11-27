@@ -58,7 +58,7 @@ pub fn credit_card_luhn_number() -> String {
         }  
     }
     let check=10-(total % 10)%10;
-    String::from(format!("{iin}{check}"))
+    format!("{iin}{check}")
 }
 
 pub fn credit_card_exp() -> String {

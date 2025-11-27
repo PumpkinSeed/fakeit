@@ -61,7 +61,7 @@ pub fn mac_address() -> String {
 pub fn username() -> String {
     format!(
         "{}{}",
-        misc::random_data(person::LAST).to_string(),
+        misc::random_data(person::LAST),
         misc::replace_with_numbers("####".to_string()),
     )
 }
