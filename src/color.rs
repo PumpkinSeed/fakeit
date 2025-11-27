@@ -15,10 +15,10 @@ pub fn hex() -> String {
         misc::HASHTAG,
     ];
 
-    for x in 0..5 {
+    for rand_item in rand.iter_mut().take(5) {
         match misc::random::<i8>(0, 1) {
-            0 => rand[x] = misc::HASHTAG,
-            1 => rand[x] = misc::QUESTIONMARK,
+            0 => *rand_item = misc::HASHTAG,
+            1 => *rand_item = misc::QUESTIONMARK,
             _ => println!("impossible"),
         }
     }
