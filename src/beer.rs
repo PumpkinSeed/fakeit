@@ -40,41 +40,41 @@ mod tests {
 
     #[test]
     fn name() {
-        exec_mes("beer::name", || beer::name());
+        exec_mes("beer::name", beer::name);
     }
 
     #[test]
     fn style() {
-        exec_mes("beer::style", || beer::style());
+        exec_mes("beer::style", beer::style);
     }
 
     #[test]
     fn hop() {
-        exec_mes("beer::hop", || beer::hop());
+        exec_mes("beer::hop", beer::hop);
     }
 
     #[test]
     fn yeast() {
-        exec_mes("beer::yeast", || beer::yeast());
+        exec_mes("beer::yeast", beer::yeast);
     }
 
     #[test]
     fn malt() {
-        exec_mes("beer::malt", || beer::malt());
+        exec_mes("beer::malt", beer::malt);
     }
 
     #[test]
     fn ibu() {
-        exec_mes("beer::ibu", || beer::ibu());
+        exec_mes("beer::ibu", beer::ibu);
     }
 
     #[test]
     fn alcohol() {
-        exec_mes("beer::alcohol", || beer::alcohol());
+        exec_mes("beer::alcohol", beer::alcohol);
     }
 
     #[test]
     fn blg() {
-        exec_mes("beer::blg", || beer::blg());
+        exec_mes("beer::blg", beer::blg);
     }
 }

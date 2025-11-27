@@ -1,5 +1,5 @@
 #[allow(dead_code)]
-pub static SHORT: &'static [&str] = &[
+pub static SHORT: &[&str] = &[
     "AED", "AFN", "ALL", "AMD", "ANG", "AOA", "ARS", "AUD", "AWG", "AZN", "BAM", "BBD", "BDT",
     "BGN", "BHD", "BIF", "BMD", "BND", "BOB", "BRL", "BSD", "BTN", "BWP", "BYR", "BZD", "CAD",
     "CDF", "CHF", "CLP", "CNY", "COP", "CRC", "CUC", "CUP", "CVE", "CZK", "DJF", "DKK", "DOP",
@@ -16,7 +16,7 @@ pub static SHORT: &'static [&str] = &[
 ];
 
 #[allow(dead_code)]
-pub static LONG: &'static [&str] = &[
+pub static LONG: &[&str] = &[
     "United Arab Emirates Dirham",
     "Afghanistan Afghani",
     "Albania Lek",

@@ -21,7 +21,7 @@ mod tests {
 
     #[test]
     fn word() {
-        exec_mes("hipster::word", || hipster::word());
+        exec_mes("hipster::word", hipster::word);
     }
 
     #[test]

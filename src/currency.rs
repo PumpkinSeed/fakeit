@@ -36,18 +36,16 @@ mod tests {
 
     #[test]
     fn short() {
-        exec_mes("currency::short", || currency::short());
+        exec_mes("currency::short", currency::short);
     }
 
     #[test]
     fn long() {
-        exec_mes("currency::long", || currency::long());
+        exec_mes("currency::long", currency::long);
     }
 
     #[test]
     fn price() {
-        exec_mes("currency::short", || {
-            format!("{}", currency::price(1 as f64, 123 as f64))
-        });
+        exec_mes("currency::short", || format!("{}", currency::price(1_f64, 123_f64)));
     }
 }

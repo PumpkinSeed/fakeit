@@ -51,11 +51,11 @@ mod tests {
 
     #[test]
     fn ssn() {
-        exec_mes("person::ssn", || person::ssn());
+        exec_mes("person::ssn", person::ssn);
     }
 
     #[test]
     fn gender() {
-        exec_mes("person::gender", || person::gender());
+        exec_mes("person::gender", person::gender);
     }
 }

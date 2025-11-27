@@ -58,7 +58,7 @@ pub fn credit_card_luhn_number() -> String {
         }  
     }
     let check=10-(total % 10)%10;
-    String::from(format!("{iin}{check}"))
+    format!("{iin}{check}")
 }
 
 pub fn credit_card_exp() -> String {
@@ -90,7 +90,7 @@ mod tests {
 
     #[test]
     fn credit_card_type() {
-        exec_mes("payment::credit_card_type", || payment::credit_card_type());
+        exec_mes("payment::credit_card_type", payment::credit_card_type);
     }
 
     #[test]
@@ -109,11 +109,11 @@ mod tests {
 
     #[test]
     fn credit_card_exp() {
-        exec_mes("payment::credit_card_exp", || payment::credit_card_exp());
+        exec_mes("payment::credit_card_exp", payment::credit_card_exp);
     }
 
     #[test]
     fn credit_card_cvv() {
-        exec_mes("payment::credit_card_cvv", || payment::credit_card_cvv());
+        exec_mes("payment::credit_card_cvv", payment::credit_card_cvv);
     }
 }

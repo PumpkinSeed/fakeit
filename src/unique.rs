@@ -25,11 +25,11 @@ mod tests {
 
     #[test]
     fn uuid_v1() {
-        exec_mes("unique::uuid_v1", || unique::uuid_v1());
+        exec_mes("unique::uuid_v1", unique::uuid_v1);
     }
 
     #[test]
     fn uuid_v4() {
-        exec_mes("unique::uuid_v4", || unique::uuid_v4());
+        exec_mes("unique::uuid_v4", unique::uuid_v4);
     }
 }

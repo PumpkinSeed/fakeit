@@ -5,10 +5,10 @@ use ::std::string::String;
 
 pub fn company() -> String {
     match misc::random::<i64>(1, 3) {
-        1 => return format!("{}, {} and {}", name::last(), name::last(), name::last()),
-        2 => return format!("{}-{}", name::last(), name::last()),
-        3 => return format!("{} {}", name::last(), company_suffix()),
-        _ => format!("impossible"),
+        1 => format!("{}, {} and {}", name::last(), name::last(), name::last()),
+        2 => format!("{}-{}", name::last(), name::last()),
+        3 => format!("{} {}", name::last(), company_suffix()),
+        _ => "impossible".to_string(),
     }
 }
 
@@ -31,21 +31,21 @@ mod tests {
 
     #[test]
     fn company() {
-        exec_mes("company::company", || company::company());
+        exec_mes("company::company", company::company);
     }
 
     #[test]
     fn company_suffix() {
-        exec_mes("company::company_suffix", || company::company_suffix());
+        exec_mes("company::company_suffix", company::company_suffix);
     }
 
     #[test]
     fn buzzword() {
-        exec_mes("company::buzzword", || company::buzzword());
+        exec_mes("company::buzzword", company::buzzword);
     }
 
     #[test]
     fn bs() {
-        exec_mes("company::bs", || company::bs());
+        exec_mes("company::bs", company::bs);
     }
 }

@@ -31,16 +31,16 @@ pub fn generate(data: String) -> String {
 
 fn resolve_tag(tag: &str) -> String {
     match tag {
-        "contact.email" => return contact::email(),
-        "hacker.abbreviation" => return hacker::abbreviation(),
-        "hacker.adjective" => return hacker::adjective(),
-        "hacker.noun" => return hacker::noun(),
-        "hacker.verb" => return hacker::verb(),
-        "hacker.ingverb" => return hacker::ingverb(),
-        "person.first" => return misc::random_data(person::FIRST).to_string(),
-        "person.last" => return misc::random_data(person::LAST).to_string(),
+        "contact.email" => contact::email(),
+        "hacker.abbreviation" => hacker::abbreviation(),
+        "hacker.adjective" => hacker::adjective(),
+        "hacker.noun" => hacker::noun(),
+        "hacker.verb" => hacker::verb(),
+        "hacker.ingverb" => hacker::ingverb(),
+        "person.first" => misc::random_data(person::FIRST).to_string(),
+        "person.last" => misc::random_data(person::LAST).to_string(),
 
-        _ => return "".to_string(),
+        _ => "".to_string(),
     }
 }
 

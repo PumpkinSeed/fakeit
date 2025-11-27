@@ -15,10 +15,10 @@ pub fn hex() -> String {
         misc::HASHTAG,
     ];
 
-    for x in 0..5 {
+    for rand_item in rand.iter_mut().take(5) {
         match misc::random::<i8>(0, 1) {
-            0 => rand[x] = misc::HASHTAG,
-            1 => rand[x] = misc::QUESTIONMARK,
+            0 => *rand_item = misc::HASHTAG,
+            1 => *rand_item = misc::QUESTIONMARK,
             _ => println!("impossible"),
         }
     }
@@ -48,17 +48,17 @@ mod tests {
 
     #[test]
     fn full() {
-        exec_mes("color::full", || color::full());
+        exec_mes("color::full", color::full);
     }
 
     #[test]
     fn hex() {
-        exec_mes("color::hex", || color::hex());
+        exec_mes("color::hex", color::hex);
     }
 
     #[test]
     fn safe() {
-        exec_mes("color::safe", || color::safe());
+        exec_mes("color::safe", color::safe);
     }
 
     #[test]

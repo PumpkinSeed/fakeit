@@ -1,5 +1,5 @@
 #[allow(dead_code)]
-pub static TITLE: &'static [&str] = &[
+pub static TITLE: &[&str] = &[
     "Administrator",
     "Agent",
     "Analyst",
@@ -28,7 +28,7 @@ pub static TITLE: &'static [&str] = &[
 ];
 
 #[allow(dead_code)]
-pub static DESCRIPTOR: &'static [&str] = &[
+pub static DESCRIPTOR: &[&str] = &[
     "Central",
     "Chief",
     "Corporate",
@@ -54,7 +54,7 @@ pub static DESCRIPTOR: &'static [&str] = &[
 ];
 
 #[allow(dead_code)]
-pub static LEVEL: &'static [&str] = &[
+pub static LEVEL: &[&str] = &[
     "Accountability",
     "Accounts",
     "Applications",

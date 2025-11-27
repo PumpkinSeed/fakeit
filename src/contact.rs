@@ -30,7 +30,7 @@ pub fn email() -> String {
         name::first(),
         name::last(),
         name::last(),
-        misc::random_data(internet::DOMAIN_SUFFIX).to_string()
+        misc::random_data(internet::DOMAIN_SUFFIX)
     )
     .to_lowercase()
 }
@@ -42,16 +42,16 @@ mod tests {
 
     #[test]
     fn phone() {
-        exec_mes("contact::phone", || contact::phone());
+        exec_mes("contact::phone", contact::phone);
     }
 
     #[test]
     fn phone_formatted() {
-        exec_mes("contact::phone_formatted", || contact::phone_formatted());
+        exec_mes("contact::phone_formatted", contact::phone_formatted);
     }
 
     #[test]
     fn email() {
-        exec_mes("contact::email", || contact::email());
+        exec_mes("contact::email", contact::email);
     }
 }
