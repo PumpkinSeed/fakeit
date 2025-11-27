@@ -10,7 +10,7 @@ pub const QUESTIONMARK: &str = "?";
 
 pub fn random_data<T: Clone>(d: &[T]) -> T {
     let n = rand_range(0, d.len() as i64);
-    
+
     d[n as usize].clone()
 }
 
