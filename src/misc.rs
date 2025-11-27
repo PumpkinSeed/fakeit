@@ -23,7 +23,7 @@ pub fn random<T: Randomable>(min: T, max: T) -> T {
 }
 
 pub fn replace_with_numbers(s: String) -> String {
-    if s == "" {
+    if s.is_empty() {
         return s;
     }
 
@@ -42,7 +42,7 @@ pub fn replace_with_numbers(s: String) -> String {
 }
 
 pub fn replace_with_letter_hex(s: String) -> String {
-    if s == "" {
+    if s.is_empty() {
         return s;
     }
 
@@ -63,7 +63,7 @@ pub fn replace_with_letter_hex(s: String) -> String {
 }
 
 pub fn replace_with_letter(s: String) -> String {
-    if s == "" {
+    if s.is_empty() {
         return s;
     }
 
