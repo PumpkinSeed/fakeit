@@ -1,8 +1,5 @@
-extern crate math;
-
 use crate::data::currency;
 use crate::misc;
-use math::round;
 
 pub struct Info {
     short: String,
@@ -26,7 +23,15 @@ pub fn long() -> String {
 }
 
 pub fn price(min: f64, max: f64) -> f64 {
-    round::floor(misc::random::<f64>(min, max), 2)
+    floor(misc::random::<f64>(min, max), 2)
+}
+
+/// Floor a floating point value to the given decimal scale.
+///
+/// Useful for keeping currency-like values at a fixed number of decimals.
+pub fn floor(value: f64, scale: u32) -> f64 {
+    let factor = 10f64.powi(scale as i32);
+    (value * factor).floor() / factor
 }
 
 #[cfg(test)]
