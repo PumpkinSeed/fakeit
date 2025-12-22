@@ -38,7 +38,7 @@ pub fn ssn() -> String {
 }
 
 pub fn gender() -> String {
-    match misc::random(1, 2) {
+    match misc::random(1, 3) {
         1 => "male".to_string(),
         _ => "female".to_string(),
     }
