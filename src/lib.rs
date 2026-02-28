@@ -10,6 +10,7 @@ pub mod contact;
 pub mod currency;
 pub mod data;
 pub mod datetime;
+mod fakeit;
 pub mod file;
 pub mod generator;
 pub mod hacker;
@@ -31,3 +32,6 @@ pub mod vehicle;
 pub mod words;
 
 pub mod testify;
+
+pub use fakeit::FakeIt;
+pub use misc::{seed, unseed};

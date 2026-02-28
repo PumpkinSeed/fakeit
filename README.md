@@ -38,7 +38,57 @@ fn main() {
 - [Crates.io/fakeit](https://crates.io/crates/fakeit)
 - [docs.rs](https://docs.rs/fakeit)
 
-### Functions 
+### Custom Seed (Repeatable Data)
+
+Repeatable fake data is essential for testing: deterministic outputs enable integration test assertions, regression debugging, and flaky test identification.
+
+#### Local `FakeIt` instance
+
+Create a `FakeIt` instance with a seed. Every call advances the internal RNG state, so the same seed always produces the same sequence:
+
+```rust
+use fakeit::FakeIt;
+
+fn main() {
+    let fake = FakeIt::new(2314907);
+    let w = fake.word();          // always the same for seed 2314907
+    let n = fake.name_first();    // next value in the deterministic sequence
+
+    // Two instances with the same seed produce identical sequences
+    let a = FakeIt::new(42);
+    let b = FakeIt::new(42);
+    assert_eq!(a.word(), b.word());
+    assert_eq!(a.name_first(), b.name_first());
+}
+```
+
+All module functions are available on `FakeIt` with a `module_function` naming convention (e.g. `name_first()`, `address_city()`, `beer_name()`). The `words` module uses short names directly: `word()`, `sentence()`, `paragraph()`, `question()`, `quote()`.
+
+#### Global seed
+
+For ergonomics you can set a global seed so the existing free functions become deterministic without creating a `FakeIt` instance:
+
+```rust
+use fakeit::{seed, unseed};
+use fakeit::words;
+use fakeit::name;
+
+fn main() {
+    seed(42);
+    let w1 = words::word();   // deterministic
+    let n1 = name::first();   // deterministic
+    unseed();                  // back to random
+
+    // Same seed, same sequence
+    seed(42);
+    let w2 = words::word();
+    let n2 = name::first();
+    assert_eq!(w1, w2);
+    assert_eq!(n1, n2);
+}
+```
+
+### Functions
 
 - [address](#address-16-functions)
 - [animal](#animal-6-functions)
