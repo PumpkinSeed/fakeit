@@ -10,7 +10,7 @@ pub const HASHTAG: &str = "#";
 pub const QUESTIONMARK: &str = "?";
 
 thread_local! {
-    static SEEDED_RNG: RefCell<Option<simplerand::Rng>> = RefCell::new(None);
+    static SEEDED_RNG: RefCell<Option<simplerand::Rng>> = const { RefCell::new(None) };
 }
 
 /// Set a global seed so all fakeit functions produce deterministic output.

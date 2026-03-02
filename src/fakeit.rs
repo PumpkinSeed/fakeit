@@ -56,7 +56,7 @@ impl FakeIt {
 
     // words
     pub fn word(&self) -> String {
-        self.with_rng(|| words::word())
+        self.with_rng(words::word)
     }
     pub fn sentence(&self, word_count: i64) -> String {
         self.with_rng(|| words::sentence(word_count))
@@ -71,74 +71,74 @@ impl FakeIt {
         self.with_rng(|| words::paragraph(count, sentence_count, word_count, separator))
     }
     pub fn question(&self) -> String {
-        self.with_rng(|| words::question())
+        self.with_rng(words::question)
     }
     pub fn quote(&self) -> String {
-        self.with_rng(|| words::quote())
+        self.with_rng(words::quote)
     }
 
     // name
     pub fn name_full(&self) -> String {
-        self.with_rng(|| name::full())
+        self.with_rng(name::full)
     }
     pub fn name_first(&self) -> String {
-        self.with_rng(|| name::first())
+        self.with_rng(name::first)
     }
     pub fn name_last(&self) -> String {
-        self.with_rng(|| name::last())
+        self.with_rng(name::last)
     }
     pub fn name_prefix(&self) -> String {
-        self.with_rng(|| name::prefix())
+        self.with_rng(name::prefix)
     }
     pub fn name_suffix(&self) -> String {
-        self.with_rng(|| name::suffix())
+        self.with_rng(name::suffix)
     }
 
     // address
     pub fn address_info(&self) -> address::Info {
-        self.with_rng(|| address::info())
+        self.with_rng(address::info)
     }
     pub fn address_street(&self) -> String {
-        self.with_rng(|| address::street())
+        self.with_rng(address::street)
     }
     pub fn address_street_number(&self) -> String {
-        self.with_rng(|| address::street_number())
+        self.with_rng(address::street_number)
     }
     pub fn address_street_prefix(&self) -> String {
-        self.with_rng(|| address::street_prefix())
+        self.with_rng(address::street_prefix)
     }
     pub fn address_street_name(&self) -> String {
-        self.with_rng(|| address::street_name())
+        self.with_rng(address::street_name)
     }
     pub fn address_street_suffix(&self) -> String {
-        self.with_rng(|| address::street_suffix())
+        self.with_rng(address::street_suffix)
     }
     pub fn address_city(&self) -> String {
-        self.with_rng(|| address::city())
+        self.with_rng(address::city)
     }
     pub fn address_state(&self) -> String {
-        self.with_rng(|| address::state())
+        self.with_rng(address::state)
     }
     pub fn address_state_abr(&self) -> String {
-        self.with_rng(|| address::state_abr())
+        self.with_rng(address::state_abr)
     }
     pub fn address_zip(&self) -> String {
-        self.with_rng(|| address::zip())
+        self.with_rng(address::zip)
     }
     pub fn address_country(&self) -> String {
-        self.with_rng(|| address::country())
+        self.with_rng(address::country)
     }
     pub fn address_country_abr(&self) -> String {
-        self.with_rng(|| address::country_abr())
+        self.with_rng(address::country_abr)
     }
     pub fn address_latitude(&self) -> f32 {
-        self.with_rng(|| address::latitude())
+        self.with_rng(address::latitude)
     }
     pub fn address_latitude_in_range(&self, min: f32, max: f32) -> f32 {
         self.with_rng(|| address::latitude_in_range(min, max))
     }
     pub fn address_longitude(&self) -> f32 {
-        self.with_rng(|| address::longitude())
+        self.with_rng(address::longitude)
     }
     pub fn address_longitude_in_range(&self, min: f32, max: f32) -> f32 {
         self.with_rng(|| address::longitude_in_range(min, max))
@@ -146,106 +146,106 @@ impl FakeIt {
 
     // animal
     pub fn animal_pet_name(&self) -> String {
-        self.with_rng(|| animal::pet_name())
+        self.with_rng(animal::pet_name)
     }
     pub fn animal(&self) -> String {
-        self.with_rng(|| animal::animal())
+        self.with_rng(animal::animal)
     }
     pub fn animal_type(&self) -> String {
-        self.with_rng(|| animal::type_of())
+        self.with_rng(animal::type_of)
     }
     pub fn animal_farm(&self) -> String {
-        self.with_rng(|| animal::farm())
+        self.with_rng(animal::farm)
     }
     pub fn animal_cat(&self) -> String {
-        self.with_rng(|| animal::cat())
+        self.with_rng(animal::cat)
     }
     pub fn animal_dog(&self) -> String {
-        self.with_rng(|| animal::dog())
+        self.with_rng(animal::dog)
     }
 
     // beer
     pub fn beer_name(&self) -> String {
-        self.with_rng(|| beer::name())
+        self.with_rng(beer::name)
     }
     pub fn beer_style(&self) -> String {
-        self.with_rng(|| beer::style())
+        self.with_rng(beer::style)
     }
     pub fn beer_hop(&self) -> String {
-        self.with_rng(|| beer::hop())
+        self.with_rng(beer::hop)
     }
     pub fn beer_yeast(&self) -> String {
-        self.with_rng(|| beer::yeast())
+        self.with_rng(beer::yeast)
     }
     pub fn beer_malt(&self) -> String {
-        self.with_rng(|| beer::malt())
+        self.with_rng(beer::malt)
     }
     pub fn beer_ibu(&self) -> String {
-        self.with_rng(|| beer::ibu())
+        self.with_rng(beer::ibu)
     }
     pub fn beer_alcohol(&self) -> String {
-        self.with_rng(|| beer::alcohol())
+        self.with_rng(beer::alcohol)
     }
     pub fn beer_blg(&self) -> String {
-        self.with_rng(|| beer::blg())
+        self.with_rng(beer::blg)
     }
 
     // bool
     pub fn bool(&self) -> bool {
-        self.with_rng(|| bool_rand::bool())
+        self.with_rng(bool_rand::bool)
     }
 
     // color
     pub fn color_full(&self) -> String {
-        self.with_rng(|| color::full())
+        self.with_rng(color::full)
     }
     pub fn color_hex(&self) -> String {
-        self.with_rng(|| color::hex())
+        self.with_rng(color::hex)
     }
     pub fn color_safe(&self) -> String {
-        self.with_rng(|| color::safe())
+        self.with_rng(color::safe)
     }
     pub fn color_rgb(&self) -> [i16; 3] {
-        self.with_rng(|| color::rgb())
+        self.with_rng(color::rgb)
     }
 
     // company
     pub fn company(&self) -> String {
-        self.with_rng(|| company::company())
+        self.with_rng(company::company)
     }
     pub fn company_suffix(&self) -> String {
-        self.with_rng(|| company::company_suffix())
+        self.with_rng(company::company_suffix)
     }
     pub fn company_buzzword(&self) -> String {
-        self.with_rng(|| company::buzzword())
+        self.with_rng(company::buzzword)
     }
     pub fn company_bs(&self) -> String {
-        self.with_rng(|| company::bs())
+        self.with_rng(company::bs)
     }
 
     // contact
     pub fn contact_info(&self) -> contact::Info {
-        self.with_rng(|| contact::info())
+        self.with_rng(contact::info)
     }
     pub fn contact_phone(&self) -> String {
-        self.with_rng(|| contact::phone())
+        self.with_rng(contact::phone)
     }
     pub fn contact_phone_formatted(&self) -> String {
-        self.with_rng(|| contact::phone_formatted())
+        self.with_rng(contact::phone_formatted)
     }
     pub fn contact_email(&self) -> String {
-        self.with_rng(|| contact::email())
+        self.with_rng(contact::email)
     }
 
     // currency
     pub fn currency_compact(&self) -> currency::Info {
-        self.with_rng(|| currency::compact())
+        self.with_rng(currency::compact)
     }
     pub fn currency_short(&self) -> String {
-        self.with_rng(|| currency::short())
+        self.with_rng(currency::short)
     }
     pub fn currency_long(&self) -> String {
-        self.with_rng(|| currency::long())
+        self.with_rng(currency::long)
     }
     pub fn currency_price(&self, min: f64, max: f64) -> f64 {
         self.with_rng(|| currency::price(min, max))
@@ -253,54 +253,54 @@ impl FakeIt {
 
     // datetime
     pub fn datetime_month(&self) -> String {
-        self.with_rng(|| datetime::month())
+        self.with_rng(datetime::month)
     }
     pub fn datetime_day(&self) -> String {
-        self.with_rng(|| datetime::day())
+        self.with_rng(datetime::day)
     }
     pub fn datetime_week_day(&self) -> String {
-        self.with_rng(|| datetime::week_day())
+        self.with_rng(datetime::week_day)
     }
     pub fn datetime_year(&self) -> String {
-        self.with_rng(|| datetime::year())
+        self.with_rng(datetime::year)
     }
     pub fn datetime_hour(&self) -> String {
-        self.with_rng(|| datetime::hour())
+        self.with_rng(datetime::hour)
     }
     pub fn datetime_minute(&self) -> String {
-        self.with_rng(|| datetime::minute())
+        self.with_rng(datetime::minute)
     }
     pub fn datetime_second(&self) -> String {
-        self.with_rng(|| datetime::second())
+        self.with_rng(datetime::second)
     }
     pub fn datetime_nanosecond(&self) -> String {
-        self.with_rng(|| datetime::nanosecond())
+        self.with_rng(datetime::nanosecond)
     }
     pub fn datetime_timezone(&self) -> String {
-        self.with_rng(|| datetime::timezone())
+        self.with_rng(datetime::timezone)
     }
     pub fn datetime_timezone_full(&self) -> String {
-        self.with_rng(|| datetime::timezone_full())
+        self.with_rng(datetime::timezone_full)
     }
     pub fn datetime_timezone_abv(&self) -> String {
-        self.with_rng(|| datetime::timezone_abv())
+        self.with_rng(datetime::timezone_abv)
     }
     pub fn datetime_timezone_offset(&self) -> String {
-        self.with_rng(|| datetime::timezone_offset())
+        self.with_rng(datetime::timezone_offset)
     }
     pub fn datetime_date_range(&self, min: String, max: String) -> datetime::DateTime {
         self.with_rng(|| datetime::date_range(min, max))
     }
     pub fn datetime_date(&self) -> datetime::DateTime {
-        self.with_rng(|| datetime::date())
+        self.with_rng(datetime::date)
     }
 
     // file
     pub fn file_mime_type(&self) -> String {
-        self.with_rng(|| file::mime_type())
+        self.with_rng(file::mime_type)
     }
     pub fn file_extension(&self) -> String {
-        self.with_rng(|| file::extension())
+        self.with_rng(file::extension)
     }
 
     // generator
@@ -310,27 +310,27 @@ impl FakeIt {
 
     // hacker
     pub fn hacker_phrase(&self) -> String {
-        self.with_rng(|| hacker::phrase())
+        self.with_rng(hacker::phrase)
     }
     pub fn hacker_abbreviation(&self) -> String {
-        self.with_rng(|| hacker::abbreviation())
+        self.with_rng(hacker::abbreviation)
     }
     pub fn hacker_adjective(&self) -> String {
-        self.with_rng(|| hacker::adjective())
+        self.with_rng(hacker::adjective)
     }
     pub fn hacker_noun(&self) -> String {
-        self.with_rng(|| hacker::noun())
+        self.with_rng(hacker::noun)
     }
     pub fn hacker_verb(&self) -> String {
-        self.with_rng(|| hacker::verb())
+        self.with_rng(hacker::verb)
     }
     pub fn hacker_ingverb(&self) -> String {
-        self.with_rng(|| hacker::ingverb())
+        self.with_rng(hacker::ingverb)
     }
 
     // hipster
     pub fn hipster_word(&self) -> String {
-        self.with_rng(|| hipster::word())
+        self.with_rng(hipster::word)
     }
     pub fn hipster_sentence(&self, word_count: i64) -> String {
         self.with_rng(|| hipster::sentence(word_count))
@@ -347,61 +347,61 @@ impl FakeIt {
 
     // internet
     pub fn internet_domain_name(&self) -> String {
-        self.with_rng(|| internet::domain_name())
+        self.with_rng(internet::domain_name)
     }
     pub fn internet_http_method(&self) -> String {
-        self.with_rng(|| internet::http_method())
+        self.with_rng(internet::http_method)
     }
     pub fn internet_domain_suffix(&self) -> String {
-        self.with_rng(|| internet::domain_suffix())
+        self.with_rng(internet::domain_suffix)
     }
     pub fn internet_ipv4_address(&self) -> String {
-        self.with_rng(|| internet::ipv4_address())
+        self.with_rng(internet::ipv4_address)
     }
     pub fn internet_ipv6_address(&self) -> String {
-        self.with_rng(|| internet::ipv6_address())
+        self.with_rng(internet::ipv6_address)
     }
     pub fn internet_mac_address(&self) -> String {
-        self.with_rng(|| internet::mac_address())
+        self.with_rng(internet::mac_address)
     }
     pub fn internet_username(&self) -> String {
-        self.with_rng(|| internet::username())
+        self.with_rng(internet::username)
     }
 
     // job
     pub fn job_info(&self) -> job::Info {
-        self.with_rng(|| job::info())
+        self.with_rng(job::info)
     }
     pub fn job_title(&self) -> String {
-        self.with_rng(|| job::title())
+        self.with_rng(job::title)
     }
     pub fn job_descriptor(&self) -> String {
-        self.with_rng(|| job::descriptor())
+        self.with_rng(job::descriptor)
     }
     pub fn job_level(&self) -> String {
-        self.with_rng(|| job::level())
+        self.with_rng(job::level)
     }
 
     // language
     pub fn language(&self) -> String {
-        self.with_rng(|| language::random())
+        self.with_rng(language::random)
     }
     pub fn language_abbreviation(&self) -> String {
-        self.with_rng(|| language::abbreviation())
+        self.with_rng(language::abbreviation)
     }
     pub fn language_programming(&self) -> String {
-        self.with_rng(|| language::programming())
+        self.with_rng(language::programming)
     }
 
     // log_level
     pub fn log_level_general(&self) -> String {
-        self.with_rng(|| log_level::general())
+        self.with_rng(log_level::general)
     }
     pub fn log_level_syslog(&self) -> String {
-        self.with_rng(|| log_level::syslog())
+        self.with_rng(log_level::syslog)
     }
     pub fn log_level_apache(&self) -> String {
-        self.with_rng(|| log_level::apache())
+        self.with_rng(log_level::apache)
     }
 
     // password
@@ -411,86 +411,86 @@ impl FakeIt {
 
     // payment
     pub fn payment_credit_card(&self) -> payment::CreditCard {
-        self.with_rng(|| payment::credit_card())
+        self.with_rng(payment::credit_card)
     }
     pub fn payment_credit_card_type(&self) -> String {
-        self.with_rng(|| payment::credit_card_type())
+        self.with_rng(payment::credit_card_type)
     }
     pub fn payment_credit_card_number(&self) -> String {
-        self.with_rng(|| payment::credit_card_number())
+        self.with_rng(payment::credit_card_number)
     }
     pub fn payment_credit_card_luhn_number(&self) -> String {
-        self.with_rng(|| payment::credit_card_luhn_number())
+        self.with_rng(payment::credit_card_luhn_number)
     }
     pub fn payment_credit_card_exp(&self) -> String {
-        self.with_rng(|| payment::credit_card_exp())
+        self.with_rng(payment::credit_card_exp)
     }
     pub fn payment_credit_card_cvv(&self) -> String {
-        self.with_rng(|| payment::credit_card_cvv())
+        self.with_rng(payment::credit_card_cvv)
     }
 
     // person
     pub fn person_info(&self) -> person::Info {
-        self.with_rng(|| person::info())
+        self.with_rng(person::info)
     }
     pub fn person_ssn(&self) -> String {
-        self.with_rng(|| person::ssn())
+        self.with_rng(person::ssn)
     }
     pub fn person_gender(&self) -> String {
-        self.with_rng(|| person::gender())
+        self.with_rng(person::gender)
     }
 
     // status_code
     pub fn status_code_simple(&self) -> i16 {
-        self.with_rng(|| status_code::simple())
+        self.with_rng(status_code::simple)
     }
     pub fn status_code_general(&self) -> i16 {
-        self.with_rng(|| status_code::general())
+        self.with_rng(status_code::general)
     }
 
     // unique
     pub fn unique_uuid_v1(&self) -> String {
-        self.with_rng(|| unique::uuid_v1())
+        self.with_rng(unique::uuid_v1)
     }
     pub fn unique_uuid_v4(&self) -> String {
-        self.with_rng(|| unique::uuid_v4())
+        self.with_rng(unique::uuid_v4)
     }
 
     // user_agent
     pub fn user_agent_chrome(&self) -> String {
-        self.with_rng(|| user_agent::chrome())
+        self.with_rng(user_agent::chrome)
     }
     pub fn user_agent_firefox(&self) -> String {
-        self.with_rng(|| user_agent::firefox())
+        self.with_rng(user_agent::firefox)
     }
     pub fn user_agent_safari(&self) -> String {
-        self.with_rng(|| user_agent::safari())
+        self.with_rng(user_agent::safari)
     }
     pub fn user_agent_opera(&self) -> String {
-        self.with_rng(|| user_agent::opera())
+        self.with_rng(user_agent::opera)
     }
     pub fn user_agent_random_platform(&self) -> String {
-        self.with_rng(|| user_agent::random_platform())
+        self.with_rng(user_agent::random_platform)
     }
 
     // vehicle
     pub fn vehicle_info(&self) -> vehicle::Info {
-        self.with_rng(|| vehicle::info())
+        self.with_rng(vehicle::info)
     }
     pub fn vehicle_type(&self) -> String {
-        self.with_rng(|| vehicle::vehicle_type())
+        self.with_rng(vehicle::vehicle_type)
     }
     pub fn vehicle_fuel(&self) -> String {
-        self.with_rng(|| vehicle::fuel())
+        self.with_rng(vehicle::fuel)
     }
     pub fn vehicle_transmission_gear(&self) -> String {
-        self.with_rng(|| vehicle::transmission_gear())
+        self.with_rng(vehicle::transmission_gear)
     }
     pub fn vehicle_car_maker(&self) -> String {
-        self.with_rng(|| vehicle::car_maker())
+        self.with_rng(vehicle::car_maker)
     }
     pub fn vehicle_car_model(&self) -> String {
-        self.with_rng(|| vehicle::car_model())
+        self.with_rng(vehicle::car_model)
     }
 }
 
